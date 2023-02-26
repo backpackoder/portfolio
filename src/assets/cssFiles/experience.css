@@ -1,0 +1,12 @@
+.experience {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.experience .links {
+  display: flex;
+  justify-content: space-evenly;
+}

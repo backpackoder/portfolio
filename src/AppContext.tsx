@@ -1,3 +1,4 @@
 import { createContext } from "react";
 
-export const AppContext = createContext({});
+const obj: any = {};
+export const AppContext = createContext(obj);
