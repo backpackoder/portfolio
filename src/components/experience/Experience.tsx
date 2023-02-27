@@ -1,4 +1,7 @@
+// Hooks
 import { openNewTab } from "../../hooks/openNewTab";
+
+// Utils
 import { experienceData } from "../../utils/experienceData";
 
 export function Experience() {
@@ -12,8 +15,12 @@ export function Experience() {
             <small>{experience.team}</small>
 
             <span className="links">
-              <a href={experience.adress}>Lien du site</a>
-              <a href={experience.gitHub}>Lien du GitHub</a>
+              <a href={experience.adress} target="_blank">
+                Lien du site
+              </a>
+              <a href={experience.gitHub} target="_blank">
+                Lien du GitHub
+              </a>
             </span>
 
             <img

@@ -20,11 +20,18 @@ export const FORMATION_REACT_MASTERY_LINK = "https://training.mikecodeur.com/p/r
 export const FORMATION_TYPESCRIPT_PRO_IMAGE =
   "https://cdn.filestackcontent.com/VgG8BQeMSTuMn5LqRgT5";
 export const FORMATION_TYPESCRIPT_PRO_LINK = "https://training.mikecodeur.com/p/typescript-pro";
+export const FORMATION_AUTODIDACTE_IMAGE =
+  "https://cdn.pixabay.com/photo/2017/10/10/21/47/laptop-2838921_960_720.jpg";
 
 // Projects
 // My portfolio
-export const PROJECT_MY_PORTFOLIO_LINK = "https://thibautbarbiera.netlify.app";
+export const PROJECT_MY_PORTFOLIO_LINK = "https://thibautbarbiera.netlify.app/";
 export const PROJECT_MY_PORTFOLIO_GITHUB_LINK = "https://github.com/backpackoder/my-portfolio";
+// Challenges Frontend Mentor
+export const PROJECT_CHALLENGES_FRONTEND_MENTOR_LINK =
+  "https://www.frontendmentor.io/profile/MrFougasse";
+export const PROJECT_CHALLENGES_FRONTEND_MENTOR_GITHUB_LINK =
+  "https://github.com/backpackoder/challenges-frontend-mentor";
 // Au verger
 export const PROJECT_AU_VERGER_LINK = "https://au-verger.pages.dev/";
 export const PROJECT_AU_VERGER_GITHUB_LINK = "https://github.com/backpackoder/auverger";

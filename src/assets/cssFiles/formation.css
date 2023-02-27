@@ -1,3 +1,18 @@
+.formation {
+  padding: 10px;
+}
+.formation > div {
+  background-color: bisque;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+.formation span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .formationImg {
   max-width: 100%;
+  border-radius: 5px;
 }

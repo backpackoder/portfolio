@@ -2,9 +2,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBook,
+  faBowlFood,
   faCode,
   faGamepad,
   faPlane,
+  faSkiing,
   faSoccerBall,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -31,7 +33,7 @@ export function Presentation() {
 function Skills() {
   return (
     <>
-      <h3>Mes compétences</h3>
+      <h3>🏆 Mes compétences</h3>
     </>
   );
 }
@@ -39,7 +41,7 @@ function Skills() {
 function Langages() {
   return (
     <>
-      <h3>Langues</h3>
+      <h3>🗣️ Langues maîtrisées</h3>
       <ul className="langages">
         <li>
           <img src="https://flagcdn.com/fr.svg" width="25" height="15" alt="Français" />
@@ -61,7 +63,7 @@ function Langages() {
 function Hobbies() {
   return (
     <>
-      <h3>Mes passions</h3>
+      <h3>🔥 Mes passions</h3>
       <ul>
         <li>
           <FontAwesomeIcon icon={faPlane} size="lg" width="50" /> Partir en voyage
@@ -77,6 +79,12 @@ function Hobbies() {
         </li>
         <li>
           <FontAwesomeIcon icon={faBook} size="lg" width="50" /> Apprendre de nouvelles choses
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faSkiing} size="lg" width="50" /> Faire du ski
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faBowlFood} size="lg" width="50" /> Goûter des plats typiques
         </li>
       </ul>
     </>

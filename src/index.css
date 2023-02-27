@@ -25,6 +25,7 @@ body {
   flex-direction: column;
   min-width: 100vw;
   min-height: 100vh;
+  /* max-width: 70%; */
 }
 
 h1 {

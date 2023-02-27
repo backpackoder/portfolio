@@ -3,7 +3,7 @@ import { myStacks } from "../utils/myStacks";
 export function Stacks() {
   return (
     <>
-      <h3>Mes stacks</h3>
+      <h3>🛠️ Mes stacks</h3>
       <ul className="mySkills">
         {myStacks.map((stack) => {
           return (

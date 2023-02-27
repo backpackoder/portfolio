@@ -1,6 +1,8 @@
 import {
   PROJECT_AU_VERGER_GITHUB_LINK,
   PROJECT_AU_VERGER_LINK,
+  PROJECT_CHALLENGES_FRONTEND_MENTOR_GITHUB_LINK,
+  PROJECT_CHALLENGES_FRONTEND_MENTOR_LINK,
   PROJECT_DRESSLY_GITHUB_LINK,
   PROJECT_DRESSLY_LINK,
   PROJECT_MANGANIME_GITHUB_LINK,
@@ -22,7 +24,7 @@ interface experienceType {
   details: string[];
   description: string;
 }
-type Type = "Site vitrine" | "Site e-commerce" | "Site web" | "Application mobile";
+type Type = "Site vitrine" | "Site e-commerce" | "Site web" | "Application mobile" | "Challenges";
 type Stack = "HTML" | "CSS" | "JavaScript" | "TypeScript" | "React";
 type Team = "en solo" | "en équipe";
 
@@ -71,6 +73,21 @@ export const experienceData: experienceType[] = [
     description: `J'ai créé un site qui annonce la météo du jour et de la semaine partout sur terre.
     J'ai utilisé l'API de OpenWeatherMap pour récupérer les données météo.
     Je récupère la longitude et la latitude de l'utilisateur pour afficher le temps de la ville où l'utilisateur se trouve.`,
+  },
+  {
+    title: "Mes challenges Frontend Mentor",
+    imgs: ["src/assets/img/Mon portfolio - home page.jpg"],
+    adress: PROJECT_CHALLENGES_FRONTEND_MENTOR_LINK,
+    gitHub: PROJECT_CHALLENGES_FRONTEND_MENTOR_GITHUB_LINK,
+    type: ["Challenges"],
+    theme: "Challenges",
+    time: "2022",
+    team: "en solo",
+    stack: ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
+    details: ["Responsive", "Mobile first"],
+    description: `J'ai réussi plusieurs challenges au fil du temps sur le site Frontend Mentor.
+    Les challenges m'ont beaucoup aidé au début pour progresser, vous pouvez aller voir les résultats
+    en cliquant sur les liens au-dessus.`,
   },
   {
     title: "Mon portfolio",
