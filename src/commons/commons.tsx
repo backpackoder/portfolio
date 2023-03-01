@@ -41,3 +41,12 @@ export const PROJECT_DRESSLY_GITHUB_URL = "https://github.com/backpackoder/dress
 // Manganime
 export const PROJECT_MANGANIME_URL = "https://manganime.infodocbib.net/";
 export const PROJECT_MANGANIME_GITHUB_URL = "https://github.com/backpackoder/manganime";
+
+// Routes
+export const ROUTE_PRESENTATION = "/";
+export const ROUTE_PRESENTATION_LABEL = "Je me présente";
+export const ROUTE_EXPERIENCE = "/experience";
+export const ROUTE_EXPERIENCE_DETAILLED = `${ROUTE_EXPERIENCE}/:title`;
+export const ROUTE_EXPERIENCE_LABEL = "Mon expérience";
+export const ROUTE_FORMATION = "/formation";
+export const ROUTE_FORMATION_LABEL = "Formation";

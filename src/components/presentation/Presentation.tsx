@@ -10,6 +10,9 @@ import {
   faSoccerBall,
 } from "@fortawesome/free-solid-svg-icons";
 
+// Commons
+import { JOB, NAMES } from "../../commons/commons";
+
 // Utils
 import { myStacks } from "../../utils/myStacks";
 
@@ -20,6 +23,7 @@ import { ContactsList } from "../Contacts";
 export function Presentation() {
   return (
     <article className="presentation">
+      <Title />
       <AskMe />
       <Contacts />
       <Stacks />
@@ -28,6 +32,14 @@ export function Presentation() {
       <Langages />
       <Hobbies />
     </article>
+  );
+}
+
+function Title() {
+  return (
+    <h1>
+      Bonjour, je m'appelle <span>{NAMES}</span>, votre futur <span>{JOB}</span>.
+    </h1>
   );
 }
 

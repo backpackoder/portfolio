@@ -1,10 +1,13 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-// Context
-import { AppContext } from "./AppContext";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Commons
-import { JOB, NAMES } from "./commons/commons";
+import {
+  ROUTE_EXPERIENCE,
+  ROUTE_EXPERIENCE_DETAILLED,
+  ROUTE_FORMATION,
+  ROUTE_PRESENTATION,
+} from "./commons/commons";
 
 // Components
 import { Header } from "./components/Header";
@@ -12,31 +15,12 @@ import { Presentation } from "./components/presentation/Presentation";
 import { Footer } from "./components/Footer";
 import { Experience } from "./components/experience/Experience";
 import { Formation } from "./components/formation/Formation";
-import { Parts } from "./components/Parts";
+import { ExperienceDetailled } from "./components/experience/ExperienceDetailled";
 
 export function AppConsumer() {
+  const [experienceID, setExperienceID] = useState(0);
+
   const [headerHeight, setHeaderHeight] = useState<number>(0);
-
-  const [presentation, setPresentation] = useState(true);
-  const [experience, setExperience] = useState(false);
-  const [formation, setFormation] = useState(false);
-  // console.log("presentation", presentation);
-  // console.log("experience", experience);
-  // console.log("formation", formation);
-
-  const partList = [presentation, experience, formation];
-  const setPartList: React.Dispatch<React.SetStateAction<boolean>>[] = [
-    setPresentation,
-    setExperience,
-    setFormation,
-  ];
-  const partsComponents = [<Presentation />, <Experience />, <Formation />];
-  // const componentShowed = partsComponents[partList.indexOf(true)];
-
-  function changePart(setter: React.Dispatch<React.SetStateAction<boolean>>) {
-    setPartList.map((part) => part(false));
-    setter(true);
-  }
 
   useEffect(() => {
     const header = document.querySelector("header");
@@ -47,15 +31,25 @@ export function AppConsumer() {
 
   return (
     <>
-      <Header changePart={changePart} setPartList={setPartList} />
+      <Router>
+        <Header />
+        <main style={{ marginTop: headerHeight }}>
+          <Routes>
+            <Route path={ROUTE_PRESENTATION} element={<Presentation />} />
 
-      <main>
-        <h1 style={{ marginTop: headerHeight }}>
-          Bonjour, je m'appelle <span>{NAMES}</span>, votre futur <span>{JOB}</span>.
-        </h1>
-        <Parts componentShowed={partsComponents[partList.indexOf(true)]} />
-      </main>
+            <Route
+              path={ROUTE_EXPERIENCE}
+              element={<Experience setExperienceID={setExperienceID} />}
+            />
+            <Route
+              path={ROUTE_EXPERIENCE_DETAILLED}
+              element={<ExperienceDetailled experienceID={experienceID} />}
+            />
 
+            <Route path={ROUTE_FORMATION} element={<Formation />} />
+          </Routes>
+        </main>
+      </Router>
       <Footer />
     </>
   );
