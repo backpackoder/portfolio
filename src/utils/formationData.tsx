@@ -2,15 +2,15 @@
 import {
   FORMATION_AUTODIDACTE_IMAGE,
   FORMATION_REACT_MASTERY_IMAGE,
-  FORMATION_REACT_MASTERY_LINK,
+  FORMATION_REACT_MASTERY_URL,
   FORMATION_TYPESCRIPT_PRO_IMAGE,
-  FORMATION_TYPESCRIPT_PRO_LINK,
+  FORMATION_TYPESCRIPT_PRO_URL,
 } from "../commons/commons";
 
 type formationDataType = {
   title: string;
   image: string;
-  link: string;
+  url: string;
   time: string;
   description: {
     introduction: string;
@@ -23,7 +23,7 @@ export const formationData: formationDataType = [
   {
     title: "Formation React Mastery",
     image: FORMATION_REACT_MASTERY_IMAGE,
-    link: FORMATION_REACT_MASTERY_LINK,
+    url: FORMATION_REACT_MASTERY_URL,
     time: "2022",
     description: {
       introduction: `Je suis devenu un développeur front-end confirmé avec le framework React grâce à cette formation.`,
@@ -51,7 +51,7 @@ export const formationData: formationDataType = [
   {
     title: "Formation Typescript Pro",
     image: FORMATION_TYPESCRIPT_PRO_IMAGE,
-    link: FORMATION_TYPESCRIPT_PRO_LINK,
+    url: FORMATION_TYPESCRIPT_PRO_URL,
     time: "2022",
     description: {
       introduction: `Suite à la formation de React Mastery, je me suis formé sur TypeScript avec la formation
@@ -74,7 +74,7 @@ export const formationData: formationDataType = [
   {
     title: "En autodidacte",
     image: FORMATION_AUTODIDACTE_IMAGE,
-    link: "",
+    url: "",
     time: "depuis toujours et pour toujours",
     description: {
       introduction: `Et oui, j'ai commencé à apprendre la programmation en autodidacte avec le HTML, le CSS et

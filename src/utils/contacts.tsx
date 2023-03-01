@@ -4,10 +4,7 @@ import { faGithub, faLinkedin, faWhatsapp } from "@fortawesome/free-brands-svg-i
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 // Commons
-import { EMAIL_LINK, GIHTUB_LINK, LINKEDIN_LINK, WHATSAPP_LINK } from "../commons/commons";
-
-// Functions
-import { openNewTab } from "../hooks/openNewTab";
+import { EMAIL_URL, GIHTUB_URL, LINKEDIN_URL, WHATSAPP_URL } from "../commons/commons";
 
 const linkedinIcon = <FontAwesomeIcon icon={faLinkedin} size="2x" />;
 const githubIcon = <FontAwesomeIcon icon={faGithub} size="2x" />;
@@ -16,35 +13,23 @@ const whatsappIcon = <FontAwesomeIcon icon={faWhatsapp} size="2x" />;
 
 export const contacts = [
   {
-    name: "LinkedIn",
+    name: "URLedIn",
     icon: linkedinIcon,
-    link: LINKEDIN_LINK,
+    url: LINKEDIN_URL,
   },
   {
     name: "GitHub",
     icon: githubIcon,
-    link: GIHTUB_LINK,
+    url: GIHTUB_URL,
   },
   {
     name: "Email",
     icon: mailIcon,
-    link: EMAIL_LINK,
+    url: EMAIL_URL,
   },
   {
     name: "whatsApp",
     icon: whatsappIcon,
-    link: WHATSAPP_LINK,
+    url: WHATSAPP_URL,
   },
 ];
-
-export const myContacts = (
-  <ul className="contactList">
-    {contacts.map((contact, index) => {
-      return (
-        <li key={index} onClick={() => openNewTab(contact.link)}>
-          {contact.icon}
-        </li>
-      );
-    })}
-  </ul>
-);

@@ -25,17 +25,30 @@ body {
   flex-direction: column;
   min-width: 100vw;
   min-height: 100vh;
-  /* max-width: 70%; */
+}
+
+main {
+  margin: 0 10px;
 }
 
 h1 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: normal;
   padding: 10px;
 }
 h1 span {
   color: blue;
   font-weight: 700;
+}
+h2 {
+  background-color: rgb(225, 225, 225);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+}
+h3 {
+  font-size: 1.5rem;
 }
 
 a {

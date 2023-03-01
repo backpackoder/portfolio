@@ -1,11 +1,14 @@
-.formation {
+.formations {
   padding: 10px;
 }
-.formation > div {
-  background-color: bisque;
+.formation {
+  background-color: rgb(240, 240, 240);
   padding: 10px;
   border-radius: 10px;
   margin: 10px auto;
+}
+.formation small {
+  display: block;
 }
 .formation span {
   display: flex;
@@ -13,6 +16,8 @@
   align-items: center;
 }
 .formationImg {
+  width: 800px;
   max-width: 100%;
   border-radius: 5px;
+  text-align: center;
 }

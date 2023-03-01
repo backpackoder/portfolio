@@ -4,9 +4,24 @@ type stack = {
 };
 
 export const myStacks: stack[] = [
-  { name: "React", img: "src/assets/img/reactLogo.png" },
-  { name: "TypeScript", img: "src/assets/img/typescriptLogo.png" },
-  { name: "JavaScript", img: "src/assets/img/javascriptLogo.png" },
-  { name: "HTML", img: "src/assets/img/htmlLogo.png" },
-  { name: "CSS", img: "src/assets/img/cssLogo.png" },
+  {
+    name: "React",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    name: "TypeScript",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg",
+  },
+  {
+    name: "JavaScript",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg",
+  },
+  {
+    name: "HTML",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg",
+  },
+  {
+    name: "CSS",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg",
+  },
 ];

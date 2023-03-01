@@ -48,10 +48,14 @@ export function AppConsumer() {
   return (
     <>
       <Header changePart={changePart} setPartList={setPartList} />
-      <h1 style={{ marginTop: headerHeight }}>
-        Bonjour, je m'appelle <span>{NAMES}</span>, votre futur <span>{JOB}</span>.
-      </h1>
-      <Parts componentShowed={partsComponents[partList.indexOf(true)]} />
+
+      <main>
+        <h1 style={{ marginTop: headerHeight }}>
+          Bonjour, je m'appelle <span>{NAMES}</span>, votre futur <span>{JOB}</span>.
+        </h1>
+        <Parts componentShowed={partsComponents[partList.indexOf(true)]} />
+      </main>
+
       <Footer />
     </>
   );

@@ -1,13 +1,13 @@
 // Commons
 import { JOB, NAMES } from "../commons/commons";
 
-// Utils
-import { myContacts } from "../utils/contact";
+// Components
+import { ContactsList } from "./Contacts";
 
 export function Footer() {
   return (
     <footer>
-      {myContacts}
+      <ContactsList contactList={"footer"} />
       {/* {NAMES}, {JOB} */}
     </footer>
   );

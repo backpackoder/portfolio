@@ -1,12 +1,31 @@
+.experiences .titleAndTime {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+
 .experience {
   display: flex;
   flex-direction: column;
   max-width: 1000px;
+  background-color: rgb(245, 245, 245);
   padding: 0 20px;
+  border-radius: 5px;
   margin: 0 auto;
 }
 
 .experience .links {
   display: flex;
   justify-content: space-evenly;
+}
+
+.translated {
+  display: flex;
+  align-items: center;
+}
+.translated img {
+  width: 25px;
+  height: 15px;
+  margin: 0 5px;
 }

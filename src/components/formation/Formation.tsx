@@ -1,5 +1,4 @@
 // Hooks
-import { PROJECT_MANGANIME_LINK } from "../../commons/commons";
 import { openNewTab } from "../../hooks/openNewTab";
 
 // Utils
@@ -7,28 +6,32 @@ import { formationData } from "../../utils/formationData";
 
 export function Formation() {
   return (
-    <section className="formation">
+    <article className="formations">
       {formationData.map((formation, index) => {
+        const { introduction } = formationData[index].description;
+        const { content } = formationData[index].description;
+        const { conclusion } = formationData[index].description;
+
         return (
-          <div key={index}>
+          <section key={index} className="formation">
             <h3>{formation.title}</h3>
             <small>Date: {formation.time}</small>
             <img
               src={formation.image}
               alt={formation.title}
               className="formationImg"
-              onClick={() => formation.link !== "" && openNewTab(formation.link)}
+              onClick={() => openNewTab(formation.url)}
             />
-            <p dangerouslySetInnerHTML={{ __html: formation.description.introduction }}></p>
+            <p dangerouslySetInnerHTML={{ __html: introduction }}></p>
             <br />
-            {formation.link !== "" && <h4>Ce que nous avons appris:</h4>}
-            <p dangerouslySetInnerHTML={{ __html: formation.description.content }}></p>
+            {formation.url !== "" && <h4>Ce que nous avons appris:</h4>}
+            <p dangerouslySetInnerHTML={{ __html: content }}></p>
             <br />
-            {formation.link !== "" && <h4>Pour conclure:</h4>}
-            <p dangerouslySetInnerHTML={{ __html: formation.description.conclusion }}></p>
-          </div>
+            {formation.url !== "" && <h4>Pour conclure:</h4>}
+            <p dangerouslySetInnerHTML={{ __html: conclusion }}></p>
+          </section>
         );
       })}
-    </section>
+    </article>
   );
 }

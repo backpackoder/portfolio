@@ -4,32 +4,111 @@
   align-items: center;
 }
 
+.presentation section {
+  background-color: rgb(245, 245, 245);
+  width: 100%;
+  border-radius: 5px;
+  margin: 5px auto;
+}
+.askMe {
+  grid-area: AskMe;
+}
+.contacts {
+  grid-area: Contacts;
+}
+.stacks {
+  grid-area: Stacks;
+}
+.description {
+  grid-area: Description;
+}
+.skills {
+  grid-area: Skills;
+}
+.langages {
+  grid-area: Langages;
+}
+.hobbies {
+  grid-area: Hobbies;
+}
+
+.presentation section p,
+.presentation section ul {
+  margin: auto;
+  padding: 5px 10px;
+}
+
 .myFace {
   max-width: 100px;
   border-radius: 100%;
   margin: 10px;
 }
 
-.mySkills {
+.contactList-presentation {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 10px;
+}
+
+.mySkills-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
   text-align: center;
 }
-.mySkills li {
+.mySkills-list li {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.mySkills img {
-  width: 35px;
-  height: 35px;
+.mySkills-list img {
+  width: 25px;
+  height: 25px;
 }
 
-.langages li {
+.langages-list {
   display: flex;
+  justify-content: center;
+}
+.langages-list li {
+  display: inline-flex;
   align-items: center;
   gap: 5px;
   text-align: center;
+  margin: 0 5px;
+}
+
+@media (min-width: 600px) {
+  .presentation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "AskMe AskMe"
+      "Contacts Stacks"
+      "Description Description"
+      "Skills Langages"
+      "Hobbies Hobbies";
+    align-items: start;
+    gap: 10px;
+  }
+
+  .presentation section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .contactList-presentation {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin: auto;
+  }
+  .contactList-presentation li {
+    text-align: center;
+  }
 }

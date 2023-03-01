@@ -6,3 +6,10 @@ footer {
   padding: 10px;
   margin-top: 25px;
 }
+
+.contactList-footer {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 600px;
+  margin: 0 auto;
+}
