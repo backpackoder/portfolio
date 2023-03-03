@@ -1,14 +1,24 @@
+import { Fragment, useContext } from "react";
+
+// Context
+import { AppContext } from "../../AppContext";
+
 // Hooks
 import { openNewTab } from "../../hooks/openNewTab";
 
 // Utils
 import { experienceData } from "../../utils/experienceData";
 
+// Types
+import { Iso } from "../../types/types";
+
 type ExperienceDetailledProps = {
   experienceID: number;
 };
 
 export function ExperienceDetailled({ experienceID }: ExperienceDetailledProps) {
+  const { language }: { language: Iso } = useContext(AppContext);
+
   const data = experienceData[experienceID];
 
   return (
@@ -17,7 +27,7 @@ export function ExperienceDetailled({ experienceID }: ExperienceDetailledProps) 
         <span className="titleAndTime">
           <h3>{data.title}</h3>
           <small>
-            {data.time} - {data.team}
+            {data.time[language]} - {data.team[language]}
           </small>
         </span>
 
@@ -39,18 +49,23 @@ export function ExperienceDetailled({ experienceID }: ExperienceDetailledProps) 
 
         <div className="translated">
           <small>Traduit en: </small>
-          {data.translation.map((langage) => {
+          {data.translation.map((translation) => {
             return (
-              <img
-                key={langage.iso}
-                src={`https://flagcdn.com/${langage.iso}.svg`}
-                alt={langage.langage}
-              />
+              <Fragment key={translation.iso}>
+                <img
+                  src={`https://flagcdn.com/${translation.iso}.svg`}
+                  alt={translation.translation[language]}
+                />
+                <small>{translation.translation[language]}</small>
+              </Fragment>
             );
           })}
         </div>
-        <small>Type: {data.type}</small>
-        <small>Theme: {data.theme}</small>
+
+        <small>Type: {data.type[language]}</small>
+
+        <small>Theme: {data.theme[language]}</small>
+
         <small>
           Stack:{" "}
           {data.stack.map((stack, index) => {
@@ -62,8 +77,9 @@ export function ExperienceDetailled({ experienceID }: ExperienceDetailledProps) 
             );
           })}
         </small>
+
         <small>
-          Competences:{" "}
+          Compétences:{" "}
           {data.details.map((detail, index) => {
             return (
               <span key={detail}>
@@ -73,10 +89,10 @@ export function ExperienceDetailled({ experienceID }: ExperienceDetailledProps) 
             );
           })}
         </small>
-        <p>{data.description}</p>
+
+        <p>{data.description[language]}</p>
         <p>Voir les photos</p>
       </section>
-      );
     </>
   );
 }

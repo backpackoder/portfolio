@@ -4,11 +4,11 @@ import { openNewTab } from "../hooks/openNewTab";
 // Utils
 import { contacts } from "../utils/contacts";
 
-type ContactsProps = { contactList: string };
+type ContactsProps = { classNameSuffix: string };
 
-export function ContactsList({ contactList }: ContactsProps) {
+export function ContactsList({ classNameSuffix }: ContactsProps) {
   return (
-    <ul className={`contactList-${contactList}`}>
+    <ul className={`contactList-${classNameSuffix}`}>
       {contacts.map((contact, index) => {
         return (
           <li key={index} onClick={() => openNewTab(contact.url)}>

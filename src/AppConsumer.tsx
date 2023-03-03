@@ -20,20 +20,12 @@ import { ExperienceDetailled } from "./components/experience/ExperienceDetailled
 export function AppConsumer() {
   const [experienceID, setExperienceID] = useState(0);
 
-  const [headerHeight, setHeaderHeight] = useState<number>(0);
-
-  useEffect(() => {
-    const header = document.querySelector("header");
-    if (header) {
-      setHeaderHeight(header.clientHeight);
-    }
-  }, []);
-
   return (
     <>
       <Router>
         <Header />
-        <main style={{ marginTop: headerHeight }}>
+
+        <main>
           <Routes>
             <Route path={ROUTE_PRESENTATION} element={<Presentation />} />
 
@@ -49,8 +41,9 @@ export function AppConsumer() {
             <Route path={ROUTE_FORMATION} element={<Formation />} />
           </Routes>
         </main>
+
+        <Footer />
       </Router>
-      <Footer />
     </>
   );
 }

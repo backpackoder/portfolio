@@ -1,8 +1,5 @@
-.experiences .titleAndTime {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 5px;
+.experiences {
+  margin-top: 75px;
 }
 
 .experience {
@@ -19,19 +16,4 @@
 .experience .banner {
   max-width: 100%;
   border-radius: 10px;
-}
-
-.experience .links {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.translated {
-  display: flex;
-  align-items: center;
-}
-.translated img {
-  width: 25px;
-  height: 15px;
-  margin: 0 5px;
 }

@@ -1,0 +1,19 @@
+.experienceDetailled .titleAndTime {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+.experienceDetailled .links {
+  display: flex;
+  justify-content: space-evenly;
+}
+.experienceDetailled .translated {
+  display: flex;
+  align-items: center;
+}
+.experienceDetailled .translated img {
+  width: 25px;
+  height: 15px;
+  margin: 0 5px;
+}

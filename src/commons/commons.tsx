@@ -1,7 +1,27 @@
+// Languages
+import { translation } from "../languages/languages";
+
+// Routes
+export const ROUTE_PRESENTATION = "/";
+export const ROUTE_PRESENTATION_LABEL = translation("Je me présente", "About me", "Sobre mí");
+export const ROUTE_EXPERIENCE = "/experience";
+export const ROUTE_EXPERIENCE_LABEL = translation(
+  "Mon expérience",
+  "My experience",
+  "Mi experiencia"
+);
+export const ROUTE_EXPERIENCE_DETAILLED = `${ROUTE_EXPERIENCE}/:title`;
+export const ROUTE_FORMATION = "/formation";
+export const ROUTE_FORMATION_LABEL = translation("Formation", "Formation", "Formación");
+
 // About me
 export const NAMES = "Thibaut Barbiera";
 export const PSEUDO = "backpackoder";
-export const JOB = "Développeur web front-end";
+export const JOB = translation(
+  "développeur web front-end",
+  "Front-end web developer",
+  "desarrollador web front-end"
+);
 
 // Contact
 export const EMAIL = "th.barbiera@outook.fr";
@@ -42,11 +62,28 @@ export const PROJECT_DRESSLY_GITHUB_URL = "https://github.com/backpackoder/dress
 export const PROJECT_MANGANIME_URL = "https://manganime.infodocbib.net/";
 export const PROJECT_MANGANIME_GITHUB_URL = "https://github.com/backpackoder/manganime";
 
-// Routes
-export const ROUTE_PRESENTATION = "/";
-export const ROUTE_PRESENTATION_LABEL = "Je me présente";
-export const ROUTE_EXPERIENCE = "/experience";
-export const ROUTE_EXPERIENCE_DETAILLED = `${ROUTE_EXPERIENCE}/:title`;
-export const ROUTE_EXPERIENCE_LABEL = "Mon expérience";
-export const ROUTE_FORMATION = "/formation";
-export const ROUTE_FORMATION_LABEL = "Formation";
+// Flags
+// France
+export const FLAG_FR = "https://flagcdn.com/fr.svg";
+export function FLAG_FR_HTMLElement(
+  width: string | number = "100%",
+  height: string | number = "100%"
+) {
+  return <img src={FLAG_FR} width={width} height={height} alt="Français" />;
+}
+// England
+export const FLAG_EN = "https://flagcdn.com/gb.svg";
+export function FLAG_EN_HTMLElement(
+  width: string | number = "100%",
+  height: string | number = "100%"
+) {
+  return <img src={FLAG_EN} width={width} height={height} alt="Anglais" />;
+}
+// Spain
+export const FLAG_ES = "https://flagcdn.com/es.svg";
+export function FLAG_ES_HTMLElement(
+  width: string | number = "100%",
+  height: string | number = "100%"
+) {
+  return <img src={FLAG_ES} width={width} height={height} alt="Espagnol" />;
+}

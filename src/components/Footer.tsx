@@ -7,7 +7,7 @@ import { ContactsList } from "./Contacts";
 export function Footer() {
   return (
     <footer>
-      <ContactsList contactList={"footer"} />
+      <ContactsList classNameSuffix={"footer"} />
       {/* {NAMES}, {JOB} */}
     </footer>
   );

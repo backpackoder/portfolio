@@ -2,20 +2,25 @@ import { useState } from "react";
 
 // Context
 import { AppContext } from "./AppContext";
+import { languages } from "./languages/languages";
 
-export function AppProvider(props: any) {
-  const [presentation, setPresentation] = useState(true);
-  const [experience, setExperience] = useState(false);
-  const [formation, setFormation] = useState(false);
+// Types
+import { Iso } from "./types/types";
+
+export function AppProvider(props: object) {
+  const [language, setLanguage] = useState<Iso>("fr");
+
+  function text(text: string) {
+    return languages[text][language];
+  }
 
   const contextValue = {
     // States
-    presentation,
-    setPresentation,
-    experience,
-    setExperience,
-    formation,
-    setFormation,
+    language,
+    setLanguage,
+
+    // Functions
+    text,
   };
 
   return <AppContext.Provider {...props} value={contextValue} />;

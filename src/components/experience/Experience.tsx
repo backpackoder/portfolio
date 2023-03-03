@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../AppContext";
 
 // Hooks
 import { getUrl } from "../../hooks/getUrl";
+import { Iso } from "../../types/types";
 
 // Utils
 import { experienceData } from "../../utils/experienceData";
@@ -11,6 +14,8 @@ type ExperienceProps = {
 };
 
 export function Experience({ setExperienceID }: ExperienceProps) {
+  const { language }: { language: Iso } = useContext(AppContext);
+
   return (
     <article className="experiences">
       {experienceData.map((experience, index) => {
@@ -25,10 +30,10 @@ export function Experience({ setExperienceID }: ExperienceProps) {
               <h3>{experience.title}</h3>
 
               <small>
-                {experience.time} - {experience.team}
+                {experience.time[language]} - {experience.team[language]}
               </small>
-              <small>Type: {experience.type}</small>
-              <small>Theme: {experience.theme}</small>
+              <small>Type: {experience.type[language]}</small>
+              <small>Theme: {experience.theme[language]}</small>
             </Link>
           </section>
         );
