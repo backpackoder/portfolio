@@ -12,7 +12,7 @@ import { myStacks } from "../../utils/myStacks";
 import { ContactsList } from "../Contacts";
 
 // Context
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../../AppContext";
 import { personality } from "../../utils/personality";
 import { Iso } from "../../types/types";
@@ -34,20 +34,342 @@ export function Presentation() {
 }
 
 function Header({ text }: { text: Function }) {
+  const [isFirstTime, setIsFirstTime] = useState(true);
+  console.log("isFirstTime", isFirstTime);
+
+  // Videos states
+  // Intro
+  const [intro, setIntro] = useState(true);
+  const [introMuted, setIntroMuted] = useState(true);
+  const [hasIntroEnded, setHasIntroEnded] = useState(false);
+
+  const [introClickable, setIntroClickable] = useState(false);
+  const [introClickableMuted, setIntroClickableMuted] = useState(true);
+
+  // Paying attention
+  const [hello, setHello] = useState(false);
+  const [helloMuted, setHelloMuted] = useState(true);
+  const [hasHelloEnded, setHasHelloEnded] = useState(false);
+
+  const [waiting, setWaiting] = useState(false);
+  const [waitingMuted, setWaitingMuted] = useState(true);
+
+  // Questions
+  const [presentationQ, setPresentationQ] = useState(false);
+  const [presentationQMuted, setPresentationQMuted] = useState(true);
+
+  const [stacksQ, setStacksQ] = useState(false);
+  const [stacksQMuted, setStacksQMuted] = useState(true);
+
+  const [experienceQ, setExperienceQ] = useState(false);
+  const [experienceQMuted, setExperienceQMuted] = useState(true);
+
+  // Videos lists
+  const allVideos = [intro, introClickable, hello, waiting, presentationQ, stacksQ, experienceQ];
+  const setAllVideos = [
+    setIntro,
+    setIntroClickable,
+    setHello,
+    setWaiting,
+    setPresentationQ,
+    setStacksQ,
+    setExperienceQ,
+  ];
+  const allVideosMuted = [
+    introMuted,
+    introClickableMuted,
+    helloMuted,
+    waitingMuted,
+    presentationQMuted,
+    stacksQMuted,
+    experienceQMuted,
+  ];
+  const setAllVideosMuted = [
+    setIntroMuted,
+    setIntroClickableMuted,
+    setHelloMuted,
+    setWaitingMuted,
+    setPresentationQMuted,
+    setStacksQMuted,
+    setExperienceQMuted,
+  ];
+
+  const isPlayingList = [presentationQ, stacksQ, experienceQ];
+  const setIsPlayingList = [setPresentationQ, setStacksQ, setExperienceQ];
+  const isMutedList = [presentationQMuted, stacksQMuted, experienceQMuted];
+  const setIsMutedList = [setPresentationQMuted, setStacksQMuted, setExperienceQMuted];
+  const allVideoTitleList = [
+    "intro",
+    "introClickable",
+    "hello",
+    "waiting",
+    "presentationQ",
+    "stacksQ",
+    "experienceQ",
+  ];
+  const videoTitleList = ["presentation", "stacks", "experience"];
+  const videoSrcList = ["presentation_carre", "stacks_carre", "experience_carre"];
+
+  // Conditional states
+  const [videoSelected, setVideoSelected] = useState("intro");
+  const [isIntro, setIsIntro] = useState(true);
+  const [isPayingAttention, setIsPayingAttention] = useState(false);
+  const [isAskingQuestion, setIsAskingQuestion] = useState(false);
+  console.log("isAskingQuestion", isAskingQuestion);
+
+  function drawAttention() {
+    setIsIntro(false);
+    setIsPayingAttention(true);
+    setVideoSelected("hello");
+    setInterval(() => {
+      setHelloMuted(false);
+    }, 10);
+  }
+
+  function questionAsked(e: React.ChangeEvent<HTMLSelectElement>) {
+    if (e.target.value !== "") {
+      setVideoSelected(e.target.value);
+      setIsAskingQuestion(true);
+    }
+  }
+
+  useEffect(() => {
+    setAllVideosMuted.forEach((isMuted) => {
+      isMuted(true);
+    });
+
+    allVideoTitleList.forEach((title, index) => {
+      console.log(`videoSelected OUT (${title})`, videoSelected);
+      if (title === videoSelected) {
+        console.log(`videoSelected YES (${title})`, videoSelected);
+        setAllVideos[index](true);
+        if (isFirstTime) {
+          setIsFirstTime(false);
+        } else {
+          setInterval(() => {
+            setAllVideosMuted[index](false);
+          }, 10);
+        }
+      } else {
+        console.log(`videoSelected NO (${title})`, videoSelected);
+        setAllVideos[index](false);
+        !isFirstTime && setAllVideosMuted[index](false);
+      }
+    });
+  }, [videoSelected]);
+
   return (
     <div className="presentation-header">
       <h1 dangerouslySetInnerHTML={{ __html: text("h1") }}></h1>
-
       <ContactsList classNameSuffix={"presentation"} />
+      <>
+        {/* Videos intro */}
+        <Video
+          title={"intro"}
+          src={"intro_carre"}
+          setIsFirstTime={setIsFirstTime}
+          isMuted={introMuted}
+          videoSelected={videoSelected}
+          setVideoSelected={setVideoSelected}
+          isIntro={isIntro}
+          hasIntroEnded={hasIntroEnded}
+          setHasIntroEnded={setHasIntroEnded}
+          hasHelloEnded={hasHelloEnded}
+          setHasHelloEnded={setHasHelloEnded}
+        />
+        <Video
+          title={"introClickable"}
+          src={"intro_after_carre"}
+          setIsFirstTime={setIsFirstTime}
+          isMuted={introClickableMuted}
+          drawAttention={drawAttention}
+          videoSelected={videoSelected}
+          setVideoSelected={setVideoSelected}
+          isIntro={isIntro}
+          hasIntroEnded={hasIntroEnded}
+          hasHelloEnded={hasHelloEnded}
+          setHasHelloEnded={setHasHelloEnded}
+        />
+        {/* Videos paying attention */}
+        <Video
+          title={"hello"}
+          src={"bjr_attente_carre"}
+          setIsFirstTime={setIsFirstTime}
+          isMuted={introClickableMuted}
+          videoSelected={videoSelected}
+          setVideoSelected={setVideoSelected}
+          isIntro={isIntro}
+          hasIntroEnded={hasIntroEnded}
+          hasHelloEnded={hasHelloEnded}
+          setHasHelloEnded={setHasHelloEnded}
+        />
+        <Video
+          title={"waiting"}
+          src={"waiting_carre"}
+          setIsFirstTime={setIsFirstTime}
+          isMuted={introClickableMuted}
+          videoSelected={videoSelected}
+          setVideoSelected={setVideoSelected}
+          isIntro={isIntro}
+          hasIntroEnded={hasIntroEnded}
+          hasHelloEnded={hasHelloEnded}
+          setHasHelloEnded={setHasHelloEnded}
+          isAskingQuestion={isAskingQuestion}
+          setIsAskingQuestion={setIsAskingQuestion}
+        />
+        {/* Videos questions */}
+        {videoTitleList.map((title, index) => {
+          return (
+            <Video
+              key={index}
+              title={title}
+              src={videoSrcList[index]}
+              setIsFirstTime={setIsFirstTime}
+              isMuted={isMutedList[index]}
+              isIntro={isIntro}
+              videoSelected={videoSelected}
+              setVideoSelected={setVideoSelected}
+              hasHelloEnded={hasHelloEnded}
+              setHasHelloEnded={setHasHelloEnded}
+              isAskingQuestion={isAskingQuestion}
+              setIsAskingQuestion={setIsAskingQuestion}
+            />
+          );
+        })}
+      </>
 
-      <img src="src/assets/img/profil2.jpg" className="myFace" />
+      {isPayingAttention && hasHelloEnded && !isAskingQuestion && (
+        <select defaultValue={""} onChange={(e) => questionAsked(e)}>
+          <option value={""}>Sélectionnez une question</option>
+          {videoTitleList.map((title, index) => {
+            return (
+              <option key={index} value={title}>
+                {title}
+              </option>
+            );
+          })}
+        </select>
+      )}
 
-      <button>
+      <button onClick={() => {}}>
         {text("askMe")}
         <br />
         <small>({text("askMeSmall")})</small>
       </button>
     </div>
+  );
+}
+
+function Video({
+  title,
+  src,
+  setIsFirstTime,
+  isMuted,
+  drawAttention,
+  videoSelected,
+  setVideoSelected,
+  isIntro,
+  hasIntroEnded,
+  setHasIntroEnded,
+  hasHelloEnded,
+  setHasHelloEnded,
+  isAskingQuestion,
+  setIsAskingQuestion,
+}: {
+  title: string;
+  src: string;
+  setIsFirstTime: Function;
+  isMuted: boolean;
+  drawAttention?: Function;
+  videoSelected: string;
+  setVideoSelected: Function;
+  isIntro: boolean;
+  hasIntroEnded?: boolean;
+  setHasIntroEnded?: Function;
+  hasHelloEnded?: boolean;
+  setHasHelloEnded?: Function;
+  isAskingQuestion?: boolean;
+  setIsAskingQuestion?: Function;
+}) {
+  const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
+
+  function videoRef(element: HTMLVideoElement) {
+    setVideoElement(element);
+  }
+
+  function videoEnded() {
+    if (isIntro) {
+      introEnded();
+    } else if (isAskingQuestion) {
+      questionEnded();
+    } else {
+      helloEnded();
+    }
+  }
+  function introEnded() {
+    setHasIntroEnded && setHasIntroEnded(true);
+    setIsFirstTime(false); // utile ?
+  }
+  function helloEnded() {
+    setHasHelloEnded && setHasHelloEnded(true);
+    setVideoSelected("waiting");
+  }
+  function questionEnded() {
+    setIsAskingQuestion && setIsAskingQuestion(false);
+    setVideoSelected("waiting");
+  }
+
+  function resetVideo() {
+    if (videoElement) {
+      videoSelected === title ? videoElement.play() : videoElement.pause();
+      videoElement.currentTime = 0;
+    }
+  }
+
+  useEffect(() => {
+    resetVideo();
+  }, [videoSelected]);
+
+  return (
+    <video
+      ref={videoRef}
+      autoPlay
+      muted={isMuted}
+      loop={title === "introClickable" || title === "waiting"}
+      onDoubleClick={() => drawAttention && drawAttention()}
+      onEnded={() => videoEnded()}
+      className={`video`}
+      style={{
+        display: isIntro
+          ? title === "intro" || title === "introClickable"
+            ? title === "intro"
+              ? hasIntroEnded
+                ? "none"
+                : "block"
+              : title === "introClickable"
+              ? hasIntroEnded
+                ? "block"
+                : "none"
+              : "none"
+            : "none"
+          : title !== "intro" && title !== "introClickable"
+          ? title === "hello"
+            ? hasHelloEnded
+              ? "none"
+              : "block"
+            : title === "waiting"
+            ? hasHelloEnded && !isAskingQuestion
+              ? "block"
+              : "none"
+            : isAskingQuestion && title === videoSelected
+            ? "block"
+            : "none"
+          : "none",
+      }}
+    >
+      <source src={`public/videos/${src}.mp4`} type="video/mp4" />
+      La vidéo n'a pas pu se charger.
+    </video>
   );
 }
 

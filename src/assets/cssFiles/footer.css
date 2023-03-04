@@ -12,4 +12,5 @@ footer {
   justify-content: space-evenly;
   max-width: 600px;
   margin: 0 auto;
+  cursor: pointer;
 }
