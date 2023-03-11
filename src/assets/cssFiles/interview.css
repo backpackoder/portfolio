@@ -25,20 +25,16 @@
 .video.none {
   display: none;
 }
-.video.isFirstVideo.small {
+.video.isFirstVideo.absolute {
   animation: videoSmall 1s;
 }
-.video.small {
+.video.absolute {
   position: fixed;
   top: 75px;
   left: 25px;
   min-width: 75px;
   max-width: 25vw;
   max-height: 25vh;
-}
-
-.video.fadeIn {
-  animation: videoSmall 1s;
 }
 
 .interviewBtn {
@@ -105,4 +101,32 @@
     opacity: 1;
     transform: translateY(0) rotateX(0deg);
   }
+}
+
+/* SELECT CHAT GPT */
+select {
+  /* width: 100%; */
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  background-color: #c6c6c6;
+  font-size: 16px;
+  color: #333;
+}
+
+select:focus {
+  outline: none;
+  border: 2px solid #06c;
+}
+
+option {
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+option:hover {
+  background-color: #06c;
+  color: #fff;
 }

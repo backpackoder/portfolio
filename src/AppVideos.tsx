@@ -75,7 +75,7 @@ export function AppVideos(props: object) {
   const [videoSelected, setVideoSelected] = useState("intro");
   const [isIntro, setIsIntro] = useState(true);
   const [isPayingAttention, setIsPayingAttention] = useState(false);
-  const [isAskingQuestion, setIsAskingQuestion] = useState(false);
+  const [isResponding, setIsResponding] = useState(false);
 
   function getMyAttention() {
     setIsIntro(false);
@@ -89,7 +89,7 @@ export function AppVideos(props: object) {
   function questionAsked(e: React.ChangeEvent<HTMLSelectElement>) {
     if (e.target.value !== "") {
       setVideoSelected(e.target.value);
-      setIsAskingQuestion(true);
+      setIsResponding(true);
     }
   }
 
@@ -159,8 +159,8 @@ export function AppVideos(props: object) {
     setIsIntro,
     isPayingAttention,
     setIsPayingAttention,
-    isAskingQuestion,
-    setIsAskingQuestion,
+    isResponding,
+    setIsResponding,
 
     // LISTS
     // Videos lists
