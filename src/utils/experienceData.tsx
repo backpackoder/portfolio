@@ -54,7 +54,7 @@ const experience_type: Experience_type = {
 export const experienceData: Experience[] = [
   {
     title: "Manganime",
-    imgs: ["../src/assets/img/Manganime - infos.png"],
+    imgs: ["public/imgs/Manganime - infos.png"],
     url: PROJECT_MANGANIME_URL,
     gitHub: PROJECT_MANGANIME_GITHUB_URL,
     type: experience_type.website,
@@ -104,7 +104,7 @@ export const experienceData: Experience[] = [
   },
   {
     title: "Au verger",
-    imgs: ["../src/assets/img/Au verger - home page.jpg"],
+    imgs: ["public/imgs/Au verger - home page.jpg"],
     url: PROJECT_AU_VERGER_URL,
     gitHub: PROJECT_AU_VERGER_GITHUB_URL,
     type: experience_type.showcase_site,
@@ -121,9 +121,9 @@ export const experienceData: Experience[] = [
     J'ai utilisé React-Router pour gérer les routes de l'application.
     J'ai utilisé la library "Aos" pour créer des animations sur le site au scroll.`,
 
-      ``,
+      `Not translated yet`,
 
-      ``
+      `Aún no traducido`
     ),
     translation: [
       { translation: translation("Français", "French", "Francés"), iso: "fr" },
@@ -133,7 +133,7 @@ export const experienceData: Experience[] = [
   },
   {
     title: "Dressly",
-    imgs: ["../src/assets/img/Dressly - Paris mobile.jpg"],
+    imgs: ["public/imgs/Dressly - Paris.jpg"],
     url: PROJECT_DRESSLY_URL,
     gitHub: PROJECT_DRESSLY_GITHUB_URL,
     type: experience_type.website,
@@ -147,15 +147,15 @@ export const experienceData: Experience[] = [
     J'ai utilisé l'API de OpenWeatherMap pour récupérer les données météo.
     Je récupère la longitude et la latitude de l'utilisateur pour afficher le temps de la ville où l'utilisateur se trouve.`,
 
-      ``,
+      `Not translated yet`,
 
-      ``
+      `Aún no traducido`
     ),
     translation: [{ translation: translation("Espagnol", "Spanish", "Español"), iso: "es" }],
   },
   {
     title: "Mes challenges Frontend Mentor",
-    imgs: ["../src/assets/img/ecommerce-product-page.png"],
+    imgs: ["public/imgs/ecommerce-product-page.png"],
     url: PROJECT_CHALLENGES_FRONTEND_MENTOR_URL,
     gitHub: PROJECT_CHALLENGES_FRONTEND_MENTOR_GITHUB_URL,
     type: experience_type.challenges,
@@ -168,17 +168,17 @@ export const experienceData: Experience[] = [
       `J'ai réussi plusieurs challenges au fil du temps sur le site Frontend Mentor.
     Les challenges m'ont beaucoup aidé au début pour progresser, vous pouvez aller voir les résultats
     en cliquant sur les liens au-dessus.`,
-      ``,
-      ``
+      `Not translated yet`,
+      `Aún no traducido`
     ),
     translation: [{ translation: translation("Anglais", "English", "Inglés"), iso: "gb" }],
   },
   {
     title: "Mon portfolio",
-    imgs: ["../src/assets/img/Mon portfolio - home page.jpg"],
+    imgs: ["public/imgs/Mon portfolio - home page.jpg"],
     url: PROJECT_MY_PORTFOLIO_URL,
     gitHub: PROJECT_MY_PORTFOLIO_GITHUB_URL,
-    type: experience_type.showcase_site,
+    type: experience_type.website,
     theme: translation("Professionnel", "Professional", "Profesional"),
     time: translation("2023", "2023", "2023"),
     team: translation("en solo", "solo", "en solitario"),
@@ -188,9 +188,9 @@ export const experienceData: Experience[] = [
       `J'ai créé Mon portfolio pour présenter mes projets et mes compétences.
     J'ai utilisé React.js et TypeScript pour créer ce site.`,
 
-      ``,
+      `Not yet translated`,
 
-      ``
+      `Aún no traducido`
     ),
     translation: [
       { translation: translation("Français", "French", "Francés"), iso: "fr" },

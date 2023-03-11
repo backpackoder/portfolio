@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "../../AppContext";
+import { ROUTE_EXPERIENCE_LABEL } from "../../commons/commons";
 
 // Hooks
 import { getUrl } from "../../hooks/getUrl";
@@ -14,30 +15,39 @@ type ExperienceProps = {
 };
 
 export function Experience({ setExperienceID }: ExperienceProps) {
-  const { language }: { language: Iso } = useContext(AppContext);
+  const {
+    experienceRef,
+    language,
+  }: { experienceRef: React.RefObject<HTMLDivElement>; language: Iso } = useContext(AppContext);
 
   return (
-    <article className="experiences">
-      {experienceData.map((experience, index) => {
-        return (
-          <section key={index} className="experience">
-            <Link
-              to={getUrl(["experience", experience.title.toLowerCase()])}
-              onClick={() => setExperienceID(index)}
-            >
-              <img src={experience.imgs[0]} alt={experience.title} className="banner" />
+    <>
+      <article ref={experienceRef} className="experiences">
+        <h2>{ROUTE_EXPERIENCE_LABEL[language]}</h2>
+        <section className="experiencesWrapper">
+          {experienceData.map((experience, index) => {
+            return (
+              <div className="experience">
+                <Link
+                  key={index}
+                  to={getUrl(["experience", experience.title.toLowerCase()])}
+                  onClick={() => setExperienceID(index)}
+                >
+                  <img src={experience.imgs[0]} alt={experience.title} className="banner" />
 
-              <h3>{experience.title}</h3>
+                  <h3>{experience.title}</h3>
 
-              <small>
-                {experience.time[language]} - {experience.team[language]}
-              </small>
-              <small>Type: {experience.type[language]}</small>
-              <small>Theme: {experience.theme[language]}</small>
-            </Link>
-          </section>
-        );
-      })}
-    </article>
+                  <small>
+                    {experience.time[language]} - {experience.team[language]}
+                  </small>
+                  <small>Type: {experience.type[language]}</small>
+                  <small>Theme: {experience.theme[language]}</small>
+                </Link>
+              </div>
+            );
+          })}
+        </section>
+      </article>
+    </>
   );
 }

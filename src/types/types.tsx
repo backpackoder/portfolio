@@ -11,3 +11,4 @@ export interface LanguageObject<T> {
   [key: string]: LanguageStrings<T>;
 }
 export type Iso = "fr" | "en" | "es";
+export type Text = (text: string) => string;

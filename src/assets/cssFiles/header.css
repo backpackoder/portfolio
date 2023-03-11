@@ -4,6 +4,8 @@ header {
   background-color: rgb(7, 7, 148);
   color: #fff;
   text-align: center;
+  z-index: 1;
+  animation: upToDownHeader 2.5s ease-in-out;
 }
 
 .parts {
@@ -48,4 +50,17 @@ header {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+/* Animations */
+@keyframes upToDownHeader {
+  0% {
+    transform: translateY(-100%);
+  }
+  66% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

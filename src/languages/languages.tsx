@@ -10,9 +10,9 @@ export function translation(fr: string, en: string, es: string) {
 export const NAMES = "Thibaut Barbiera";
 export const PSEUDO = "backpackoder";
 export const JOB = translation(
-  "développeur web front-end",
+  "Développeur web front-end",
   "Front-end web developer",
-  "desarrollador web front-end"
+  "Desarrollador web front-end"
 );
 
 type Languages = {
@@ -25,17 +25,54 @@ type Languages = {
 
 export const languages: Languages = {
   h1: translation(
-    `Bonjour, je m'appelle <span>${NAMES ?? ""}</span>,<br />votre futur <span>${
-      JOB.fr ?? ""
-    }</span>.`,
-    `Hello, I'm <span>${NAMES ?? ""}</span>,<br />your future <span>${JOB.en ?? ""}</span>.`,
-    `Hola, soy <span>${NAMES ?? ""}</span>,<br />su futuro <span>${JOB.es ?? ""}</span>.`
+    `Bonjour, je m'appelle <span>${NAMES}</span>,<br />votre futur <span>${JOB.fr}</span>.`,
+    `Hello, I'm <span>${NAMES}</span>,<br />your future <span>${JOB.en}</span>.`,
+    `Hola, soy <span>${NAMES}</span>,<br />su futuro <span>${JOB.es}</span>.`
   ),
-  askMe: translation("Posez-moi une question", "Ask me a question", "Pregúnteme algo"),
+  askMe: translation(
+    "Double-clique sur ma tête pour attirer mon attention",
+    "Double-click on my face to get my attention",
+    "Haga doble clic en mi cabeza para llamar mi atención"
+  ),
   askMeSmall: translation(
     "Je vous réponds en vidéo",
     "I answer you in video",
     "Le respondo en video"
+  ),
+  selectAQuestion: translation(
+    "Sélectionnez une question",
+    "Select a question",
+    "Seleccione una pregunta"
+  ),
+  questionAboutPresentation: translation(
+    "Présente-toi en quelques mots",
+    "Introduce yourself in a few words",
+    "Presentate en pocas palabras"
+  ),
+  questionAboutStack: translation(
+    "Quelles sont tes compétences ?",
+    "What are your skills ?",
+    "¿Cuáles son tus habilidades?"
+  ),
+  questionAboutFormation: translation(
+    "Comment t'es-tu formé ?",
+    "How did you get trained ?",
+    "¿Cómo te formaste?"
+  ),
+  questionAboutExperience: translation(
+    "Quelle est ton expérience ?",
+    "What is your experience ?",
+    "¿Cuál es tu experiencia?"
+  ),
+  questionAboutHobbies: translation(
+    "Quels sont tes hobbies ?",
+    "What are your hobbies ?",
+    "¿Cuáles son tus hobbies?"
+  ),
+  questionAboutContact: translation(
+    "Comment me contacter",
+    "How to contact me",
+    "Cómo contactarme"
   ),
   stacks: translation("🛠️ Mes stacks", "🛠️ My stacks", "🛠️ Mis stacks"),
   informations: translation("📝 Mes informations", "📝 My informations", "📝 Mis informaciones"),

@@ -1,12 +1,22 @@
 // Hooks
+import { useContext } from "react";
+import { AppContext } from "../../AppContext";
+import { ROUTE_FORMATION_LABEL } from "../../commons/commons";
 import { openNewTab } from "../../hooks/openNewTab";
+import { Iso } from "../../types/types";
 
 // Utils
 import { formationData } from "../../utils/formationData";
 
 export function Formation() {
+  const {
+    formationRef,
+    language,
+  }: { formationRef: React.RefObject<HTMLDivElement>; language: Iso } = useContext(AppContext);
+
   return (
-    <article className="formations">
+    <article ref={formationRef} className="formations">
+      <h2>{ROUTE_FORMATION_LABEL[language]}</h2>
       {formationData.map((formation, index) => {
         const { introduction } = formationData[index].description;
         const { content } = formationData[index].description;

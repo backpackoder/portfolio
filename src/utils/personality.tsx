@@ -3,6 +3,7 @@ import { translation } from "../languages/languages";
 export const personality = [
   translation("À l'écoute", "Listening", "Escuchando"),
   translation("Ambitieux", "Ambitious", "Ambicioso"),
+  translation("Autodidacte", "Self-taught", "Autodidacta"),
   translation("Calme", "Calm", "Calmado"),
   translation("Curieux", "Curious", "Curioso"),
   translation("Esprit libre", "Free spirit", "Espíritu libre"),

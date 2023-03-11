@@ -24,6 +24,7 @@ export function ExperienceDetailled({ experienceID }: ExperienceDetailledProps) 
   return (
     <>
       <section key={data.title} className="experienceDetailled">
+        <p>AAAAAAAAAAAA</p>
         <span className="titleAndTime">
           <h3>{data.title}</h3>
           <small>

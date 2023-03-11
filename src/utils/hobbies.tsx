@@ -42,6 +42,6 @@ export const hobbies = [
   },
   {
     icon: fontMaker({ icon: faBowlFood }),
-    text: translation("Faire du ski", "Go skiing", "Esquiar"),
+    text: translation("Goûter des plats typiques", "Taste typical dishes", "Probar platos típicos"),
   },
 ];

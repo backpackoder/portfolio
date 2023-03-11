@@ -10,16 +10,6 @@
   border-radius: 5px;
   margin: 5px auto;
 }
-.presentation-header {
-  grid-area: header;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 100%;
-  min-height: 100vh;
-  background-color: #f6f6f6;
-}
 .stacks {
   grid-area: stacks;
 }
@@ -40,22 +30,6 @@
 .presentation section ul {
   margin: auto;
   padding: 5px 10px;
-}
-
-.video {
-  min-width: 200px;
-  max-width: 50vw;
-  max-height: 50vh;
-  border-radius: 50%;
-  margin: 10px;
-  cursor: pointer;
-}
-.video.none {
-  display: none;
-}
-
-.presentation button {
-  background-color: lightblue;
 }
 
 .contactList-presentation {
@@ -105,7 +79,6 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-      "header header"
       "stacks stacks"
       "description description"
       "langages hobbies"

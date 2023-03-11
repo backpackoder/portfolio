@@ -1,5 +1,5 @@
 // Languages
-import { translation } from "../languages/languages";
+import { PSEUDO, translation } from "../languages/languages";
 
 // Routes
 export const ROUTE_PRESENTATION = "/";
@@ -13,15 +13,6 @@ export const ROUTE_EXPERIENCE_LABEL = translation(
 export const ROUTE_EXPERIENCE_DETAILLED = `${ROUTE_EXPERIENCE}/:title`;
 export const ROUTE_FORMATION = "/formation";
 export const ROUTE_FORMATION_LABEL = translation("Formation", "Formation", "Formación");
-
-// About me
-export const NAMES = "Thibaut Barbiera";
-export const PSEUDO = "backpackoder";
-export const JOB = translation(
-  "développeur web front-end",
-  "Front-end web developer",
-  "desarrollador web front-end"
-);
 
 // Contact
 export const EMAIL = "th.barbiera@outook.fr";

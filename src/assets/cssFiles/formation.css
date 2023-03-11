@@ -1,12 +1,12 @@
 .formations {
   padding: 10px;
-  margin-top: 75px;
+  /* margin-top: 75px; */
 }
 .formation {
   background-color: rgb(240, 240, 240);
   padding: 10px;
   border-radius: 10px;
-  margin: 10px auto;
+  margin: 0 auto;
 }
 .formation small {
   display: block;

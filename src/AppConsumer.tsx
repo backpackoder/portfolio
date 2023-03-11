@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Commons
@@ -16,6 +16,7 @@ import { Footer } from "./components/Footer";
 import { Experience } from "./components/experience/Experience";
 import { Formation } from "./components/formation/Formation";
 import { ExperienceDetailled } from "./components/experience/ExperienceDetailled";
+import { Interview } from "./Interview/Interview";
 
 export function AppConsumer() {
   const [experienceID, setExperienceID] = useState(0);
@@ -24,6 +25,8 @@ export function AppConsumer() {
     <>
       <Router>
         <Header />
+
+        <Interview />
 
         <main>
           <Routes>
