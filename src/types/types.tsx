@@ -97,3 +97,5 @@ export type VideoProps = {
   isFirstVideo?: boolean;
   isMuted: boolean;
 };
+
+export type ContactsListProps = { classNameSuffix: string };

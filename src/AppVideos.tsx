@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
+
+// Context
 import { AppContext, AppVideoContext } from "./AppContext";
-import { Text } from "./types/types";
 
 export function AppVideos(props: object) {
-  const { text }: { text: Text } = useContext(AppContext);
+  const { text }: { text: (text: string) => string } = useContext(AppContext);
 
   const [isFirstTime, setIsFirstTime] = useState(true);
 

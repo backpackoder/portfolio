@@ -1,12 +1,13 @@
 // Hooks
 import { openNewTab } from "../hooks/openNewTab";
 
+// Types
+import { ContactsListProps } from "../types/types";
+
 // Utils
 import { contacts } from "../utils/contacts";
 
-type ContactsProps = { classNameSuffix: string };
-
-export function ContactsList({ classNameSuffix }: ContactsProps) {
+export function ContactsList({ classNameSuffix }: ContactsListProps) {
   return (
     <ul className={`contactList-${classNameSuffix}`}>
       {contacts.map((contact, index) => {
