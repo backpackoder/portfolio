@@ -15,7 +15,26 @@
   border-radius: 10px;
   box-shadow: 0 1px 5px 0px rgb(0 0 0 / 25%);
 }
+.experience a {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 100%;
+}
 .experience .banner {
   width: 100%;
   border-radius: 10px;
+}
+.experience ul {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.experience li {
+  background-color: rgb(205, 227, 237);
+  padding: 5px;
+  border-radius: 5px;
 }

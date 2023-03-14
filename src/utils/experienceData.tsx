@@ -41,7 +41,7 @@ type Experience_type = {
 };
 
 type Stack = "HTML" | "CSS" | "JavaScript" | "TypeScript" | "React";
-// type Team = "en solo" | "en équipe" | "solo" | "in a team" | "en solitario" | "en equipo";
+// type Team = "En solo" | "En équipe" | "Solo" | "In a team" | "En solitario" | "En equipo";
 
 const experience_type: Experience_type = {
   showcase_site: { fr: "Site vitrine", en: "Showcase site", es: "Sitio de exhibición" },
@@ -64,7 +64,7 @@ export const experienceData: Experience[] = [
       "Ocio y entretenimiento"
     ),
     time: translation("Janvier 2023", "January 2023", "Enero 2023"),
-    team: translation("en équipe", "in a team", "en equipo"),
+    team: translation("En équipe", "In a team", "En equipo"),
     stack: ["React", "JavaScript", "HTML", "CSS"],
     details: ["API", "GraphQL", "Material-UI", "React-Query", "React-Router"],
     description: translation(
@@ -110,7 +110,7 @@ export const experienceData: Experience[] = [
     type: experience_type.showcase_site,
     theme: translation("Météorologie", "Meteorology", "Meteorología"),
     time: translation("2022", "2022", "2022"),
-    team: translation("en solo", "solo", "en solitario"),
+    team: translation("En solo", "Solo", "En solitario"),
     stack: ["React", "TypeScript", "HTML", "CSS"],
     details: ["Responsive", "Mobile first", "API"],
     description: translation(
@@ -139,7 +139,7 @@ export const experienceData: Experience[] = [
     type: experience_type.website,
     theme: translation("Immobilier", "Real estate", "Bienes raíces"),
     time: translation("2022", "2022", "2022"),
-    team: translation("en solo", "solo", "en solitario"),
+    team: translation("En solo", "Solo", "En solitario"),
     stack: ["React", "TypeScript", "HTML", "CSS"],
     details: ["API", "Material-UI", "React-Query", "React-Router", "Local Storage"],
     description: translation(
@@ -161,7 +161,7 @@ export const experienceData: Experience[] = [
     type: experience_type.challenges,
     theme: translation("Challenges", "Challenges", "Desafíos"),
     time: translation("2022", "2022", "2022"),
-    team: translation("en solo", "solo", "en solitario"),
+    team: translation("En solo", "Solo", "En solitario"),
     stack: ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
     details: ["Responsive", "Mobile first"],
     description: translation(
@@ -181,7 +181,7 @@ export const experienceData: Experience[] = [
     type: experience_type.website,
     theme: translation("Professionnel", "Professional", "Profesional"),
     time: translation("2023", "2023", "2023"),
-    team: translation("en solo", "solo", "en solitario"),
+    team: translation("En solo", "Solo", "En solitario"),
     stack: ["React", "TypeScript", "HTML", "CSS"],
     details: [],
     description: translation(

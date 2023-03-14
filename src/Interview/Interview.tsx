@@ -6,29 +6,33 @@ import { AppContext, AppVideoContext } from "../AppContext";
 // Types
 import { AppProviderContextTypes, AppVideosContextTypes, VideoProps } from "../types/types";
 
+// Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 // Components
 import { ContactsList } from "../components/Contacts";
+import { faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 export function Interview() {
   const { text }: AppProviderContextTypes = useContext(AppContext);
   const {
-    introMuted,
     isIntro,
+    introMuted,
     hasIntroEnded,
-    hasHelloEnded,
     introClickableMuted,
-    isResponding,
     videoTitleList,
     videoSrcList,
     isMutedList,
-    questionAsked,
+    hasHelloEnded,
+    isResponding,
   }: AppVideosContextTypes = useContext(AppVideoContext);
 
   return (
-    <div className="videos">
+    <div className="interview">
       <h1 dangerouslySetInnerHTML={{ __html: text("h1") }}></h1>
       <ContactsList classNameSuffix={"presentation"} />
-      <>
+
+      <div className="videosWrapper">
         {/* Videos intro */}
         <Video title={"intro"} src={"intro_carre"} isFirstVideo={true} isMuted={introMuted} />
         <Video title={"introClickable"} src={"intro_after_carre"} isMuted={introClickableMuted} />
@@ -48,28 +52,15 @@ export function Interview() {
             />
           );
         })}
-      </>
 
-      {isIntro && hasIntroEnded && (
-        <p className="interviewBtn">
-          {text("askMe")}
-          <br />
-          <small>({text("askMeSmall")})</small>
-        </p>
-      )}
-
-      {hasHelloEnded && !isResponding && (
-        <select defaultValue={""} onChange={(e) => questionAsked(e)}>
-          <option value={""}>{text("selectAQuestion")}</option>
-          {videoTitleList.map((title, index) => {
-            return (
-              <option key={index} value={title}>
-                {title}
-              </option>
-            );
-          })}
-        </select>
-      )}
+        {((isIntro && hasIntroEnded) || (hasHelloEnded && !isResponding)) && (
+          <p className="interviewBtn">
+            {hasHelloEnded ? text("howToAskMeAQuestion") : text("howToGetMyAttention")}
+            <br />
+            <small>({text("askMeSmall")})</small>
+          </p>
+        )}
+      </div>
     </div>
   );
 }
@@ -77,6 +68,8 @@ export function Interview() {
 function Video({ title, src, isFirstVideo, isMuted }: VideoProps) {
   const { language } = useContext(AppContext);
   const {
+    isMutedByUser,
+    setIsMutedByUser,
     videoSelected,
     setVideoSelected,
     isIntro,
@@ -87,6 +80,8 @@ function Video({ title, src, isFirstVideo, isMuted }: VideoProps) {
     setHasHelloEnded,
     isResponding,
     setIsResponding,
+    videoTitleList,
+    questionAsked,
   }: AppVideosContextTypes = useContext(AppVideoContext);
 
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
@@ -161,7 +156,7 @@ function Video({ title, src, isFirstVideo, isMuted }: VideoProps) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleHeaderObserver, { threshold: 0 });
-    const headerElement = document.querySelector(".videos") as HTMLDivElement;
+    const headerElement = document.querySelector(".videosWrapper") as HTMLDivElement;
 
     if (headerElement) {
       observer.observe(headerElement);
@@ -175,19 +170,37 @@ function Video({ title, src, isFirstVideo, isMuted }: VideoProps) {
   }, [handleHeaderObserver]);
 
   return (
-    <video
-      ref={videoRef}
-      autoPlay
-      muted={isMuted}
-      loop={title === "introClickable" || title === "waiting"}
-      onDoubleClick={() => getMyAttention && getMyAttention()}
-      onEnded={() => videoEnded()}
-      className={`video ${isFirstVideo ? "isFirstVideo" : ""} ${
-        isHeaderVisible ? "static" : "absolute"
-      } ${blockOrNone}`}
-    >
-      <source src={`public/videos/${src}_${language}.mp4`} type="video/mp4" />
-      La vidéo n'a pas pu se charger.
-    </video>
+    <div className={`videoWrapper ${blockOrNone} ${isHeaderVisible ? "static" : "fixed"}`}>
+      <video
+        ref={videoRef}
+        autoPlay
+        muted={isMutedByUser ? true : isMuted}
+        loop={title === "introClickable" || title === "waiting"}
+        onDoubleClick={() => title === "introClickable" && getMyAttention()}
+        onEnded={() => videoEnded()}
+        className={`video ${isFirstVideo ? "isFirstVideo" : ""}`}
+      >
+        <source src={`public/videos/${src}_${language}.mp4`} type="video/mp4" />
+        La vidéo n'a pas pu se charger.
+      </video>
+
+      <FontAwesomeIcon
+        icon={isMutedByUser ? faVolumeMute : faVolumeHigh}
+        className="volumeIcon"
+        onClick={() => setIsMutedByUser(!isMutedByUser)}
+      />
+
+      {hasHelloEnded && !isResponding && (
+        <ul className="questionList">
+          {videoTitleList.map((title, index) => {
+            return (
+              <li key={index} onClick={() => questionAsked(title)}>
+                {title}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
   );
 }

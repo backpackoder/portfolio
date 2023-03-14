@@ -31,6 +31,9 @@ export type AppProviderContextTypes = {
 
 export type AppVideosContextTypes = {
   // STATES
+  // Muted
+  isMutedByUser: boolean;
+  setIsMutedByUser: React.Dispatch<React.SetStateAction<boolean>>;
   // Intro
   intro: boolean;
   setIntro: React.Dispatch<React.SetStateAction<boolean>>;
@@ -87,7 +90,7 @@ export type AppVideosContextTypes = {
 
   // FUNCTIONS
   getMyAttention: () => void;
-  questionAsked: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  questionAsked: (title: string) => void;
 };
 
 // Types of component's props

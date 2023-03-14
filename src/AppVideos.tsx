@@ -7,6 +7,7 @@ export function AppVideos(props: object) {
   const { text }: { text: (text: string) => string } = useContext(AppContext);
 
   const [isFirstTime, setIsFirstTime] = useState(true);
+  const [isMutedByUser, setIsMutedByUser] = useState(false);
 
   // Videos states
   // Intro
@@ -87,11 +88,11 @@ export function AppVideos(props: object) {
     }, 10);
   }
 
-  function questionAsked(e: React.ChangeEvent<HTMLSelectElement>) {
-    if (e.target.value !== "") {
-      setVideoSelected(e.target.value);
-      setIsResponding(true);
-    }
+  function questionAsked(title: string) {
+    const findCityInFavs = videoTitleList.find((item) => item === title);
+
+    setVideoSelected(findCityInFavs ?? "waiting");
+    setIsResponding(true);
   }
 
   useEffect(() => {
@@ -100,24 +101,29 @@ export function AppVideos(props: object) {
     });
 
     allVideoTitleList.forEach((title, index) => {
-      if (title === videoSelected) {
-        setAllVideos[index](true);
-        if (isFirstTime) {
-          setIsFirstTime(false);
-        } else {
-          setInterval(() => {
-            setAllVideosMuted[index](false);
-          }, 10);
-        }
+      if (isMutedByUser) {
+        setAllVideosMuted[index](true);
       } else {
-        setAllVideos[index](false);
-        !isFirstTime && setAllVideosMuted[index](false);
+        if (title === videoSelected) {
+          setAllVideos[index](true);
+          if (isFirstTime) {
+            setIsFirstTime(false);
+          } else {
+            setAllVideosMuted[index](false);
+          }
+        } else {
+          setAllVideos[index](false);
+          !isFirstTime && setAllVideosMuted[index](false);
+        }
       }
     });
   }, [videoSelected]);
 
   const contextValue = {
     // STATES
+    // Muted
+    isMutedByUser,
+    setIsMutedByUser,
     // Intro
     intro,
     setIntro,

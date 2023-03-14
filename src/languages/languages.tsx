@@ -29,10 +29,15 @@ export const languages: Languages = {
     `Hello, I'm <span>${NAMES}</span>,<br />your future <span>${JOB.en}</span>.`,
     `Hola, soy <span>${NAMES}</span>,<br />su futuro <span>${JOB.es}</span>.`
   ),
-  askMe: translation(
-    "Double-clique sur ma tête pour attirer mon attention",
+  howToGetMyAttention: translation(
+    "Faites un double-clique sur ma tête pour attirer mon attention",
     "Double-click on my face to get my attention",
     "Haga doble clic en mi cabeza para llamar mi atención"
+  ),
+  howToAskMeAQuestion: translation(
+    "Survolez la video pour me poser des questions",
+    "Hover the video to ask me questions",
+    "Pase el mouse sobre el video para hacerme preguntas"
   ),
   askMeSmall: translation(
     "Je vous réponds en vidéo",

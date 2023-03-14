@@ -1,4 +1,4 @@
-.videos {
+.interview {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,29 @@
   animation: contactList 5s;
 }
 
+.videosWrapper {
+  position: relative;
+}
+
+.videoWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.videoWrapper.fixed {
+  position: fixed;
+  top: 75px;
+  left: 25px;
+}
+.videoWrapper.fixed video {
+  min-width: 75px;
+  max-width: 25vw;
+  max-height: 25vh;
+}
+.videoWrapper.none {
+  display: none;
+}
+
 .video {
   min-width: 200px;
   max-width: 50vw;
@@ -25,27 +48,60 @@
 .video.none {
   display: none;
 }
-.video.isFirstVideo.absolute {
-  animation: videoSmall 1s;
+
+.volumeIcon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 }
-.video.absolute {
-  position: fixed;
-  top: 75px;
-  left: 25px;
-  min-width: 75px;
-  max-width: 25vw;
-  max-height: 25vh;
+
+.questionList {
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  display: flex;
+  opacity: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(173, 216, 230, 0.5);
+  font-size: 0.9rem;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: auto;
+  transition: 0.25s;
+}
+.questionList:hover {
+  opacity: 1;
+}
+.questionList li {
+  display: flex;
+  align-items: center;
+  background-color: lightblue;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .interviewBtn {
   position: absolute;
   bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
   background-color: lightblue;
   font-size: 0.8rem;
   text-align: center;
   padding: 5px 10px;
   border-radius: 25px;
   animation: fadeIn 1s;
+}
+.videoWrapper.fixed .interviewBtn {
+  top: 100%;
+  bottom: auto;
 }
 
 /* Animations */
@@ -63,14 +119,6 @@
   }
   100% {
     transform: translateY(0);
-  }
-}
-@keyframes videoSmall {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 @keyframes contactList {
@@ -101,32 +149,4 @@
     opacity: 1;
     transform: translateY(0) rotateX(0deg);
   }
-}
-
-/* SELECT CHAT GPT */
-select {
-  /* width: 100%; */
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 4px;
-  background-color: #c6c6c6;
-  font-size: 16px;
-  color: #333;
-}
-
-select:focus {
-  outline: none;
-  border: 2px solid #06c;
-}
-
-option {
-  color: #333;
-  background-color: #f8f8f8;
-}
-
-option:hover {
-  background-color: #06c;
-  color: #fff;
 }

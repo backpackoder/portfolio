@@ -33,15 +33,16 @@ export function Experience({ setExperienceID }: ExperienceProps) {
                   to={getUrl(["experience", experience.title.toLowerCase()])}
                   onClick={() => setExperienceID(index)}
                 >
-                  <img src={experience.imgs[0]} alt={experience.title} className="banner" />
+                  <span>
+                    <img src={experience.imgs[0]} alt={experience.title} className="banner" />
 
-                  <h3>{experience.title}</h3>
-
-                  <small>
-                    {experience.time[language]} - {experience.team[language]}
-                  </small>
-                  <small>Type: {experience.type[language]}</small>
-                  <small>Theme: {experience.theme[language]}</small>
+                    <h3>{experience.title}</h3>
+                  </span>
+                  <ul>
+                    <li>{experience.team[language]}</li>
+                    <li>{experience.type[language]}</li>
+                    <li>{experience.theme[language]}</li>
+                  </ul>
                 </Link>
               </div>
             );
