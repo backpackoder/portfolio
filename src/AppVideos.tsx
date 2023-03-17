@@ -7,7 +7,7 @@ export function AppVideos(props: object) {
   const { text }: { text: (text: string) => string } = useContext(AppContext);
 
   const [isFirstTime, setIsFirstTime] = useState(true);
-  const [isMutedByUser, setIsMutedByUser] = useState(false);
+  const [muteBtn, setMuteBtn] = useState(false);
 
   // Videos states
   // Intro
@@ -101,7 +101,7 @@ export function AppVideos(props: object) {
     });
 
     allVideoTitleList.forEach((title, index) => {
-      if (isMutedByUser) {
+      if (muteBtn) {
         setAllVideosMuted[index](true);
       } else {
         if (title === videoSelected) {
@@ -121,9 +121,10 @@ export function AppVideos(props: object) {
 
   const contextValue = {
     // STATES
+    isFirstTime,
     // Muted
-    isMutedByUser,
-    setIsMutedByUser,
+    muteBtn,
+    setMuteBtn,
     // Intro
     intro,
     setIntro,

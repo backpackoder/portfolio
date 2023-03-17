@@ -1,0 +1,40 @@
+.experiences section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  justify-content: center;
+  gap: 25px;
+  margin: 25px auto;
+}
+.experiences section .item {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  max-width: 100%;
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px 0px rgb(0 0 0 / 25%);
+}
+.experiences section .item a {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 100%;
+}
+.experiences section .item .banner {
+  width: 100%;
+  border-radius: 10px;
+}
+.experiences section .item ul {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.experiences section .item li {
+  background-color: rgb(205, 227, 237);
+  padding: 5px;
+  border-radius: 5px;
+}

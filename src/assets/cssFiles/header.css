@@ -11,18 +11,22 @@ header {
 .parts {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   background-color: rgb(9, 9, 126);
 }
 .parts li {
-  /* width: 33%; */
-  max-width: 200px;
-  height: 100%;
+  display: flex;
+  align-items: center;
   padding: 10px;
   cursor: pointer;
 }
 .parts li:hover {
   background-color: rgb(7, 7, 103);
+}
+.parts li.active {
+  background-color: rgb(7, 7, 103);
+  color: gold;
+  border-bottom: solid;
 }
 
 .changeLanguage {

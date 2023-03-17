@@ -44,7 +44,7 @@ export const formationData: formationDataType = [
       l'authentification, la mémoire cache, et pour finir la mise en production et son deployement.<br />
       À la fin de la formation, j'ai commencé un projet en équipe pour avoir une éxperience de travail en entreprise.<br />
       Le projet s'appelle "Manganime" et vous pouvez le voir dans la partie "Projets" de mon portfolio.`,
-      conclusion: `Pour conclure, je suis très satisfait de ce que cette formation m'a apporté, et je la recommande donc
+      conclusion: `Je suis très satisfait de ce que cette formation m'a apporté, et je la recommande donc
       à tous ceux qui veulent devenir développeur React.`,
     },
   },
@@ -67,7 +67,7 @@ export const formationData: formationDataType = [
       Intrinsic String Manipulation Types, comment typer des appels d'API, etc...<br />
       Puis, nous avons vu les design patterns comme le singleton, le factory, le proxy, l'adapter, la facade, etc...<br />
       Pour finir, nous avons vu comment effectuer des tests avec TypeScript.`,
-      conclusion: `Pour conclure, je suis très satisfait de ce que cette formation m'a apporté car j'ai pu actualiser tous
+      conclusion: `Je suis très satisfait de ce que cette formation m'a apporté car j'ai pu actualiser tous
       mes anciens projets JavaScript en TypeScript, je la recommande donc à tous ceux qui veulent devenir bon avec TypeScript.`,
     },
   },
@@ -84,7 +84,8 @@ export const formationData: formationDataType = [
     rester à jour, et car personne ne sait tout à 100% d'un language donc des fois on ne sait
     pas comment résoudre un problème donc il faut savoir trouver les informations sur Internet
     afin de résoudre les problèmes rencontrés.`,
-      conclusion: "",
+      conclusion: `Je suis donc quelqu'un qui fait toujours des recherches sur Internet pour apprendre
+      et la veille technologique est très importante pour moi.`,
     },
   },
 ];

@@ -18,14 +18,17 @@ export function Formation() {
     <article ref={formationRef} className="formations">
       <h2>{ROUTE_FORMATION_LABEL[language]}</h2>
       {formationData.map((formation, index) => {
-        const { introduction } = formationData[index].description;
-        const { content } = formationData[index].description;
-        const { conclusion } = formationData[index].description;
+        const { introduction, content, conclusion } = formationData[index].description;
 
         return (
           <section key={index} className="formation">
             <h3>{formation.title}</h3>
-            <small>Date: {formation.time}</small>
+            <small>
+              Année d'apprentissage: {formation.time} |{" "}
+              <a href={formation.url} target="_blank">
+                Lien vers la formation
+              </a>
+            </small>
             <img
               src={formation.image}
               alt={formation.title}
@@ -34,10 +37,10 @@ export function Formation() {
             />
             <p dangerouslySetInnerHTML={{ __html: introduction }}></p>
             <br />
-            {formation.url !== "" && <h4>Ce que nous avons appris:</h4>}
+            {formation.url !== "" && <p className="part">Ce que nous avons appris:</p>}
             <p dangerouslySetInnerHTML={{ __html: content }}></p>
             <br />
-            {formation.url !== "" && <h4>Pour conclure:</h4>}
+            {formation.url !== "" && <p className="part">Pour conclure:</p>}
             <p dangerouslySetInnerHTML={{ __html: conclusion }}></p>
           </section>
         );

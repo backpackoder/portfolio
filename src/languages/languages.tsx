@@ -29,15 +29,20 @@ export const languages: Languages = {
     `Hello, I'm <span>${NAMES}</span>,<br />your future <span>${JOB.en}</span>.`,
     `Hola, soy <span>${NAMES}</span>,<br />su futuro <span>${JOB.es}</span>.`
   ),
+  videoNotFound: translation(
+    "La vidéo n'a pas pu se charger.",
+    "The video could not be loaded.",
+    "El video no ha podido cargarse."
+  ),
   howToGetMyAttention: translation(
     "Faites un double-clique sur ma tête pour attirer mon attention",
     "Double-click on my face to get my attention",
     "Haga doble clic en mi cabeza para llamar mi atención"
   ),
   howToAskMeAQuestion: translation(
-    "Survolez la video pour me poser des questions",
-    "Hover the video to ask me questions",
-    "Pase el mouse sobre el video para hacerme preguntas"
+    "Cliquez sur le menu pour me poser des questions",
+    "Click on the menu to ask me questions",
+    "Haga clic en el menú para hacerme preguntas"
   ),
   askMeSmall: translation(
     "Je vous réponds en vidéo",
@@ -275,4 +280,15 @@ export const languages: Languages = {
     Así que aquí están unos adjetivos que me definen, depende de usted juzgar si lo toma como un activo o una debilidad.`
   ),
   hobbies: translation("🔥 Mes passions", "🔥 My hobbies", "🔥 Mis pasiones"),
+  websiteLink: translation("🌐 Lien du site", "🌐 Website link", "🌐 Enlace del sitio"),
+  gitHubLink: translation(
+    "📂 Lien du repository GitHub",
+    "📂 GitHub repository link",
+    "📂 Enlace del repositorio GitHub"
+  ),
+  type: translation("Type", "Type", "Tipo"),
+  theme: translation("Thème", "Theme", "Tema"),
+  stack: translation("Stack", "Stack", "Stack"),
+  skills: translation("Compétences", "Skills", "Habilidades"),
+  translatedIn: translation("Traduit en", "Translated in", "Traducido en"),
 };

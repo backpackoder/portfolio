@@ -42,66 +42,96 @@
   max-width: 50vw;
   max-height: 50vh;
   border-radius: 50%;
-  margin: 10px;
   cursor: pointer;
 }
 .video.none {
   display: none;
 }
 
+.volumeIcon,
+.questionIcon {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(173, 216, 230, 0.75);
+  padding: 5px;
+  border: solid 1px rgba(0, 0, 0, 0.125);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+}
 .volumeIcon {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  right: 0px;
+}
+.volumeIcon:hover,
+.questionIcon:hover {
+  background-color: rgb(173, 193, 230);
+}
+.questionIconWrapper {
+  position: absolute;
+  width: auto;
+  height: auto;
   cursor: pointer;
+  z-index: 100;
 }
 
 .questionList {
   position: absolute;
-  top: 0;
   left: 0;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  display: flex;
-  opacity: 0;
-  width: 100%;
+  display: none;
+  min-width: 100%;
+  max-width: 80vw;
   min-height: 100%;
-  background-color: rgba(173, 216, 230, 0.5);
+  background-color: rgba(173, 216, 230, 0.25);
   font-size: 0.9rem;
-  padding: 10px;
+  padding: 40px 10px 10px;
   border-radius: 10px;
   overflow: auto;
-  transition: 0.25s;
+  animation: fadeIn 0.25s ease-in-out;
+  z-index: 10;
 }
-.questionList:hover {
-  opacity: 1;
+.videoWrapper.fixed .questionList {
+  padding-top: 10px;
 }
+@media (hover: none) {
+  .videoWrapper.active .questionList {
+    display: flex;
+    z-index: 50;
+  }
+}
+@media (hover: hover) {
+  .videoWrapper:hover .questionList {
+    display: flex;
+    z-index: 50;
+  }
+}
+
 .questionList li {
   display: flex;
   align-items: center;
+  max-width: 100%;
   background-color: lightblue;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
 }
 
-.interviewBtn {
+.hint {
   position: absolute;
-  bottom: 15px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  background-color: lightblue;
+  background-color: rgba(173, 216, 230, 0.9);
   font-size: 0.8rem;
   text-align: center;
   padding: 5px 10px;
   border-radius: 25px;
   animation: fadeIn 1s;
-}
-.videoWrapper.fixed .interviewBtn {
-  top: 100%;
-  bottom: auto;
+  animation: flash 4s infinite alternate;
 }
 
 /* Animations */
@@ -111,6 +141,20 @@
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes upToDownVideos {

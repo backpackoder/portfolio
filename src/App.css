@@ -4,10 +4,10 @@
 
 @import "./assets/cssFiles/presentation.css";
 @import "./assets/cssFiles/formation.css";
+@import "./assets/cssFiles/experiences.css";
 @import "./assets/cssFiles/experience.css";
-@import "./assets/cssFiles/experienceDetailled.css";
 
 @import "./assets/cssFiles/footer.css";
 
 /* Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");

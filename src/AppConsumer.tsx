@@ -1,6 +1,5 @@
-import { useState } from "react";
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 // Commons
 import {
   ROUTE_EXPERIENCE,
@@ -13,14 +12,13 @@ import {
 import { Header } from "./components/Header";
 import { Presentation } from "./components/presentation/Presentation";
 import { Footer } from "./components/Footer";
-import { Experience } from "./components/experience/Experience";
+import { Experiences } from "./components/experience/Experiences";
 import { Formation } from "./components/formation/Formation";
-import { ExperienceDetailled } from "./components/experience/ExperienceDetailled";
-import { Interview } from "./Interview/Interview";
+import { Experience } from "./components/experience/Experience";
+import { Interview } from "./components/Interview/Interview";
+import { PageNotFound } from "./components/PageNotFound";
 
 export function AppConsumer() {
-  const [experienceID, setExperienceID] = useState(0);
-
   return (
     <>
       <Router>
@@ -32,16 +30,12 @@ export function AppConsumer() {
           <Routes>
             <Route path={ROUTE_PRESENTATION} element={<Presentation />} />
 
-            <Route
-              path={ROUTE_EXPERIENCE}
-              element={<Experience setExperienceID={setExperienceID} />}
-            />
-            <Route
-              path={ROUTE_EXPERIENCE_DETAILLED}
-              element={<ExperienceDetailled experienceID={experienceID} />}
-            />
+            <Route path={ROUTE_EXPERIENCE} element={<Experiences />} />
+            <Route path={ROUTE_EXPERIENCE_DETAILLED} element={<Experience />} />
 
             <Route path={ROUTE_FORMATION} element={<Formation />} />
+
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
 

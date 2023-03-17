@@ -1,16 +1,40 @@
-export interface LanguageStrings<T> {
-  fr: T;
-  en: T;
-  es: T;
+export interface LanguageStrings {
+  fr: string;
+  en: string;
+  es: string;
 }
-export type Part<T> = {
-  name: LanguageStrings<T>;
+export type Part = {
+  name: LanguageStrings;
   route: string;
 };
-export interface LanguageObject<T> {
-  [key: string]: LanguageStrings<T>;
+export interface LanguageObject {
+  [key: string]: LanguageStrings;
 }
 export type Iso = "fr" | "en" | "es";
+export interface ExperienceProps {
+  title: string;
+  imgs: string[];
+  url: string;
+  gitHub: string;
+  type: Experience_type[string];
+  theme: LanguageStrings;
+  time: LanguageStrings;
+  team: LanguageStrings;
+  stack: string[];
+  details: string[];
+  description: LanguageStrings;
+  translation: {
+    translation: LanguageStrings;
+    iso: "fr" | "gb" | "es";
+  }[];
+}
+export type Experience_type = {
+  [key: string]: {
+    fr: "Site vitrine" | "Site E-commerce" | "Site web" | "Application mobile" | "Challenges";
+    en: "Showcase site" | "E-commerce" | "Website" | "Mobile app" | "Challenges";
+    es: "Sitio de exhibición" | "E-commerce" | "Sitio web" | "Aplicación móvil" | "Desafíos";
+  };
+};
 
 // Contexts types
 export type AppProviderContextTypes = {
@@ -18,7 +42,8 @@ export type AppProviderContextTypes = {
   aboutRef: React.RefObject<HTMLDivElement>;
   experienceRef: React.RefObject<HTMLDivElement>;
   formationRef: React.RefObject<HTMLDivElement>;
-  refList: React.RefObject<HTMLDivElement>[];
+  refList: React.MutableRefObject<null>[];
+  // React.RefObject<HTMLDivElement>[];
 
   // States
   language: Iso;
@@ -31,9 +56,10 @@ export type AppProviderContextTypes = {
 
 export type AppVideosContextTypes = {
   // STATES
+  isFirstTime: boolean;
   // Muted
-  isMutedByUser: boolean;
-  setIsMutedByUser: React.Dispatch<React.SetStateAction<boolean>>;
+  muteBtn: boolean;
+  setMuteBtn: React.Dispatch<React.SetStateAction<boolean>>;
   // Intro
   intro: boolean;
   setIntro: React.Dispatch<React.SetStateAction<boolean>>;
@@ -97,7 +123,6 @@ export type AppVideosContextTypes = {
 export type VideoProps = {
   title: string;
   src: string;
-  isFirstVideo?: boolean;
   isMuted: boolean;
 };
 

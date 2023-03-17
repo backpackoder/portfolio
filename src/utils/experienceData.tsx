@@ -11,37 +11,15 @@ import {
   PROJECT_MY_PORTFOLIO_GITHUB_URL,
   PROJECT_MY_PORTFOLIO_URL,
 } from "../commons/commons";
+
+// Languages
 import { translation } from "../languages/languages";
-import { LanguageStrings } from "../types/types";
 
-interface Experience {
-  title: string;
-  imgs: string[];
-  url: string;
-  gitHub: string;
-  type: Experience_type[string];
-  theme: LanguageStrings<string>;
-  time: LanguageStrings<string>;
-  team: LanguageStrings<string>;
-  stack: Stack[];
-  details: string[];
-  description: LanguageStrings<string>;
-  translation: {
-    translation: LanguageStrings<string>;
-    iso: "fr" | "gb" | "es";
-  }[];
-}
+// Utils
+import { myStacks } from "./myStacks";
 
-type Experience_type = {
-  [key: string]: {
-    fr: "Site vitrine" | "Site E-commerce" | "Site web" | "Application mobile" | "Challenges";
-    en: "Showcase site" | "E-commerce" | "Website" | "Mobile app" | "Challenges";
-    es: "Sitio de exhibición" | "E-commerce" | "Sitio web" | "Aplicación móvil" | "Desafíos";
-  };
-};
-
-type Stack = "HTML" | "CSS" | "JavaScript" | "TypeScript" | "React";
-// type Team = "En solo" | "En équipe" | "Solo" | "In a team" | "En solitario" | "En equipo";
+// Types
+import { ExperienceProps, Experience_type } from "../types/types";
 
 const experience_type: Experience_type = {
   showcase_site: { fr: "Site vitrine", en: "Showcase site", es: "Sitio de exhibición" },
@@ -51,21 +29,23 @@ const experience_type: Experience_type = {
   challenges: { fr: "Challenges", en: "Challenges", es: "Desafíos" },
 };
 
-export const experienceData: Experience[] = [
+const reactImg = myStacks[0].img;
+const TSImg = myStacks[1].img;
+const JSImg = myStacks[2].img;
+const HTMLImg = myStacks[3].img;
+const CSSImg = myStacks[4].img;
+
+export const experienceData: ExperienceProps[] = [
   {
     title: "Manganime",
     imgs: ["public/imgs/Manganime - infos.png"],
     url: PROJECT_MANGANIME_URL,
     gitHub: PROJECT_MANGANIME_GITHUB_URL,
     type: experience_type.website,
-    theme: translation(
-      "Loisirs et divertissements",
-      "Leisure and entertainment",
-      "Ocio y entretenimiento"
-    ),
+    theme: translation("Cinématographie", "Cinematography", "Cine"),
     time: translation("Janvier 2023", "January 2023", "Enero 2023"),
     team: translation("En équipe", "In a team", "En equipo"),
-    stack: ["React", "JavaScript", "HTML", "CSS"],
+    stack: [reactImg, JSImg, HTMLImg, CSSImg],
     details: ["API", "GraphQL", "Material-UI", "React-Query", "React-Router"],
     description: translation(
       `Dans un groupe de 4 développeurs, nous avons créé un site web qui permet de rechercher des
@@ -108,10 +88,10 @@ export const experienceData: Experience[] = [
     url: PROJECT_AU_VERGER_URL,
     gitHub: PROJECT_AU_VERGER_GITHUB_URL,
     type: experience_type.showcase_site,
-    theme: translation("Météorologie", "Meteorology", "Meteorología"),
+    theme: translation("Immobilier", "Real estate", "Bienes raíces"),
     time: translation("2022", "2022", "2022"),
     team: translation("En solo", "Solo", "En solitario"),
-    stack: ["React", "TypeScript", "HTML", "CSS"],
+    stack: [reactImg, TSImg, HTMLImg, CSSImg],
     details: ["Responsive", "Mobile first", "API"],
     description: translation(
       `J'ai créé un site vitrine pour une chambre d'hôte sur Booking.com située dans le 06.
@@ -137,10 +117,10 @@ export const experienceData: Experience[] = [
     url: PROJECT_DRESSLY_URL,
     gitHub: PROJECT_DRESSLY_GITHUB_URL,
     type: experience_type.website,
-    theme: translation("Immobilier", "Real estate", "Bienes raíces"),
+    theme: translation("Météorologie", "Meteorology", "Meteorología"),
     time: translation("2022", "2022", "2022"),
     team: translation("En solo", "Solo", "En solitario"),
-    stack: ["React", "TypeScript", "HTML", "CSS"],
+    stack: [reactImg, TSImg, HTMLImg, CSSImg],
     details: ["API", "Material-UI", "React-Query", "React-Router", "Local Storage"],
     description: translation(
       `J'ai créé un site qui annonce la météo du jour et de la semaine partout sur terre.
@@ -162,7 +142,7 @@ export const experienceData: Experience[] = [
     theme: translation("Challenges", "Challenges", "Desafíos"),
     time: translation("2022", "2022", "2022"),
     team: translation("En solo", "Solo", "En solitario"),
-    stack: ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
+    stack: [reactImg, TSImg, JSImg, HTMLImg, CSSImg],
     details: ["Responsive", "Mobile first"],
     description: translation(
       `J'ai réussi plusieurs challenges au fil du temps sur le site Frontend Mentor.
@@ -182,7 +162,7 @@ export const experienceData: Experience[] = [
     theme: translation("Professionnel", "Professional", "Profesional"),
     time: translation("2023", "2023", "2023"),
     team: translation("En solo", "Solo", "En solitario"),
-    stack: ["React", "TypeScript", "HTML", "CSS"],
+    stack: [reactImg, TSImg, HTMLImg, CSSImg],
     details: [],
     description: translation(
       `J'ai créé Mon portfolio pour présenter mes projets et mes compétences.

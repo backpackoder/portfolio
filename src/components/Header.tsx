@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Context
@@ -12,21 +12,21 @@ import { parts } from "../utils/parts";
 import { languageBtn } from "../utils/languageBtns";
 
 // Types
-import { Iso, Part } from "../types/types";
+import { AppProviderContextTypes, Iso, Part } from "../types/types";
 
 export function Header() {
-  const {
-    refList,
-    language,
-    changeLanguage,
-  }: {
-    refList: React.MutableRefObject<null>[];
-    language: Iso;
-    changeLanguage: (language: Iso) => void;
-  } = useContext(AppContext);
   const navigate = useNavigate();
 
+  const { refList, language, changeLanguage }: AppProviderContextTypes = useContext(AppContext);
+
+  const [activeIndex, setActiveIndex] = useState<number>(-1);
   const [openLanguageList, setOpenLanguageList] = useState(false);
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const index = parts.findIndex((part) => part.route === currentPath);
+    setActiveIndex(index);
+  }, [location.pathname]);
 
   function handleLanguage(language: Iso) {
     changeLanguage(language);
@@ -60,11 +60,13 @@ export function Header() {
   return (
     <header>
       <ul className="parts">
-        {parts.map((part: Part<string>, index) => {
+        {parts.map((part: Part, index) => {
+          const isActive = index === activeIndex;
           return (
             <li
               ref={refList[index]}
               key={index}
+              className={isActive ? "active" : ""}
               onClick={() => changePart(part.route, refList[index])}
             >
               {part.name[language]}
