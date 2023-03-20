@@ -1,45 +1,29 @@
+import { faListSquares, faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
+
 import { useCallback, useContext, useEffect, useState } from "react";
 
 // Context
 import { AppContext, AppVideoContext } from "../../AppContext";
 
 // Types
-import { AppProviderContextTypes, AppVideosContextTypes, VideoProps } from "../../types/types";
+import { AppProviderContextTypes, AppVideosContextTypes } from "../../types/types";
 
 // Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Components
 import { ContactsList } from "../Contacts";
-import {
-  faCircleQuestion,
-  faList,
-  faList12,
-  faListAlt,
-  faListCheck,
-  faListSquares,
-  faQuestion,
-  faQuestionCircle,
-  faRectangleList,
-  faTableList,
-  faThList,
-  faVolumeHigh,
-  faVolumeMute,
-} from "@fortawesome/free-solid-svg-icons";
 
 export function Interview() {
   const { text }: AppProviderContextTypes = useContext(AppContext);
-  const {
-    isIntro,
-    introMuted,
-    hasIntroEnded,
-    introClickableMuted,
-    videoTitleList,
-    videoSrcList,
-    isMutedList,
-    hasHelloEnded,
-    isResponding,
-  }: AppVideosContextTypes = useContext(AppVideoContext);
+  const { state }: AppVideosContextTypes = useContext(AppVideoContext);
+
+  const questionsTitle = [
+    state.videos.questions.presentation.title,
+    state.videos.questions.stacks.title,
+    state.videos.questions.formation.title,
+    state.videos.questions.experience.title,
+  ];
 
   return (
     <div className="interview">
@@ -47,28 +31,24 @@ export function Interview() {
 
       <div className="videosWrapper">
         {/* Videos intro */}
-        <Video title={"intro"} src={"intro_carre"} isMuted={introMuted} />
-        <Video title={"introClickable"} src={"intro_after_carre"} isMuted={introClickableMuted} />
+        <Video title={state.videos.intro.cannot_click.title} />
+        <Video title={state.videos.intro.can_click.title} />
 
         {/* Videos paying attention */}
-        <Video title={"hello"} src={"bjr_attente_carre"} isMuted={introClickableMuted} />
-        <Video title={"waiting"} src={"waiting_carre"} isMuted={introClickableMuted} />
+        <Video title={state.videos.pay_attention.cannot_click.title} />
+        <Video title={state.videos.pay_attention.can_click.title} />
 
         {/* Videos questions */}
-        {videoTitleList.map((title, index) => {
-          return (
-            <Video
-              key={index}
-              title={title}
-              src={videoSrcList[index]}
-              isMuted={isMutedList[index]}
-            />
-          );
+        {questionsTitle.map((title, index) => {
+          return <Video key={index} title={title} />;
         })}
 
-        {((isIntro && hasIntroEnded) || (hasHelloEnded && !isResponding)) && (
+        {((state.conditions.isIntroPlaying && state.conditions.isIntroClickable) ||
+          (state.conditions.hasHelloEnded && !state.conditions.isResponding)) && (
           <p className="hint">
-            {hasHelloEnded ? text("howToAskMeAQuestion") : text("howToGetMyAttention")}
+            {state.conditions.hasHelloEnded
+              ? text("howToAskMeAQuestion")
+              : text("howToGetMyAttention")}
             <br />
             <small>({text("askMeSmall")})</small>
           </p>
@@ -80,42 +60,38 @@ export function Interview() {
   );
 }
 
-function Video({ title, src, isMuted }: VideoProps) {
-  const { language, text }: AppProviderContextTypes = useContext(AppContext);
+function Video({ title }: { title: string }) {
+  const { text }: AppProviderContextTypes = useContext(AppContext);
+  const { state, dispatch }: AppVideosContextTypes = useContext(AppVideoContext);
+
+  const { videoPlaying } = state;
   const {
     muteBtn,
-    setMuteBtn,
-    videoSelected,
-    setVideoSelected,
-    isIntro,
-    getMyAttention,
-    hasIntroEnded,
-    setHasIntroEnded,
+    isIntroPlaying,
+    isIntroClickable,
     hasHelloEnded,
-    setHasHelloEnded,
+    isPayingAttention,
     isResponding,
-    setIsResponding,
-    videoTitleList,
-    questionAsked,
-  }: AppVideosContextTypes = useContext(AppVideoContext);
+  } = state.conditions;
+  const { questions } = state.videos;
 
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isQuestionListVisible, setIsQuestionListVisible] = useState(false);
 
-  const blockOrNone = isIntro
+  const blockOrNone = isIntroPlaying
     ? title === "intro" || title === "introClickable"
       ? title === "intro"
-        ? hasIntroEnded
+        ? isIntroClickable
           ? "none"
           : "block"
         : title === "introClickable"
-        ? hasIntroEnded
+        ? isIntroClickable
           ? "block"
           : "none"
         : "none"
       : "none"
-    : title !== "intro" && title !== "introClickable"
+    : isPayingAttention
     ? title === "hello"
       ? hasHelloEnded
         ? "none"
@@ -124,7 +100,7 @@ function Video({ title, src, isMuted }: VideoProps) {
       ? hasHelloEnded && !isResponding
         ? "block"
         : "none"
-      : isResponding && title === videoSelected
+      : isResponding && title === videoPlaying
       ? "block"
       : "none"
     : "none";
@@ -134,29 +110,18 @@ function Video({ title, src, isMuted }: VideoProps) {
   }
 
   function videoEnded() {
-    if (isIntro) {
-      introEnded();
+    if (title === "intro") {
+      dispatch({ type: "introBecomesClickable" });
+    } else if (title === "hello") {
+      dispatch({ type: "helloEnded" });
     } else if (isResponding) {
-      questionEnded();
-    } else {
-      helloEnded();
+      dispatch({ type: "questionEnded" });
     }
-  }
-  function introEnded() {
-    setHasIntroEnded && setHasIntroEnded(true);
-  }
-  function helloEnded() {
-    setHasHelloEnded && setHasHelloEnded(true);
-    setVideoSelected("waiting");
-  }
-  function questionEnded() {
-    setIsResponding && setIsResponding(false);
-    setVideoSelected("waiting");
   }
 
   function resetVideo() {
     if (videoElement) {
-      videoSelected === title ? videoElement.play() : videoElement.pause();
+      state.videoPlaying === title ? videoElement.play() : videoElement.pause();
       videoElement.currentTime = 0;
     }
   }
@@ -168,7 +133,7 @@ function Video({ title, src, isMuted }: VideoProps) {
 
   useEffect(() => {
     resetVideo();
-  }, [videoSelected]);
+  }, [state.videoPlaying]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleHeaderObserver, { threshold: 0 });
@@ -185,6 +150,11 @@ function Video({ title, src, isMuted }: VideoProps) {
     };
   }, [handleHeaderObserver]);
 
+  console.log("Object.keys(questions)", Object.keys(questions));
+  Object.keys(questions).forEach((question) => {
+    console.log("question", question);
+  });
+
   return (
     <div
       className={`videoWrapper ${blockOrNone} ${isHeaderVisible ? "static" : "fixed"} ${
@@ -194,21 +164,21 @@ function Video({ title, src, isMuted }: VideoProps) {
       <video
         ref={videoRef}
         autoPlay
-        muted={muteBtn ? true : isMuted}
+        muted={muteBtn ? true : false}
         loop={title === "introClickable" || title === "waiting"}
-        onDoubleClick={() => title === "introClickable" && getMyAttention()}
-        onTouchEnd={() => title === "introClickable" && getMyAttention()}
+        onDoubleClick={() => title === "introClickable" && dispatch({ type: "getMyAttention" })}
+        onTouchEnd={() => title === "introClickable" && dispatch({ type: "getMyAttention" })}
         onEnded={() => videoEnded()}
         className="video"
       >
-        <source src={`public/videos/${src}_${language}.mp4`} type="video/mp4" />
+        <source src={`../videos/${title}.mp4`} type="video/mp4" />
         {text("videoNotFound")}
       </video>
 
       <FontAwesomeIcon
         icon={muteBtn ? faVolumeMute : faVolumeHigh}
         className="volumeIcon"
-        onClick={() => setMuteBtn(!muteBtn)}
+        onClick={() => dispatch({ type: "volumeIconClicked", switchBoolean: !muteBtn })}
       />
 
       {hasHelloEnded && !isResponding && (
@@ -223,10 +193,16 @@ function Video({ title, src, isMuted }: VideoProps) {
             className="questionList"
             onClick={() => setIsQuestionListVisible(!isQuestionListVisible)}
           >
-            {videoTitleList.map((title, index) => {
+            {Object.keys(questions).map((key, index) => {
+              // const a = Object.keys(questions).map((key) => questions[key].question);
               return (
-                <li key={index} onClick={() => questionAsked(title)}>
-                  {title}
+                <li
+                  key={index}
+                  onClick={() =>
+                    dispatch({ type: "questionPlayed", payload: questions[key].title })
+                  }
+                >
+                  {questions[key].question}
                 </li>
               );
             })}
