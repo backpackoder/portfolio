@@ -1,3 +1,11 @@
+export type Languages = {
+  [key: string]: {
+    fr: string;
+    en: string;
+    es: string;
+  };
+};
+
 export interface LanguageStrings {
   fr: string;
   en: string;
@@ -96,19 +104,19 @@ export type initialStatesProps = {
     questions: {
       presentation: {
         title: string;
-        question: string;
+        question: LanguageStrings;
       };
       stacks: {
         title: string;
-        question: string;
+        question: LanguageStrings;
       };
       formation: {
         title: string;
-        question: string;
+        question: LanguageStrings;
       };
       experience: {
         title: string;
-        question: string;
+        question: LanguageStrings;
       };
     };
   };

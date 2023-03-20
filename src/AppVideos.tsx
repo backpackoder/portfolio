@@ -1,7 +1,7 @@
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useReducer } from "react";
+import { AppContext, AppVideoContext } from "./AppContext";
 
 // Context
-import { AppContext, AppVideoContext } from "./AppContext";
 import { initialStatesProps } from "./types/types";
 
 export function AppVideos(props: object) {
@@ -49,19 +49,35 @@ export function AppVideos(props: object) {
       questions: {
         presentation: {
           title: "presentation",
-          question: text("questionAboutPresentation"),
+          question: {
+            fr: "Présente-toi en quelques mots.",
+            en: "Introduce yourself in a few words.",
+            es: "Presentate en pocas palabras.",
+          },
         },
         stacks: {
           title: "stacks",
-          question: text("questionAboutStack"),
+          question: {
+            fr: "Quelles sont tes compétences ?",
+            en: "What are your skills ?",
+            es: "¿Cuáles son tus habilidades?",
+          },
         },
         formation: {
           title: "formation",
-          question: text("questionAboutFormation"),
+          question: {
+            fr: "Comment t'es-tu formé ?",
+            en: "How did you get trained ?",
+            es: "¿Cómo te formaste?",
+          },
         },
         experience: {
           title: "experience",
-          question: text("questionAboutExperience"),
+          question: {
+            fr: "Quelle est ton expérience ?",
+            en: "What is your experience ?",
+            es: "¿Cuál es tu experiencia?",
+          },
         },
       },
     },

@@ -61,7 +61,7 @@ export function Interview() {
 }
 
 function Video({ title }: { title: string }) {
-  const { text }: AppProviderContextTypes = useContext(AppContext);
+  const { language, text }: AppProviderContextTypes = useContext(AppContext);
   const { state, dispatch }: AppVideosContextTypes = useContext(AppVideoContext);
 
   const { videoPlaying } = state;
@@ -91,18 +91,16 @@ function Video({ title }: { title: string }) {
           : "none"
         : "none"
       : "none"
-    : isPayingAttention
-    ? title === "hello"
-      ? hasHelloEnded
-        ? "none"
-        : "block"
-      : title === "waiting"
-      ? hasHelloEnded && !isResponding
-        ? "block"
-        : "none"
-      : isResponding && title === videoPlaying
+    : title === "hello"
+    ? hasHelloEnded
+      ? "none"
+      : "block"
+    : title === "waiting"
+    ? hasHelloEnded && !isResponding
       ? "block"
       : "none"
+    : isResponding && title === videoPlaying
+    ? "block"
     : "none";
 
   function videoRef(element: HTMLVideoElement) {
@@ -150,11 +148,6 @@ function Video({ title }: { title: string }) {
     };
   }, [handleHeaderObserver]);
 
-  console.log("Object.keys(questions)", Object.keys(questions));
-  Object.keys(questions).forEach((question) => {
-    console.log("question", question);
-  });
-
   return (
     <div
       className={`videoWrapper ${blockOrNone} ${isHeaderVisible ? "static" : "fixed"} ${
@@ -194,7 +187,6 @@ function Video({ title }: { title: string }) {
             onClick={() => setIsQuestionListVisible(!isQuestionListVisible)}
           >
             {Object.keys(questions).map((key, index) => {
-              // const a = Object.keys(questions).map((key) => questions[key].question);
               return (
                 <li
                   key={index}
@@ -202,7 +194,7 @@ function Video({ title }: { title: string }) {
                     dispatch({ type: "questionPlayed", payload: questions[key].title })
                   }
                 >
-                  {questions[key].question}
+                  {questions[key].question[language]}
                 </li>
               );
             })}

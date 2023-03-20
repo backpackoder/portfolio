@@ -1,3 +1,6 @@
+// Types
+import { Languages } from "../types/types";
+
 export function translation(fr: string, en: string, es: string) {
   return {
     fr,
@@ -14,14 +17,6 @@ export const JOB = translation(
   "Front-end web developer",
   "Desarrollador web front-end"
 );
-
-type Languages = {
-  [key: string]: {
-    fr: string;
-    en: string;
-    es: string;
-  };
-};
 
 export const languages: Languages = {
   h1: translation(
@@ -55,9 +50,9 @@ export const languages: Languages = {
     "Seleccione una pregunta"
   ),
   questionAboutPresentation: translation(
-    "Présente-toi en quelques mots",
-    "Introduce yourself in a few words",
-    "Presentate en pocas palabras"
+    "Présente-toi en quelques mots.",
+    "Introduce yourself in a few words.",
+    "Presentate en pocas palabras."
   ),
   questionAboutStack: translation(
     "Quelles sont tes compétences ?",
@@ -78,11 +73,6 @@ export const languages: Languages = {
     "Quels sont tes hobbies ?",
     "What are your hobbies ?",
     "¿Cuáles son tus hobbies?"
-  ),
-  questionAboutContact: translation(
-    "Comment me contacter",
-    "How to contact me",
-    "Cómo contactarme"
   ),
   stacks: translation("🛠️ Mes stacks", "🛠️ My stacks", "🛠️ Mis stacks"),
   informations: translation("📝 Mes informations", "📝 My informations", "📝 Mis informaciones"),
