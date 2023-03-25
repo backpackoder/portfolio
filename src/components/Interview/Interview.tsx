@@ -17,12 +17,14 @@ import { Info } from "../info/Info";
 export function Interview() {
   const { changeInfo, setChangeInfo, text }: AppProviderContextTypes = useContext(AppContext);
   const { state }: AppVideosContextTypes = useContext(AppVideoContext);
+  const { videos } = state;
 
+  const { intro, pay_attention, questions } = videos;
   const questionsTitle = [
-    state.videos.questions.presentation.title,
-    state.videos.questions.stacks.title,
-    state.videos.questions.formation.title,
-    state.videos.questions.experience.title,
+    questions.presentation.title,
+    questions.stacks.title,
+    questions.formation.title,
+    questions.experience.title,
   ];
 
   useEffect(() => {
@@ -38,12 +40,12 @@ export function Interview() {
           <div className="letInterviewAtSameHeight"></div>
 
           {/* Videos intro */}
-          <Video title={state.videos.intro.cannot_click.title} />
-          <Video title={state.videos.intro.can_click.title} />
+          <Video title={intro.cannot_click.title} />
+          <Video title={intro.can_click.title} />
 
           {/* Videos paying attention */}
-          <Video title={state.videos.pay_attention.cannot_click.title} />
-          <Video title={state.videos.pay_attention.can_click.title} />
+          <Video title={pay_attention.cannot_click.title} />
+          <Video title={pay_attention.can_click.title} />
 
           {/* Videos questions */}
           {questionsTitle.map((title, index) => {
@@ -187,6 +189,7 @@ function Video({ title }: { title: string }) {
           >
             <FontAwesomeIcon icon={faListSquares} className="questionIcon" />
           </div>
+
           <ul
             className="questionList"
             onClick={() => setIsQuestionListVisible(!isQuestionListVisible)}
