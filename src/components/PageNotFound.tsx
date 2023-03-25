@@ -12,6 +12,7 @@ export function PageNotFound() {
   return (
     <div>
       <p>{text("pageNotFound")}</p>
+      <p>Cliquez sur une partie du menu en haut de la page pour retrouver votre chemin.</p>
     </div>
   );
 }
