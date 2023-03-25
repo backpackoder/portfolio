@@ -77,12 +77,12 @@ function Video({ title }: { title: string }) {
   const [isQuestionListVisible, setIsQuestionListVisible] = useState(false);
 
   const blockOrNone = isIntroPlaying
-    ? title === "intro" || title === "introClickable"
+    ? title === "intro" || title === "clickable"
       ? title === "intro"
         ? isIntroClickable
           ? "none"
           : "block"
-        : title === "introClickable"
+        : title === "clickable"
         ? isIntroClickable
           ? "block"
           : "none"
@@ -155,9 +155,9 @@ function Video({ title }: { title: string }) {
         ref={videoRef}
         autoPlay
         muted={muteBtn ? true : false}
-        loop={title === "introClickable" || title === "waiting"}
-        onDoubleClick={() => title === "introClickable" && dispatch({ type: "getMyAttention" })}
-        onTouchEnd={() => title === "introClickable" && dispatch({ type: "getMyAttention" })}
+        loop={title === "clickable" || title === "waiting"}
+        onDoubleClick={() => title === "clickable" && dispatch({ type: "getMyAttention" })}
+        onTouchEnd={() => title === "clickable" && dispatch({ type: "getMyAttention" })}
         onEnded={() => videoEnded()}
         className="video"
       >

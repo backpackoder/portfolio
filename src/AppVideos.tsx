@@ -29,7 +29,7 @@ export function AppVideos(props: object) {
           title: "intro",
         },
         can_click: {
-          title: "introClickable",
+          title: "clickable",
         },
       },
       // Paying attention
@@ -99,7 +99,7 @@ export function AppVideos(props: object) {
       case "introBecomesClickable":
         return {
           ...state,
-          videoPlaying: "introClickable",
+          videoPlaying: "clickable",
           conditions: { ...state.conditions, muteBtn: false, isIntroClickable: true },
         };
       case "getMyAttention":
