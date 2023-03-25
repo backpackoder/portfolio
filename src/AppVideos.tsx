@@ -1,19 +1,15 @@
-import { useContext, useReducer } from "react";
-import { AppContext, AppVideoContext } from "./AppContext";
+import { useReducer } from "react";
 
 // Context
+import { AppVideoContext } from "./AppContext";
+
+// Languages
+import { translation } from "./languages/languages";
+
+// Types
 import { initialStatesProps } from "./types/types";
 
 export function AppVideos(props: object) {
-  const { text }: { text: (text: string) => string } = useContext(AppContext);
-
-  const videoTitleList = [
-    text("questionAboutPresentation"),
-    text("questionAboutStack"),
-    text("questionAboutFormation"),
-    text("questionAboutExperience"),
-  ];
-
   const initialState: initialStatesProps = {
     videoPlaying: "intro",
 
@@ -49,35 +45,35 @@ export function AppVideos(props: object) {
       questions: {
         presentation: {
           title: "presentation",
-          question: {
-            fr: "Présente-toi en quelques mots.",
-            en: "Introduce yourself in a few words.",
-            es: "Presentate en pocas palabras.",
-          },
+          question: translation(
+            "Présente-toi en quelques mots.",
+            "Introduce yourself in a few words.",
+            "Presentate en pocas palabras."
+          ),
         },
         stacks: {
           title: "stacks",
-          question: {
-            fr: "Quelles sont tes compétences ?",
-            en: "What are your skills ?",
-            es: "¿Cuáles son tus habilidades?",
-          },
+          question: translation(
+            "Quelles sont tes compétences ?",
+            "What are your skills ?",
+            "¿Cuáles son tus habilidades?"
+          ),
         },
         formation: {
           title: "formation",
-          question: {
-            fr: "Comment t'es-tu formé ?",
-            en: "How did you get trained ?",
-            es: "¿Cómo te formaste?",
-          },
+          question: translation(
+            "Comment t'es-tu formé ?",
+            "How did you get trained ?",
+            "¿Cómo te formaste?"
+          ),
         },
         experience: {
           title: "experience",
-          question: {
-            fr: "Quelle est ton expérience ?",
-            en: "What is your experience ?",
-            es: "¿Cuál es tu experiencia?",
-          },
+          question: translation(
+            "Quelle est ton expérience ?",
+            "What is your experience ?",
+            "¿Cuál es tu experiencia?"
+          ),
         },
       },
     },
@@ -87,7 +83,6 @@ export function AppVideos(props: object) {
     reducer,
     initialState
   );
-  console.log("state", state);
 
   function reducer(state: initialStatesProps, action: any): any {
     switch (action.type) {

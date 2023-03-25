@@ -47,17 +47,29 @@ export type Experience_type = {
 // Contexts types
 export type AppProviderContextTypes = {
   // Refs
-  aboutRef: React.RefObject<HTMLDivElement>;
+  formRef: React.RefObject<HTMLDivElement>;
   experienceRef: React.RefObject<HTMLDivElement>;
   formationRef: React.RefObject<HTMLDivElement>;
   refList: React.MutableRefObject<null>[];
-  // React.RefObject<HTMLDivElement>[];
 
   // States
   language: Iso;
   setLanguage: (language: Iso) => void;
+  changeInfo: number;
+  setChangeInfo: React.Dispatch<React.SetStateAction<number>>;
+  isNextInfo: boolean;
+  setIsNextInfo: React.Dispatch<React.SetStateAction<boolean>>;
 
   // Functions
+  handleNextInfo: ({
+    isNext,
+    isArrow,
+    index,
+  }: {
+    isNext: boolean;
+    isArrow?: boolean;
+    index?: number;
+  }) => void;
   changeLanguage: (language: Iso) => void;
   text: (text: string) => string;
 };
@@ -69,6 +81,12 @@ export type AppVideosContextTypes = {
 
 // Types of component's props
 export type ContactsListProps = { classNameSuffix: string };
+
+export type withInfoProps = {
+  WrappedComponent: React.ComponentType<object>;
+  title: string;
+  emoji?: string;
+};
 
 // initialStatesProps
 export type initialStatesProps = {

@@ -1,18 +1,17 @@
 header {
   position: fixed;
   width: 100%;
-  background-color: rgb(7, 7, 148);
+  background-color: rgb(10, 10, 125);
   color: #fff;
   text-align: center;
-  z-index: 1;
   animation: upToDownHeader 2.5s ease-in-out;
+  z-index: 1;
 }
 
 .parts {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  background-color: rgb(9, 9, 126);
 }
 .parts li {
   display: flex;
@@ -21,12 +20,13 @@ header {
   cursor: pointer;
 }
 .parts li:hover {
-  background-color: rgb(7, 7, 103);
+  background-color: rgb(5, 5, 100);
 }
 .parts li.active {
-  background-color: rgb(7, 7, 103);
+  background-color: rgb(5, 5, 100);
   color: gold;
   border-bottom: solid;
+  transition: 0.5s;
 }
 
 .changeLanguage {

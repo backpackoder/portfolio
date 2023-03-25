@@ -2,8 +2,8 @@
 import { PSEUDO, translation } from "../languages/languages";
 
 // Routes
-export const ROUTE_PRESENTATION = "/";
-export const ROUTE_PRESENTATION_LABEL = translation("Je me présente", "About me", "Sobre mí");
+export const ROUTE_HOME = "/";
+export const ROUTE_HOME_LABEL = translation("Me contacter", "Contact me", "Contactarme");
 export const ROUTE_EXPERIENCE = "/experience";
 export const ROUTE_EXPERIENCE_LABEL = translation(
   "Mon expérience",

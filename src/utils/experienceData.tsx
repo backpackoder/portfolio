@@ -38,7 +38,7 @@ const CSSImg = myStacks[4].img;
 export const experienceData: ExperienceProps[] = [
   {
     title: "Manganime",
-    imgs: ["public/imgs/Manganime - infos.png"],
+    imgs: ["Manganime - infos.png"],
     url: PROJECT_MANGANIME_URL,
     gitHub: PROJECT_MANGANIME_GITHUB_URL,
     type: experience_type.website,
@@ -84,7 +84,7 @@ export const experienceData: ExperienceProps[] = [
   },
   {
     title: "Au verger",
-    imgs: ["public/imgs/Au verger - home page.jpg"],
+    imgs: ["Au verger - home page.jpg"],
     url: PROJECT_AU_VERGER_URL,
     gitHub: PROJECT_AU_VERGER_GITHUB_URL,
     type: experience_type.showcase_site,
@@ -113,7 +113,7 @@ export const experienceData: ExperienceProps[] = [
   },
   {
     title: "Dressly",
-    imgs: ["public/imgs/Dressly - Paris.jpg"],
+    imgs: ["Dressly - Paris.jpg"],
     url: PROJECT_DRESSLY_URL,
     gitHub: PROJECT_DRESSLY_GITHUB_URL,
     type: experience_type.website,
@@ -135,7 +135,7 @@ export const experienceData: ExperienceProps[] = [
   },
   {
     title: "Mes challenges Frontend Mentor",
-    imgs: ["public/imgs/ecommerce-product-page.png"],
+    imgs: ["ecommerce-product-page.png"],
     url: PROJECT_CHALLENGES_FRONTEND_MENTOR_URL,
     gitHub: PROJECT_CHALLENGES_FRONTEND_MENTOR_GITHUB_URL,
     type: experience_type.challenges,
@@ -155,7 +155,7 @@ export const experienceData: ExperienceProps[] = [
   },
   {
     title: "Mon portfolio",
-    imgs: ["public/imgs/Mon portfolio - home page.jpg"],
+    imgs: ["Mon portfolio - home page.jpg"],
     url: PROJECT_MY_PORTFOLIO_URL,
     gitHub: PROJECT_MY_PORTFOLIO_GITHUB_URL,
     type: experience_type.website,

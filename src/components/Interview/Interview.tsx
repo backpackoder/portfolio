@@ -1,5 +1,3 @@
-import { faListSquares, faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
-
 import { useCallback, useContext, useEffect, useState } from "react";
 
 // Context
@@ -10,12 +8,14 @@ import { AppProviderContextTypes, AppVideosContextTypes } from "../../types/type
 
 // Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faListSquares, faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import { ContactsList } from "../Contacts";
+import { Info } from "../info/Info";
 
 export function Interview() {
-  const { text }: AppProviderContextTypes = useContext(AppContext);
+  const { changeInfo, setChangeInfo, text }: AppProviderContextTypes = useContext(AppContext);
   const { state }: AppVideosContextTypes = useContext(AppVideoContext);
 
   const questionsTitle = [
@@ -25,38 +25,41 @@ export function Interview() {
     state.videos.questions.experience.title,
   ];
 
+  useEffect(() => {
+    setChangeInfo(changeInfo);
+  }, [changeInfo]);
+
   return (
-    <div className="interview">
+    <section className="header">
       <h1 dangerouslySetInnerHTML={{ __html: text("h1") }}></h1>
 
-      <div className="videosWrapper">
-        {/* Videos intro */}
-        <Video title={state.videos.intro.cannot_click.title} />
-        <Video title={state.videos.intro.can_click.title} />
+      <div className="mainContent">
+        <article className="interview">
+          <div className="letInterviewAtSameHeight"></div>
 
-        {/* Videos paying attention */}
-        <Video title={state.videos.pay_attention.cannot_click.title} />
-        <Video title={state.videos.pay_attention.can_click.title} />
+          {/* Videos intro */}
+          <Video title={state.videos.intro.cannot_click.title} />
+          <Video title={state.videos.intro.can_click.title} />
 
-        {/* Videos questions */}
-        {questionsTitle.map((title, index) => {
-          return <Video key={index} title={title} />;
-        })}
+          {/* Videos paying attention */}
+          <Video title={state.videos.pay_attention.cannot_click.title} />
+          <Video title={state.videos.pay_attention.can_click.title} />
 
-        {((state.conditions.isIntroPlaying && state.conditions.isIntroClickable) ||
-          (state.conditions.hasHelloEnded && !state.conditions.isResponding)) && (
-          <p className="hint">
-            {state.conditions.hasHelloEnded
-              ? text("howToAskMeAQuestion")
-              : text("howToGetMyAttention")}
-            <br />
-            <small>({text("askMeSmall")})</small>
-          </p>
-        )}
+          {/* Videos questions */}
+          {questionsTitle.map((title, index) => {
+            return <Video key={index} title={title} />;
+          })}
+        </article>
+
+        <Info />
       </div>
 
-      <ContactsList classNameSuffix={"presentation"} />
-    </div>
+      <ContactsList classNameSuffix={"info"} />
+
+      <a href="/thibaut-barbiera-CV.pdf" target="_blank" className="downloadMyCV">
+        {text("downloadMyCV")}
+      </a>
+    </section>
   );
 }
 
@@ -65,14 +68,8 @@ function Video({ title }: { title: string }) {
   const { state, dispatch }: AppVideosContextTypes = useContext(AppVideoContext);
 
   const { videoPlaying } = state;
-  const {
-    muteBtn,
-    isIntroPlaying,
-    isIntroClickable,
-    hasHelloEnded,
-    isPayingAttention,
-    isResponding,
-  } = state.conditions;
+  const { muteBtn, isIntroPlaying, isIntroClickable, hasHelloEnded, isResponding } =
+    state.conditions;
   const { questions } = state.videos;
 
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
@@ -135,7 +132,7 @@ function Video({ title }: { title: string }) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleHeaderObserver, { threshold: 0 });
-    const headerElement = document.querySelector(".videosWrapper") as HTMLDivElement;
+    const headerElement = document.querySelector(".interview") as HTMLDivElement;
 
     if (headerElement) {
       observer.observe(headerElement);
@@ -164,9 +161,17 @@ function Video({ title }: { title: string }) {
         onEnded={() => videoEnded()}
         className="video"
       >
-        <source src={`../videos/${title}.mp4`} type="video/mp4" />
+        <source src={`/${title}.mp4`} type="video/mp4" />
         {text("videoNotFound")}
       </video>
+
+      {((isIntroPlaying && isIntroClickable) || (hasHelloEnded && !isResponding)) && (
+        <p className="hint">
+          {hasHelloEnded ? text("howToAskMeAQuestion") : text("howToGetMyAttention")}
+          <br />
+          <small>({text("askMeSmall")})</small>
+        </p>
+      )}
 
       <FontAwesomeIcon
         icon={muteBtn ? faVolumeMute : faVolumeHigh}

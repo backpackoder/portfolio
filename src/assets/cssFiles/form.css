@@ -1,0 +1,46 @@
+.form p {
+  text-align: center;
+  margin: 25px auto;
+}
+.form form {
+  min-width: 300px;
+  width: 50%;
+  max-width: 600px;
+  background-color: lightcyan;
+  padding: 25px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px -3px;
+  margin: 0 auto;
+}
+.form form * {
+  display: block;
+  min-width: 100px;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.form form input,
+.form form textarea {
+  padding: 10px;
+  border: solid 2px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin: 2px auto 10px;
+}
+#message {
+  min-height: 200px;
+  padding: 5px;
+  line-height: 1.5;
+}
+
+.form button {
+  background-color: lightgreen;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+.form button:hover {
+  background-color: rgb(0, 235, 0);
+}
