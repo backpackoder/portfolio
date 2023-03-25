@@ -36,7 +36,7 @@
 
 .experience .properties {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 180px);
+  grid-template-columns: repeat(auto-fit, 180px);
   justify-items: center;
   justify-content: center;
   gap: 10px;

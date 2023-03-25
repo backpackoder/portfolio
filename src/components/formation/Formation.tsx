@@ -1,22 +1,26 @@
-// Hooks
 import { useContext } from "react";
+
+// Context
 import { AppContext } from "../../AppContext";
-import { ROUTE_FORMATION_LABEL } from "../../commons/commons";
+
+// Types
+import { AppProviderContextTypes } from "../../types/types";
+
+// Hooks
 import { openNewTab } from "../../hooks/openNewTab";
-import { Iso } from "../../types/types";
+
+// Commons
+import { ROUTE_FORMATION_LABEL } from "../../commons/commons";
 
 // Utils
 import { formationData } from "../../utils/formationData";
 
 export function Formation() {
-  const {
-    formationRef,
-    language,
-  }: { formationRef: React.RefObject<HTMLDivElement>; language: Iso } = useContext(AppContext);
+  const { formationRef, language, text }: AppProviderContextTypes = useContext(AppContext);
 
   return (
     <article ref={formationRef} className="formations">
-      <h2>{ROUTE_FORMATION_LABEL[language]}</h2>
+      <h2>🎓 {ROUTE_FORMATION_LABEL[language]}</h2>
       {formationData.map((formation, index) => {
         const { introduction, content, conclusion } = formationData[index].description;
 
@@ -24,9 +28,9 @@ export function Formation() {
           <section key={index} className="formation">
             <h3>{formation.title}</h3>
             <small>
-              Année d'apprentissage: {formation.time} |{" "}
+              {text("yearOfLearning")}: {formation.time} |{" "}
               <a href={formation.url} target="_blank">
-                Lien vers la formation
+                {text("formationLink")}
               </a>
             </small>
             <img
@@ -37,10 +41,10 @@ export function Formation() {
             />
             <p dangerouslySetInnerHTML={{ __html: introduction }}></p>
             <br />
-            {formation.url !== "" && <p className="part">Ce que nous avons appris:</p>}
+            {formation.url !== "" && <p className="part">{text("whatDidWeLearned")}:</p>}
             <p dangerouslySetInnerHTML={{ __html: content }}></p>
             <br />
-            {formation.url !== "" && <p className="part">Pour conclure:</p>}
+            {formation.url !== "" && <p className="part">{text("conclusion")}:</p>}
             <p dangerouslySetInnerHTML={{ __html: conclusion }}></p>
           </section>
         );

@@ -1,0 +1,157 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
+  width: 500px;
+  max-width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0px 8px -4px;
+  animation: fadeInAt50 3s;
+  overflow: hidden;
+}
+
+.info section.prev {
+  animation: prevInfo 1s;
+}
+.info section.next {
+  animation: nextInfo 1s;
+}
+.info h2 {
+  border-radius: 5px 5px 0 0;
+  margin: 0;
+}
+.info section p,
+.info section ul {
+  line-height: 2;
+  padding: 2px 5px;
+  margin: auto;
+}
+
+/* LISTS */
+/* CONTACT */
+.contactList-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 10px;
+  cursor: pointer;
+  animation: appearsAndScale 5s;
+}
+.contactList-info li:hover {
+  scale: 125%;
+  transition: 0.25s;
+}
+/* MAIN */
+.list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-align: center;
+}
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: rgb(235, 235, 235);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.list img {
+  width: 25px;
+  height: 25px;
+}
+/* LANGUAGE */
+.langages-list {
+  display: flex;
+  justify-content: center;
+}
+.langages-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+/* NAVIGATION */
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.navigation button {
+  border: none;
+}
+.navigation .arrow:hover {
+  scale: 1.1;
+  transition: 0.25s;
+}
+.navigation .dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+.navigation .dots .dot {
+  width: 10px;
+  height: 10px;
+  background-color: lightblue;
+  border: none;
+  border-radius: 50%;
+}
+.navigation .dots .dot:hover,
+.navigation .dots .dot.active {
+  width: 12px;
+  height: 12px;
+  background-color: blue;
+  transition: 0.25s;
+}
+
+@media (min-width: 600px) {
+  .info section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+/* Animations */
+@keyframes fadeInAt50 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes prevInfo {
+  from {
+    transform: translate(-100%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes nextInfo {
+  from {
+    transform: translate(100%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0, 0);
+    opacity: 1;
+  }
+}

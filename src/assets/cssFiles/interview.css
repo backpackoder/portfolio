@@ -1,4 +1,4 @@
-.interview {
+.header {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -7,15 +7,24 @@
   min-width: 100%;
   min-height: 100vh;
   background-color: #f6f6f6;
+  padding: 75px 0 20px;
   animation: upToDownVideos 1.5s ease-out;
 }
-
-.contactList-presentation {
-  animation: contactList 5s;
+.header .mainContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
 }
-
-.videosWrapper {
-  position: relative;
+.interview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.letInterviewAtSameHeight {
+  height: 50vh;
 }
 
 .videoWrapper {
@@ -28,11 +37,6 @@
   top: 75px;
   left: 25px;
 }
-.videoWrapper.fixed video {
-  min-width: 75px;
-  max-width: 25vw;
-  max-height: 25vh;
-}
 .videoWrapper.none {
   display: none;
 }
@@ -41,11 +45,17 @@
   min-width: 200px;
   max-width: 50vw;
   max-height: 50vh;
+  box-shadow: 0 0px 16px -5px;
   border-radius: 50%;
   cursor: pointer;
 }
 .video.none {
   display: none;
+}
+.videoWrapper.fixed video {
+  min-width: 75px;
+  max-width: 25vw;
+  max-height: 25vh;
 }
 
 .volumeIcon,
@@ -134,6 +144,18 @@
   animation: flash 4s infinite alternate;
 }
 
+.downloadMyCV {
+  background-color: aqua;
+  padding: 10px;
+  border-radius: 10px;
+  animation: appearsAndScale 7s;
+}
+.downloadMyCV:hover {
+  background-color: rgb(3, 235, 235);
+  scale: 1.1;
+  transition: 0.25s;
+}
+
 /* Animations */
 @keyframes fadeIn {
   0% {
@@ -165,7 +187,7 @@
     transform: translateY(0);
   }
 }
-@keyframes contactList {
+@keyframes appearsAndScale {
   0% {
     opacity: 0;
     transform: scale(100%);

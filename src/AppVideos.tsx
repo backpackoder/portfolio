@@ -1,187 +1,140 @@
-import { useContext, useEffect, useState } from "react";
+import { useReducer } from "react";
 
 // Context
-import { AppContext, AppVideoContext } from "./AppContext";
+import { AppVideoContext } from "./AppContext";
+
+// Languages
+import { translation } from "./languages/languages";
+
+// Types
+import { initialStatesProps } from "./types/types";
 
 export function AppVideos(props: object) {
-  const { text }: { text: (text: string) => string } = useContext(AppContext);
+  const initialState: initialStatesProps = {
+    videoPlaying: "intro",
 
-  const [isFirstTime, setIsFirstTime] = useState(true);
-  const [muteBtn, setMuteBtn] = useState(false);
+    conditions: {
+      muteBtn: true,
+      isIntroPlaying: true,
+      isIntroClickable: false,
+      isPayingAttention: false,
+      hasHelloEnded: false,
+      isResponding: false,
+    },
 
-  // Videos states
-  // Intro
-  const [intro, setIntro] = useState(true);
-  const [introMuted, setIntroMuted] = useState(true);
-  const [hasIntroEnded, setHasIntroEnded] = useState(false);
+    videos: {
+      // Intro
+      intro: {
+        cannot_click: {
+          title: "intro",
+        },
+        can_click: {
+          title: "clickable",
+        },
+      },
+      // Paying attention
+      pay_attention: {
+        cannot_click: {
+          title: "hello",
+        },
+        can_click: {
+          title: "waiting",
+        },
+      },
+      // Questions
+      questions: {
+        presentation: {
+          title: "presentation",
+          question: translation(
+            "Présente-toi en quelques mots.",
+            "Introduce yourself in a few words.",
+            "Presentate en pocas palabras."
+          ),
+        },
+        stacks: {
+          title: "stacks",
+          question: translation(
+            "Quelles sont tes compétences ?",
+            "What are your skills ?",
+            "¿Cuáles son tus habilidades?"
+          ),
+        },
+        formation: {
+          title: "formation",
+          question: translation(
+            "Comment t'es-tu formé ?",
+            "How did you get trained ?",
+            "¿Cómo te formaste?"
+          ),
+        },
+        experience: {
+          title: "experience",
+          question: translation(
+            "Quelle est ton expérience ?",
+            "What is your experience ?",
+            "¿Cuál es tu experiencia?"
+          ),
+        },
+      },
+    },
+  };
 
-  const [introClickable, setIntroClickable] = useState(false);
-  const [introClickableMuted, setIntroClickableMuted] = useState(true);
+  const [state, dispatch] = useReducer<React.Reducer<initialStatesProps, any>>(
+    reducer,
+    initialState
+  );
 
-  // Paying attention
-  const [hello, setHello] = useState(false);
-  const [helloMuted, setHelloMuted] = useState(true);
-  const [hasHelloEnded, setHasHelloEnded] = useState(false);
+  function reducer(state: initialStatesProps, action: any): any {
+    switch (action.type) {
+      case "volumeIconClicked":
+        return {
+          ...state,
+          conditions: { ...state.conditions, muteBtn: action.switchBoolean },
+        };
+      case "newVideoPlayed":
+        return {
+          ...state,
+          conditions: { ...state.conditions },
+        };
+      case "introBecomesClickable":
+        return {
+          ...state,
+          videoPlaying: "clickable",
+          conditions: { ...state.conditions, muteBtn: false, isIntroClickable: true },
+        };
+      case "getMyAttention":
+        return {
+          ...state,
+          videoPlaying: "hello",
+          conditions: { ...state.conditions, isIntroPlaying: false, isPayingAttention: true },
+        };
+      case "helloEnded":
+        return {
+          ...state,
+          videoPlaying: "waiting",
+          conditions: { ...state.conditions, hasHelloEnded: true },
+        };
+      case "questionPlayed":
+        return {
+          ...state,
+          videoPlaying: action.payload,
+          conditions: { ...state.conditions, isResponding: true },
+        };
+      case "questionEnded":
+        return {
+          ...state,
+          videoPlaying: "waiting",
+          conditions: { ...state.conditions, isResponding: false },
+        };
 
-  const [waiting, setWaiting] = useState(false);
-  const [waitingMuted, setWaitingMuted] = useState(true);
-
-  // Questions
-  const [presentationQ, setPresentationQ] = useState(false);
-  const [presentationQMuted, setPresentationQMuted] = useState(true);
-
-  const [stacksQ, setStacksQ] = useState(false);
-  const [stacksQMuted, setStacksQMuted] = useState(true);
-
-  const [experienceQ, setExperienceQ] = useState(false);
-  const [experienceQMuted, setExperienceQMuted] = useState(true);
-
-  // Videos lists
-  const setAllVideos = [
-    setIntro,
-    setIntroClickable,
-    setHello,
-    setWaiting,
-    setPresentationQ,
-    setStacksQ,
-    setExperienceQ,
-  ];
-  const setAllVideosMuted = [
-    setIntroMuted,
-    setIntroClickableMuted,
-    setHelloMuted,
-    setWaitingMuted,
-    setPresentationQMuted,
-    setStacksQMuted,
-    setExperienceQMuted,
-  ];
-  const isMutedList = [presentationQMuted, stacksQMuted, experienceQMuted];
-  const allVideoTitleList = [
-    "intro",
-    "introClickable",
-    "hello",
-    "waiting",
-    "presentationQ",
-    "stacksQ",
-    "experienceQ",
-  ];
-  const videoTitleList = [
-    text("questionAboutPresentation"),
-    text("questionAboutStack"),
-    text("questionAboutFormation"),
-    text("questionAboutExperience"),
-  ];
-  const videoSrcList = [`presentation`, `stack`, `formation`, `experience`];
-
-  // Conditional states
-  const [videoSelected, setVideoSelected] = useState("intro");
-  const [isIntro, setIsIntro] = useState(true);
-  const [isPayingAttention, setIsPayingAttention] = useState(false);
-  const [isResponding, setIsResponding] = useState(false);
-
-  function getMyAttention() {
-    setIsIntro(false);
-    setIsPayingAttention(true);
-    setVideoSelected("hello");
-    setInterval(() => {
-      setHelloMuted(false);
-    }, 10);
+      default:
+        throw new Error("Reducer error");
+    }
   }
-
-  function questionAsked(title: string) {
-    const findCityInFavs = videoTitleList.find((item) => item === title);
-
-    setVideoSelected(findCityInFavs ?? "waiting");
-    setIsResponding(true);
-  }
-
-  useEffect(() => {
-    setAllVideosMuted.forEach((isMuted) => {
-      isMuted(true);
-    });
-
-    allVideoTitleList.forEach((title, index) => {
-      if (muteBtn) {
-        setAllVideosMuted[index](true);
-      } else {
-        if (title === videoSelected) {
-          setAllVideos[index](true);
-          if (isFirstTime) {
-            setIsFirstTime(false);
-          } else {
-            setAllVideosMuted[index](false);
-          }
-        } else {
-          setAllVideos[index](false);
-          !isFirstTime && setAllVideosMuted[index](false);
-        }
-      }
-    });
-  }, [videoSelected]);
 
   const contextValue = {
-    // STATES
-    isFirstTime,
-    // Muted
-    muteBtn,
-    setMuteBtn,
-    // Intro
-    intro,
-    setIntro,
-    introMuted,
-    setIntroMuted,
-    hasIntroEnded,
-    setHasIntroEnded,
-    introClickable,
-    setIntroClickable,
-    introClickableMuted,
-    setIntroClickableMuted,
-    // Paying attention
-    hello,
-    setHello,
-    helloMuted,
-    setHelloMuted,
-    hasHelloEnded,
-    setHasHelloEnded,
-    waiting,
-    setWaiting,
-    waitingMuted,
-    setWaitingMuted,
-    // Questions
-    presentationQ,
-    setPresentationQ,
-    presentationQMuted,
-    setPresentationQMuted,
-    stacksQ,
-    setStacksQ,
-    stacksQMuted,
-    setStacksQMuted,
-    experienceQ,
-    setExperienceQ,
-    experienceQMuted,
-    setExperienceQMuted,
-    // Conditional states
-    videoSelected,
-    setVideoSelected,
-    isIntro,
-    setIsIntro,
-    isPayingAttention,
-    setIsPayingAttention,
-    isResponding,
-    setIsResponding,
-
-    // LISTS
-    // Videos lists
-    setAllVideos,
-    setAllVideosMuted,
-    isMutedList,
-    allVideoTitleList,
-    videoTitleList,
-    videoSrcList,
-
-    // FUNCTIONS
-    getMyAttention,
-    questionAsked,
+    state,
+    dispatch,
   };
 
   return <AppVideoContext.Provider {...props} value={contextValue} />;
