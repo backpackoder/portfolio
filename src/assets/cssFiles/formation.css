@@ -7,6 +7,7 @@
   border-radius: 10px;
   margin: 0 auto 25px;
   text-align: center;
+  overflow: hidden;
 }
 .formation small {
   display: block;
@@ -15,13 +16,12 @@
   text-decoration: underline;
 }
 .formationImg {
+  float: left;
   width: 600px;
   max-width: 100%;
   border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  float: left;
   margin: 10px 10px 0 0;
+  cursor: pointer;
 }
 .formation .part {
   font-weight: 600;
