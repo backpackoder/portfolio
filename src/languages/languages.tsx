@@ -239,4 +239,9 @@ export const languages: Languages = {
   ),
   whatDidWeLearned: translation("Ce que nous avons appris", "What we learned", "Lo que aprendimos"),
   conclusion: translation("Pour conclure", "To conclude", "Para concluir"),
+  pageNotFound: translation(
+    "Vous cherchez votre chemin ?",
+    "You're looking for your way ?",
+    "¿Está buscando su camino?"
+  ),
 };
