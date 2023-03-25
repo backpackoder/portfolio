@@ -194,7 +194,43 @@ function Video({ title }: { title: string }) {
             className="questionList"
             onClick={() => setIsQuestionListVisible(!isQuestionListVisible)}
           >
-            {Object.keys(questions).map((key, index) => {
+            <li
+              onClick={() =>
+                dispatch({ type: "questionPlayed", payload: questions.presentation.title })
+              }
+            >
+              {questions.presentation.question[language]}
+            </li>
+            <li
+              onClick={() => dispatch({ type: "questionPlayed", payload: questions.stacks.title })}
+            >
+              {questions.stacks.question[language]}
+            </li>
+            <li
+              onClick={() =>
+                dispatch({ type: "questionPlayed", payload: questions.formation.title })
+              }
+            >
+              {questions.formation.question[language]}
+            </li>
+            <li
+              onClick={() =>
+                dispatch({ type: "questionPlayed", payload: questions.experience.title })
+              }
+            >
+              {questions.experience.question[language]}
+            </li>
+          </ul>
+        </>
+      )}
+    </div>
+  );
+}
+
+{
+  // REFACTORING WITH 2 ERRORS TO SOLVE :
+  /* {Object.keys(questions).map((key, index) => {
+              // const question = questions[key];
               return (
                 <li
                   key={index}
@@ -205,10 +241,5 @@ function Video({ title }: { title: string }) {
                   {questions[key].question[language]}
                 </li>
               );
-            })}
-          </ul>
-        </>
-      )}
-    </div>
-  );
+            })} */
 }
