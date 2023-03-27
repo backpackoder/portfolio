@@ -1,5 +1,4 @@
 # Portfolio
-My portfolio
 
 LINK :
 https://thibautbarbiera.netlify.app/
