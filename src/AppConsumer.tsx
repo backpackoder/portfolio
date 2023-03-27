@@ -24,16 +24,16 @@ export function AppConsumer() {
       <Router>
         <Header />
 
-        <Interview />
-
         <main>
           <Routes>
-            <Route path={ROUTE_HOME} element={<Form />} />
+            <Route path="/" element={<Interview />}>
+              <Route path={ROUTE_HOME} element={<Form />} />
 
-            <Route path={ROUTE_EXPERIENCE} element={<Experiences />} />
-            <Route path={ROUTE_EXPERIENCE_DETAILLED} element={<Experience />} />
+              <Route path={ROUTE_EXPERIENCE} element={<Experiences />} />
+              <Route path={ROUTE_EXPERIENCE_DETAILLED} element={<Experience />} />
 
-            <Route path={ROUTE_FORMATION} element={<Formation />} />
+              <Route path={ROUTE_FORMATION} element={<Formation />} />
+            </Route>
 
             <Route path="*" element={<PageNotFound />} />
           </Routes>

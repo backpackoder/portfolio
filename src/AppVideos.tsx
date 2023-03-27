@@ -22,61 +22,57 @@ export function AppVideos(props: object) {
       isResponding: false,
     },
 
-    videos: {
+    videos: [
       // Intro
-      intro: {
-        cannot_click: {
-          title: "intro",
-        },
-        can_click: {
-          title: "clickable",
-        },
+      {
+        title: "intro",
       },
+      {
+        title: "clickable",
+      },
+
       // Paying attention
-      pay_attention: {
-        cannot_click: {
-          title: "hello",
-        },
-        can_click: {
-          title: "waiting",
-        },
+      {
+        title: "hello",
       },
+      {
+        title: "waiting",
+      },
+
       // Questions
-      questions: {
-        presentation: {
-          title: "presentation",
-          question: translation(
-            "Présente-toi en quelques mots.",
-            "Introduce yourself in a few words.",
-            "Presentate en pocas palabras."
-          ),
-        },
-        stacks: {
-          title: "stacks",
-          question: translation(
-            "Quelles sont tes compétences ?",
-            "What are your skills ?",
-            "¿Cuáles son tus habilidades?"
-          ),
-        },
-        formation: {
-          title: "formation",
-          question: translation(
-            "Comment t'es-tu formé ?",
-            "How did you get trained ?",
-            "¿Cómo te formaste?"
-          ),
-        },
-        experience: {
-          title: "experience",
-          question: translation(
-            "Quelle est ton expérience ?",
-            "What is your experience ?",
-            "¿Cuál es tu experiencia?"
-          ),
-        },
+      {
+        title: "presentation",
+        question: translation(
+          "Présente-toi en quelques mots.",
+          "Introduce yourself in a few words.",
+          "Presentate en pocas palabras."
+        ),
       },
-    },
+      {
+        title: "stacks",
+        question: translation(
+          "Quelles sont tes compétences ?",
+          "What are your skills ?",
+          "¿Cuáles son tus habilidades?"
+        ),
+      },
+      {
+        title: "formation",
+        question: translation(
+          "Comment t'es-tu formé ?",
+          "How did you get trained ?",
+          "¿Cómo te formaste?"
+        ),
+      },
+      {
+        title: "experience",
+        question: translation(
+          "Quelle est ton expérience ?",
+          "What is your experience ?",
+          "¿Cuál es tu experiencia?"
+        ),
+      },
+    ],
   };
 
   const [state, dispatch] = useReducer<React.Reducer<initialStatesProps, any>>(

@@ -91,6 +91,7 @@ export type withInfoProps = {
 // initialStatesProps
 export type initialStatesProps = {
   videoPlaying: string;
+
   conditions: {
     muteBtn: boolean;
     isIntroPlaying: boolean;
@@ -99,43 +100,9 @@ export type initialStatesProps = {
     hasHelloEnded: boolean;
     isResponding: boolean;
   };
+
   videos: {
-    // Intro
-    intro: {
-      cannot_click: {
-        title: string;
-      };
-      can_click: {
-        title: string;
-      };
-    };
-    // Paying attention
-    pay_attention: {
-      cannot_click: {
-        title: string;
-      };
-      can_click: {
-        title: string;
-      };
-    };
-    // Questions
-    questions: {
-      presentation: {
-        title: string;
-        question: LanguageStrings;
-      };
-      stacks: {
-        title: string;
-        question: LanguageStrings;
-      };
-      formation: {
-        title: string;
-        question: LanguageStrings;
-      };
-      experience: {
-        title: string;
-        question: LanguageStrings;
-      };
-    };
-  };
+    title: string;
+    question?: LanguageStrings;
+  }[];
 };
