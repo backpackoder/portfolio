@@ -10,9 +10,15 @@ export function PageNotFound() {
   const { text }: AppProviderContextTypes = useContext(AppContext);
 
   return (
-    <div>
-      <p>{text("pageNotFound")}</p>
-      <p>Cliquez sur une partie du menu en haut de la page pour retrouver votre chemin.</p>
+    <div className="pageNotFound">
+      <h3>{text("pageNotFound")}</h3>
+
+      <video autoPlay muted loop>
+        <source src={`/page_not_found.mp4`} type="video/mp4" />
+        {text("videoNotFound")}
+      </video>
+
+      <p>{text("pageNotFoundDescription")}</p>
     </div>
   );
 }

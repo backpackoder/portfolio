@@ -13,55 +13,42 @@ import { faListSquares, faVolumeHigh, faVolumeMute } from "@fortawesome/free-sol
 // Components
 import { ContactsList } from "../Contacts";
 import { Info } from "../info/Info";
+import { Outlet } from "react-router-dom";
 
 export function Interview() {
   const { changeInfo, setChangeInfo, text }: AppProviderContextTypes = useContext(AppContext);
   const { state }: AppVideosContextTypes = useContext(AppVideoContext);
-  const { videos } = state;
-
-  const { intro, pay_attention, questions } = videos;
-  const questionsTitle = [
-    questions.presentation.title,
-    questions.stacks.title,
-    questions.formation.title,
-    questions.experience.title,
-  ];
 
   useEffect(() => {
     setChangeInfo(changeInfo);
   }, [changeInfo]);
 
   return (
-    <section className="header">
-      <h1 dangerouslySetInnerHTML={{ __html: text("h1") }}></h1>
+    <>
+      <section className="header">
+        <h1 dangerouslySetInnerHTML={{ __html: text("h1") }}></h1>
 
-      <div className="mainContent">
-        <article className="interview">
-          <div className="letInterviewAtSameHeight"></div>
+        <div className="mainContent">
+          <article className="interview">
+            <div className="letInterviewAtSameHeight"></div>
 
-          {/* Videos intro */}
-          <Video title={intro.cannot_click.title} />
-          <Video title={intro.can_click.title} />
+            {state.videos.map((data, index) => {
+              return <Video key={index} title={data.title} />;
+            })}
+          </article>
 
-          {/* Videos paying attention */}
-          <Video title={pay_attention.cannot_click.title} />
-          <Video title={pay_attention.can_click.title} />
+          <Info />
+        </div>
 
-          {/* Videos questions */}
-          {questionsTitle.map((title, index) => {
-            return <Video key={index} title={title} />;
-          })}
-        </article>
+        <ContactsList classNameSuffix={"info"} />
 
-        <Info />
-      </div>
+        <a href="/thibaut-barbiera-CV.pdf" target="_blank" className="downloadMyCV">
+          {text("downloadMyCV")}
+        </a>
+      </section>
 
-      <ContactsList classNameSuffix={"info"} />
-
-      <a href="/thibaut-barbiera-CV.pdf" target="_blank" className="downloadMyCV">
-        {text("downloadMyCV")}
-      </a>
-    </section>
+      <Outlet />
+    </>
   );
 }
 
@@ -72,7 +59,6 @@ function Video({ title }: { title: string }) {
   const { videoPlaying } = state;
   const { muteBtn, isIntroPlaying, isIntroClickable, hasHelloEnded, isResponding } =
     state.conditions;
-  const { questions } = state.videos;
 
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -184,7 +170,7 @@ function Video({ title }: { title: string }) {
       {hasHelloEnded && !isResponding && (
         <>
           <div
-            className={`questionIconWrapper`}
+            className="questionIconWrapper"
             onClick={() => setIsQuestionListVisible(!isQuestionListVisible)}
           >
             <FontAwesomeIcon icon={faListSquares} className="questionIcon" />
@@ -194,52 +180,19 @@ function Video({ title }: { title: string }) {
             className="questionList"
             onClick={() => setIsQuestionListVisible(!isQuestionListVisible)}
           >
-            <li
-              onClick={() =>
-                dispatch({ type: "questionPlayed", payload: questions.presentation.title })
-              }
-            >
-              {questions.presentation.question[language]}
-            </li>
-            <li
-              onClick={() => dispatch({ type: "questionPlayed", payload: questions.stacks.title })}
-            >
-              {questions.stacks.question[language]}
-            </li>
-            <li
-              onClick={() =>
-                dispatch({ type: "questionPlayed", payload: questions.formation.title })
-              }
-            >
-              {questions.formation.question[language]}
-            </li>
-            <li
-              onClick={() =>
-                dispatch({ type: "questionPlayed", payload: questions.experience.title })
-              }
-            >
-              {questions.experience.question[language]}
-            </li>
+            {state.videos.map((data, index) => {
+              return data?.question ? (
+                <li
+                  key={index}
+                  onClick={() => dispatch({ type: "questionPlayed", payload: data.title })}
+                >
+                  {data.question[language]}
+                </li>
+              ) : null;
+            })}
           </ul>
         </>
       )}
     </div>
   );
-}
-
-{
-  // REFACTORING WITH 2 ERRORS TO SOLVE :
-  /* {Object.keys(questions).map((key, index) => {
-              // const question = questions[key];
-              return (
-                <li
-                  key={index}
-                  onClick={() =>
-                    dispatch({ type: "questionPlayed", payload: questions[key].title })
-                  }
-                >
-                  {questions[key].question[language]}
-                </li>
-              );
-            })} */
 }

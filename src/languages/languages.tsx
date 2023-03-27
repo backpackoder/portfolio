@@ -244,4 +244,9 @@ export const languages: Languages = {
     "You're looking for your way ?",
     "¿Está buscando su camino?"
   ),
+  pageNotFoundDescription: translation(
+    "Cliquez sur une partie du menu en haut de la page pour retrouver votre chemin.",
+    "Click on a part of the menu at the top of the page to find your way.",
+    "Haga clic en una parte del menú en la parte superior de la página para encontrar su camino."
+  ),
 };
