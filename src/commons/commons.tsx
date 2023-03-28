@@ -36,15 +36,15 @@ export const FORMATION_AUTODIDACTE_IMAGE =
 
 // Projects
 // My portfolio
-export const PROJECT_MY_PORTFOLIO_URL = "https://thibautbarbiera.netlify.app/";
-export const PROJECT_MY_PORTFOLIO_GITHUB_URL = "https://github.com/backpackoder/my-portfolio";
+export const PROJECT_MY_PORTFOLIO_URL = "https://thibautbarbiera.com/";
+export const PROJECT_MY_PORTFOLIO_GITHUB_URL = "https://github.com/backpackoder/portfolio";
 // Challenges Frontend Mentor
 export const PROJECT_CHALLENGES_FRONTEND_MENTOR_URL =
   "https://www.frontendmentor.io/profile/MrFougasse";
 export const PROJECT_CHALLENGES_FRONTEND_MENTOR_GITHUB_URL =
   "https://github.com/backpackoder/challenges-frontend-mentor";
 // Au verger
-export const PROJECT_AU_VERGER_URL = "https://au-verger.pages.dev/";
+export const PROJECT_AU_VERGER_URL = "https://auverger.com";
 export const PROJECT_AU_VERGER_GITHUB_URL = "https://github.com/backpackoder/auverger";
 // Dressly
 export const PROJECT_DRESSLY_URL = "https://dressly.netlify.app/";
