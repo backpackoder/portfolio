@@ -210,9 +210,10 @@ export const languages: Languages = {
     `You can contact me via this form, I will answer you as soon as possible.`,
     `Puede contactarme a través de este formulario, le responderé lo antes posible.`
   ),
+  optionalForm: translation("facultatif", "optional", "opcional"),
   emailForm: translation("Votre email", "Your email", "Su correo electrónico"),
   phoneForm: translation("Téléphone", "Phone", "Teléfono"),
-  optionalForm: translation("facultatif", "optional", "opcional"),
+  linkedInForm: translation("LinkedIn", "LinkedIn", "LinkedIn"),
   subjectForm: translation("Sujet", "Subject", "Asunto"),
   messageForm: translation("Message", "Message", "Mensaje"),
   sendForm: translation("J'envoie le mail", "I send the mail", "Envío el correo"),

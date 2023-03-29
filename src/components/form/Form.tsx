@@ -26,9 +26,14 @@ export function Form() {
         <input type="email" name="email" id="email" required />
 
         <label htmlFor="phone">
-          {text("phoneForm")} <small style={{ display: "inline" }}>({text("optionalForm")}):</small>
+          {text("phoneForm")} <small>({text("optionalForm")}):</small>
         </label>
         <input type="tel" name="phone" id="phone" />
+
+        <label htmlFor="social">
+          {text("linkedInForm")} <small>({text("optionalForm")}):</small>
+        </label>
+        <input type="social" name="social" id="social" />
 
         <label htmlFor="title">{text("subjectForm")}: *</label>
         <input type="text" name="title" id="title" placeholder="Écrivez le titre..." required />

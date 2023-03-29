@@ -31,6 +31,9 @@
   padding: 5px;
   line-height: 1.5;
 }
+.form form small {
+  display: inline;
+}
 
 .form button {
   background-color: lightgreen;
