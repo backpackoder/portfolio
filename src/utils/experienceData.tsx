@@ -124,6 +124,7 @@ export const experienceData: ExperienceProps[] = [
       { translation: translation("Espagnol", "Spanish", "Español"), iso: "es" },
     ],
   },
+
   // {
   //   title: "My wise quotes",
   //   imgs: ["My wise quotes - home page.png"],
@@ -157,6 +158,7 @@ export const experienceData: ExperienceProps[] = [
   //   ),
   //   translation: [{ translation: translation("Anglais", "English", "Inglés"), iso: "gb" }],
   // },
+
   {
     title: "Au verger",
     imgs: ["Au verger - home page.jpg"],
