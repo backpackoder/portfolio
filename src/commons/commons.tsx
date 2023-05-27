@@ -52,6 +52,12 @@ export const PROJECT_DRESSLY_GITHUB_URL = "https://github.com/backpackoder/dress
 // Manganime
 export const PROJECT_MANGANIME_URL = "https://manganime.infodocbib.net/";
 export const PROJECT_MANGANIME_GITHUB_URL = "https://github.com/backpackoder/manganime";
+// Nations quiz
+export const PROJECT_NATIONS_QUIZ_URL = "https://nations-quiz.netlify.app/";
+export const PROJECT_NATIONS_QUIZ_GITHUB_URL = "https://github.com/backpackoder/nationsquiz";
+// My wise quotes
+export const PROJECT_MY_WISE_QUOTES_URL = "https://mywisequotes.vercel.app/";
+export const PROJECT_MY_WISE_QUOTES_GITHUB_URL = "https://github.com/backpackoder/mywisequotes";
 
 // Flags
 // France

@@ -74,33 +74,29 @@ export const languages: Languages = {
     "What do you like about programming ?",
     "¿Qué te gusta de la programación?"
   ),
-  questionHired: translation("Vous avez le job!", "You got the job!", "¡Tienes el trabajo!"),
   // questionAboutHobbies: translation(
   //   "Quels sont tes passions ?",
   //   "What are your hobbies ?",
   //   "¿Cuáles son tus pasiones?"
   // ),
-  downloadMyCV: translation(
-    "Télécharger mon CV en PDF",
-    "Download my CV in PDF",
-    "Descargar mi CV en PDF"
-  ),
+  questionHired: translation("Vous avez le job!", "You got the job!", "¡Tienes el trabajo!"),
+  lookAtMyResume: translation("Voir mon CV", "Look at my resume", "Mira mi currículum"),
   stacks: translation("Mes stacks", "My stacks", "Mis stacks"),
   yourProject: translation("Votre projet", "Your project", "Su proyecto"),
   yourProjectDescription: translation(
     `Je serais ravi de vous aider dès que possible dans vos projets en intégrant votre équipe en
-  tant que dev frontend React.js - TypeScript.
+  tant que dev frontend Next.js - React.js - TypeScript ⚛️
   <br />
   Je suis capable de créer des sites sur mesure avec un résultat responsive pour tout écran,
   gérer des données venant d'API, comme plein d'autres choses. Je peux aussi effectuer des
   tests avec la méthode TDD pour un code de qualité.`,
     `I would be delighted to help you as soon as possible in your projects by integrating your team as a
-    frontend dev React.js - TypeScript.
+    frontend dev Next.js - React.js - TypeScript ⚛️
     <br />
     I am able to create custom sites with a responsive result for any screen, manage data coming from
     API, and many other things. I can also perform tests with the TDD method for quality code.`,
     `Me encantaría ayudarlo lo antes posible en sus proyectos integrando su equipo como un
-    dev frontend React.js - TypeScript.
+    dev frontend Next.js - React.js - TypeScript ⚛️
     <br />
     Soy capaz de crear sitios personalizados con un resultado adaptable para cualquier pantalla,
     administrar datos provenientes de API, y muchas otras cosas. También puedo realizar pruebas
@@ -137,15 +133,15 @@ export const languages: Languages = {
   aboutMe: translation(`À propos de moi`, `About me`, `Sobre mí`),
   aboutMeDescription: translation(
     `Passionné de programmation, j'ai commencé mon activité professionnelle en 2022 en tant que
-      développeur web front end avec React.js ⚛️. Je peux travailler en remote comme en
+      développeur web front-end. Je peux travailler en remote comme en
       présentiel. J'habite près de Nice sur la côte d'azur. Le français est ma langue maternelle.
       Je parle aussi l'anglais, ainsi que couramment l'espagnol car j'ai vécu au Mexique pendant quelques années`,
     `Passionate about programming, I started my professional activity in 2022 as a web
-      front end developer with React.js ⚛️. I can work remotely or in person. I live near Nice
+      frontend developer. I can work remotely or in person. I live near Nice
       on the French Riviera. French is my mother tongue. I also speak English, as well as
       Spanish fluently because I lived in Mexico for a few years`,
     `Apasionado por la programación, comencé mi actividad profesional en 2022 como
-      desarrollador web front end con React.js ⚛️. Puedo trabajar de forma remota o en
+      desarrollador web frontend. Puedo trabajar de forma remota o en
       persona. Vivo cerca de Niza en la Costa Azul. El francés es mi lengua materna. También
       hablo inglés, así como español fluidamente porque viví en México durante unos años`
   ),
@@ -159,29 +155,35 @@ export const languages: Languages = {
       <br />
       👨‍💻 Langages informatiques : Typescript, Javascript, HTML5, CSS3
       <br />
-      🧰 Framework / Library : React.js
+      🧰 Framework / Library : Next.js, React.js
       <br />
-      👨‍🔬 Tests : méthode TDD, Jest, React Testing Library, MSW...
+      ⚙️ Méthodologies : AGILE, SCRUM
       <br />
-      📞 Communication : Zoom, Slack, Skype, Discord…`,
+      👨‍🔬 Tests : méthode TDD, Jest, React Testing Library, MSW…
+      <br />
+      📞 Communication : WhatsApp, Zoom, Discord, Slack, Skype…`,
     `🗣️ Human languages : french, english, spanish
       <br />
       👨‍💻 Computer languages : Typescript, Javascript, HTML5, CSS3
       <br />
-      🧰 Framework / Library : React.js
+      🧰 Framework / Library : Next.js, React.js
       <br />
-      👨‍🔬 Tests : TDD method, Jest, React Testing Library, MSW...
+      ⚙️ Methodologies : AGILE, SCRUM
       <br />
-      📞 Communication : Zoom, Slack, Skype, Discord…`,
+      👨‍🔬 Tests : TDD method, Jest, React Testing Library, MSW…
+      <br />
+      📞 Communication : WhatsApp, Zoom, Discord, Slack, Skype…`,
     `🗣️ Lenguajes humanos : francés, inglés, español
       <br />
       👨‍💻 Lenguajes informáticos : Typescript, Javascript, HTML5, CSS3
       <br />
-      🧰 Framework / Biblioteca : React.js
+      🧰 Framework / Biblioteca : Next.js, React.js
       <br />
-      👨‍🔬 Pruebas : método TDD, Jest, React Testing Library, MSW...
+      ⚙️ Metodologías : AGILE, SCRUM
       <br />
-      📞 Comunicación : Zoom, Slack, Skype, Discord…`
+      👨‍🔬 Tests : método TDD, Jest, React Testing Library, MSW…
+      <br />
+      📞 Comunicación : WhatsApp, Zoom, Discord, Slack, Skype…`
   ),
   personality: translation(
     "Mes qualités et défauts",

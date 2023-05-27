@@ -1,4 +1,5 @@
 import { useCallback, useContext, useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 // Context
 import { AppContext, AppVideoContext } from "../../AppContext";
@@ -11,9 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListSquares, faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 // Components
-import { ContactsList } from "../Contacts";
 import { Info } from "../info/Info";
-import { Outlet } from "react-router-dom";
+import { ContactsList } from "../Contacts";
 
 export function Interview() {
   const { changeInfo, setChangeInfo, text }: AppProviderContextTypes = useContext(AppContext);
@@ -42,8 +42,8 @@ export function Interview() {
 
         <ContactsList classNameSuffix={"info"} />
 
-        <a href="/thibaut-barbiera-CV.pdf" target="_blank" className="downloadMyCV">
-          {text("downloadMyCV")}
+        <a href="/thibaut-barbiera-CV.pdf" target="_blank" className="lookAtMyResume">
+          {text("lookAtMyResume")}
         </a>
       </section>
 

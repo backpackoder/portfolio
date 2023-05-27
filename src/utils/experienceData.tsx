@@ -10,6 +10,10 @@ import {
   PROJECT_MANGANIME_URL,
   PROJECT_MY_PORTFOLIO_GITHUB_URL,
   PROJECT_MY_PORTFOLIO_URL,
+  PROJECT_MY_WISE_QUOTES_GITHUB_URL,
+  PROJECT_MY_WISE_QUOTES_URL,
+  PROJECT_NATIONS_QUIZ_GITHUB_URL,
+  PROJECT_NATIONS_QUIZ_URL,
 } from "../commons/commons";
 
 // Languages
@@ -29,11 +33,12 @@ const experience_type: Experience_type = {
   challenges: { fr: "Challenges", en: "Challenges", es: "Desafíos" },
 };
 
-const reactImg = myStacks[0].img;
-const TSImg = myStacks[1].img;
-const JSImg = myStacks[2].img;
-const HTMLImg = myStacks[3].img;
-const CSSImg = myStacks[4].img;
+const nextImg = myStacks[0].img;
+const reactImg = myStacks[1].img;
+const TSImg = myStacks[2].img;
+const JSImg = myStacks[3].img;
+const HTMLImg = myStacks[4].img;
+const CSSImg = myStacks[5].img;
 
 export const experienceData: ExperienceProps[] = [
   {
@@ -83,6 +88,76 @@ export const experienceData: ExperienceProps[] = [
     translation: [{ translation: translation("Anglais", "English", "Inglés"), iso: "gb" }],
   },
   {
+    title: "Nations quiz",
+    imgs: ["Nations quiz - home page.png"],
+    url: PROJECT_NATIONS_QUIZ_URL,
+    gitHub: PROJECT_NATIONS_QUIZ_GITHUB_URL,
+    type: experience_type.website,
+    theme: translation("Géographie", "Geography", "Geografía"),
+    time: translation("Avril 2023", "April 2023", "Abril 2023"),
+    team: translation("En solo", "Solo", "En solitario"),
+    stack: [reactImg, TSImg, HTMLImg, CSSImg],
+    details: ["Supabase", "API", "React-Query", "React-Router", "i18n"],
+    description: translation(
+      `J'ai créé un site web qui permet de tester ses connaissances sur les pays du monde.
+    J'ai utilisé l'API du site restcountries.com pour récupérer les données des pays.
+    J'ai utilisé la library React-Query pour gérer les requêtes HTTP de l'application, et React-Router pour gérer
+    les routes de l'application.
+    J'ai approfondi mes connaissances en Javascript car créer des jeux est un bon moyen de s'entraîner.
+    J'ai appris beaucoup de nouvelles choses au cours de ce projet, ce fut donc une expérience très positive.`,
+      `I created a website that allows you to test your knowledge of the countries of the world.
+      I used the API of the restcountries.com website to retrieve country data.
+      I used the React-Query library to manage the application's HTTP requests, and React-Router to manage
+      application routes.
+      I deepened my knowledge of Javascript because creating games is a good way to train.
+      I learned a lot of new things during this project so it was a very positive experience.`,
+      `Creé un sitio web que permite poner a prueba tus conocimientos sobre los países del mundo.
+      Utilicé la API del sitio web restcountries.com para recuperar datos de países.
+      Utilicé la biblioteca React-Query para administrar las solicitudes HTTP de la aplicación y React-Router para administrar
+      rutas de aplicaciones.
+      Profundicé mis conocimientos de Javascript porque crear juegos es una buena manera de entrenar.
+      Aprendí muchas cosas nuevas durante este proyecto, por lo que fue una experiencia muy positiva.`
+    ),
+    translation: [
+      { translation: translation("Français", "French", "Francés"), iso: "fr" },
+      { translation: translation("Anglais", "English", "Inglés"), iso: "gb" },
+      { translation: translation("Espagnol", "Spanish", "Español"), iso: "es" },
+    ],
+  },
+  // {
+  //   title: "My wise quotes",
+  //   imgs: ["My wise quotes - home page.png"],
+  //   url: PROJECT_MY_WISE_QUOTES_URL,
+  //   gitHub: PROJECT_MY_WISE_QUOTES_GITHUB_URL,
+  //   type: experience_type.website,
+  //   theme: translation("Littérature", "Literature", "Literatura"),
+  //   time: translation("Mai 2023", "May 2023", "Mayo 2023"),
+  //   team: translation("En solo", "Solo", "En solitario"),
+  //   stack: [nextImg, reactImg, TSImg, HTMLImg, CSSImg],
+  //   details: ["Supabase", "next-auth", "API", "Tailwind CSS"],
+  //   description: translation(
+  //     `J'ai créé un site web qui permet de découvrir et garder ces citations préférées.
+  //   J'ai utilisé l'API "quotable" pour récupérer les citations.
+  //   J'ai utilisé la library next-auth pour gérer l'authentification des utilisateurs.
+  //   J'ai utilisé Supabase pour stocker les données des utilisateurs.
+  //   J'ai utilisé la library Tailwind CSS pour le design du site.
+  //   J'ai appris beaucoup de nouvelles choses au cours de ce projet, ce fut donc une expérience très positive.`,
+  //     `I created a website that allows you to discover and keep your favorite quotes.
+  //     I used the "quotable" API to retrieve quotes.
+  //     I used the next-auth library to manage user authentication.
+  //     I used Supabase to store user data.
+  //     I used the Tailwind CSS library for the design of the site.
+  //     I learned a lot of new things during this project so it was a very positive experience.`,
+  //     `Creé un sitio web que permite descubrir y guardar tus citas favoritas.
+  //     Utilicé la API "quotable" para recuperar citas.
+  //     Utilicé la biblioteca next-auth para administrar la autenticación de los usuarios.
+  //     Utilicé Supabase para almacenar los datos de los usuarios.
+  //     Utilicé la biblioteca Tailwind CSS para el diseño del sitio.
+  //     Aprendí muchas cosas nuevas durante este proyecto, por lo que fue una experiencia muy positiva.`
+  //   ),
+  //   translation: [{ translation: translation("Anglais", "English", "Inglés"), iso: "gb" }],
+  // },
+  {
     title: "Au verger",
     imgs: ["Au verger - home page.jpg"],
     url: PROJECT_AU_VERGER_URL,
@@ -92,7 +167,7 @@ export const experienceData: ExperienceProps[] = [
     time: translation("2022", "2022", "2022"),
     team: translation("En solo", "Solo", "En solitario"),
     stack: [reactImg, TSImg, HTMLImg, CSSImg],
-    details: ["Responsive", "Mobile first", "API"],
+    details: ["Responsive", "Mobile first", "API", "i18n"],
     description: translation(
       `J'ai créé un site vitrine pour une chambre d'hôte sur Booking.com située dans le 06.
     Je me suis aussi occupé du design du site car je n'avais pas de maquette.
@@ -100,10 +175,18 @@ export const experienceData: ExperienceProps[] = [
     ainsi que l'API de OpenStreetMap pour indiquer la localisation de la chambre d'hôte sur une carte.
     J'ai utilisé React-Router pour gérer les routes de l'application.
     J'ai utilisé la library "Aos" pour créer des animations sur le site au scroll.`,
-
-      `Not translated yet`,
-
-      `Aún no traducido`
+      `I created a showcase site for a guest room on Booking.com located in the 06.
+      I also took care of the design of the site because I didn't have a model.
+      I used an API to retrieve the most recent customer reviews on Booking.com,
+      as well as the OpenStreetMap API to indicate the location of the guest room on a map.
+      I used React-Router to manage the routes of the application.
+      I used the "Aos" library to create animations on the site when scrolling.`,
+      `Creé un sitio web de escaparate para una habitación de huéspedes en Booking.com ubicada en el 06.
+      También me encargué del diseño del sitio porque no tenía un modelo.
+      Utilicé una API para recuperar las reseñas más recientes de los clientes en Booking.com,
+      así como la API de OpenStreetMap para indicar la ubicación de la habitación de huéspedes en un mapa.
+      Utilicé React-Router para administrar las rutas de la aplicación.
+      Utilicé la biblioteca "Aos" para crear animaciones en el sitio al desplazarse.`
     ),
     translation: [
       { translation: translation("Français", "French", "Francés"), iso: "fr" },
@@ -126,10 +209,12 @@ export const experienceData: ExperienceProps[] = [
       `J'ai créé un site qui annonce la météo du jour et de la semaine partout sur terre.
     J'ai utilisé l'API de OpenWeatherMap pour récupérer les données météo.
     Je récupère la longitude et la latitude de l'utilisateur pour afficher le temps de la ville où l'utilisateur se trouve.`,
-
-      `Not translated yet`,
-
-      `Aún no traducido`
+      `I created a site that announces the weather of the day and the week everywhere on earth.
+      I used the OpenWeatherMap API to retrieve weather data.
+      I retrieve the longitude and latitude of the user to display the weather of the city where the user is.`,
+      `Creé un sitio que anuncia el clima del día y la semana en todas partes de la tierra.
+      Utilicé la API de OpenWeatherMap para recuperar datos meteorológicos.
+      Recupero la longitud y la latitud del usuario para mostrar el clima de la ciudad donde se encuentra el usuario.`
     ),
     translation: [{ translation: translation("Espagnol", "Spanish", "Español"), iso: "es" }],
   },
@@ -148,14 +233,18 @@ export const experienceData: ExperienceProps[] = [
       `J'ai réussi plusieurs challenges au fil du temps sur le site Frontend Mentor.
     Les challenges m'ont beaucoup aidé au début pour progresser, vous pouvez aller voir les résultats
     en cliquant sur les liens au-dessus.`,
-      `Not translated yet`,
-      `Aún no traducido`
+      `I succeeded in several challenges over time on the Frontend Mentor site.
+      The challenges helped me a lot at the beginning to progress, you can go see the results
+      by clicking on the links above.`,
+      `Tuve éxito en varios desafíos con el tiempo en el sitio Frontend Mentor.
+      Los desafíos me ayudaron mucho al principio a progresar, puedes ir a ver los resultados
+      haciendo clic en los enlaces de arriba.`
     ),
     translation: [{ translation: translation("Anglais", "English", "Inglés"), iso: "gb" }],
   },
   {
     title: "Mon portfolio",
-    imgs: ["Mon portfolio - home page.jpg"],
+    imgs: ["Mon portfolio - home page.png"],
     url: PROJECT_MY_PORTFOLIO_URL,
     gitHub: PROJECT_MY_PORTFOLIO_GITHUB_URL,
     type: experience_type.website,
@@ -167,10 +256,10 @@ export const experienceData: ExperienceProps[] = [
     description: translation(
       `J'ai créé Mon portfolio pour présenter mes projets et mes compétences.
     J'ai utilisé React.js et TypeScript pour créer ce site.`,
-
-      `Not yet translated`,
-
-      `Aún no traducido`
+      `I created My portfolio to present my projects and my skills.
+      I used React.js and TypeScript to create this site.`,
+      `Creé Mi portfolio para presentar mis proyectos y mis habilidades.
+      Utilicé React.js y TypeScript para crear este sitio.`
     ),
     translation: [
       { translation: translation("Français", "French", "Francés"), iso: "fr" },

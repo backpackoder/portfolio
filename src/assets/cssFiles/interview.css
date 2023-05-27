@@ -144,13 +144,13 @@
   animation: flash 4s infinite alternate;
 }
 
-.downloadMyCV {
+.lookAtMyResume {
   background-color: aqua;
   padding: 10px;
   border-radius: 10px;
   animation: appearsAndScale 7s;
 }
-.downloadMyCV:hover {
+.lookAtMyResume:hover {
   background-color: rgb(3, 235, 235);
   scale: 1.1;
   transition: 0.25s;

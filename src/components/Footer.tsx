@@ -20,7 +20,7 @@ export function Footer() {
       <ContactsList classNameSuffix={"footer"} />
       <small>
         <>
-          {NAMES}, {JOB[language]}
+          {NAMES} - {JOB[language]}
         </>
       </small>
     </footer>

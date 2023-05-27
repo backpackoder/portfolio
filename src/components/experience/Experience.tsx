@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 // Context
@@ -25,36 +25,34 @@ export function Experience() {
   const findIndex = mapTitle.findIndex((data) => stringForUrl(data) === title);
   const data = experienceData[findIndex];
 
-  return findIndex !== -1 ? (
-    <>
-      <section key={data.title} className="experience">
-        <div className="titleAndTime">
-          <h3>{data.title}</h3>
-          <span>
-            {data.time[language]} - {data.team[language]}
-          </span>
-        </div>
-
-        <div className="bannerWrapper">
-          <img src={`../${data.imgs[0]}`} alt={data.title} />
-        </div>
-
-        <div className="links">
-          <a href={data.url} target="_blank">
-            {text("websiteLink")}
-          </a>
-          <a href={data.gitHub} target="_blank">
-            {text("gitHubLink")}
-          </a>
-        </div>
-
-        <Properties data={data} />
-
-        <p className="description">{data.description[language]}</p>
-      </section>
-    </>
-  ) : (
+  return findIndex === -1 ? (
     <PageNotFound />
+  ) : (
+    <section key={data.title} className="experience">
+      <div className="titleAndTime">
+        <h3>{data.title}</h3>
+        <span>
+          {data.time[language]} - {data.team[language]}
+        </span>
+      </div>
+
+      <div className="bannerWrapper">
+        <img src={`../${data.imgs[0]}`} alt={data.title} />
+      </div>
+
+      <div className="links">
+        <a href={data.url} target="_blank">
+          {text("websiteLink")}
+        </a>
+        <a href={data.gitHub} target="_blank">
+          {text("gitHubLink")}
+        </a>
+      </div>
+
+      <Properties data={data} />
+
+      <p className="description">{data.description[language]}</p>
+    </section>
   );
 }
 
@@ -63,15 +61,17 @@ function Properties({ data }: { data: ExperienceProps }) {
 
   return (
     <div className="properties">
-      <p>
+      <p className="type">
         <span className="title">{text("type")}</span>
         <span className="content">{data.type[language]}</span>
       </p>
-      <p>
+
+      <p className="theme">
         <span className="title">{text("theme")}</span>
         <span className="content">{data.theme[language]}</span>
       </p>
-      <p>
+
+      <p className="stack">
         <span className="title">{text("stack")}</span>
         <span className="content stack">
           {data.stack.map((stack) => {
@@ -79,32 +79,38 @@ function Properties({ data }: { data: ExperienceProps }) {
           })}
         </span>
       </p>
-      <p>
+
+      <p className="skills">
         <span className="title">{text("skills")}</span>
-        {data.details.map((detail) => {
-          return (
-            <span key={detail} className="content">
-              {detail}
-              <br />
-            </span>
-          );
-        })}
+        <span className="content">
+          {data.details.map((detail) => {
+            return (
+              <Fragment key={detail}>
+                {detail}
+                <br />
+              </Fragment>
+            );
+          })}
+        </span>
       </p>
-      <p>
+
+      <p className="translatedIn">
         <span className="title">{text("translatedIn")}</span>
-        {data.translation.map((translation) => {
-          return (
-            <span key={translation.iso} className="content language">
-              <img
-                src={`https://flagcdn.com/${translation.iso}.svg`}
-                alt={translation.translation[language]}
-                className="translationImg"
-              />
-              <span>{translation.translation[language]}</span>
-              <br />
-            </span>
-          );
-        })}
+        <span className="content language">
+          {data.translation.map((translation) => {
+            return (
+              <span key={translation.iso}>
+                <img
+                  src={`https://flagcdn.com/${translation.iso}.svg`}
+                  alt={translation.translation[language]}
+                  className="translationImg"
+                />
+                <span>{translation.translation[language]}</span>
+                <br />
+              </span>
+            );
+          })}
+        </span>
       </p>
     </div>
   );

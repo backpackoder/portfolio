@@ -5,6 +5,10 @@ type stack = {
 
 export const myStacks: stack[] = [
   {
+    name: "Next",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  },
+  {
     name: "React",
     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },

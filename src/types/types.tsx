@@ -19,7 +19,7 @@ export interface LanguageObject {
   [key: string]: LanguageStrings;
 }
 export type Iso = "fr" | "en" | "es";
-export interface ExperienceProps {
+export type ExperienceProps = {
   title: string;
   imgs: string[];
   url: string;
@@ -35,7 +35,7 @@ export interface ExperienceProps {
     translation: LanguageStrings;
     iso: "fr" | "gb" | "es";
   }[];
-}
+};
 export type Experience_type = {
   [key: string]: {
     fr: "Site vitrine" | "Site E-commerce" | "Site web" | "Application mobile" | "Challenges";

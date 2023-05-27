@@ -43,7 +43,7 @@ export function Form() {
           name="message"
           id="message"
           required
-          defaultValue="Bonjour Thibaut, Je suis à la recherche d'un développeur React pour mon projet. Pouvez-vous me contacter pour en discuter ? Merci"
+          defaultValue="Bonjour Thibaut, Je suis à la recherche d'un développeur Next ou React pour mon projet. Pouvez-vous me contacter pour en discuter ? Merci"
           placeholder="Écrivez votre message..."
         />
 
