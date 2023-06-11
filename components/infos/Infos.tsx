@@ -1,7 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useAppContext } from "@/app/context/AppProvider";
+
+// Components
+import { Flag } from "../Flag";
 
 // Types
 import { withInfoProps } from "../../types/types";
@@ -12,11 +14,7 @@ import { myStacks } from "../../utils/myStacks";
 import { personality } from "../../utils/personality";
 
 // Commons
-import {
-  FLAG_EN_HTMLElement,
-  FLAG_ES_HTMLElement,
-  FLAG_FR_HTMLElement,
-} from "../../commons/commons";
+import { FLAGS } from "../../commons/commons";
 
 // Styles
 import { styles } from "@/app/assets/tailwindstyles";
@@ -53,7 +51,7 @@ export function StacksWithInfo() {
               key={stack.name}
               className="flex items-center gap-2 bg-[#ebebeb] py-2 px-3 rounded-lg"
             >
-              <Image src={stack.img} alt={stack.name} width={25} height={25} />
+              <Flag src={stack.img} alt={stack.name} width={25} height={25} />
               <p className="leading-8 py-1 px-2 m-auto">{stack.name}</p>
             </li>
           )
@@ -146,15 +144,15 @@ export function LangagesWithInfo() {
   return (
     <ul className="flex justify-center flex-wrap gap-2 text-center leading-8 py-1 px-2 m-auto">
       <li className="flex items-center gap-2 bg-[#ebebeb] py-1 px-2 rounded-lg">
-        <FLAG_FR_HTMLElement width={25} height={15} />
+        <Flag src={FLAGS.FR} width={25} height={15} alt="french" />
         {text("french")}
       </li>
       <li className="flex items-center gap-2 bg-[#ebebeb] py-1 px-2 rounded-lg">
-        <FLAG_EN_HTMLElement width={25} height={15} />
+        <Flag src={FLAGS.EN} width={25} height={15} alt="english" />
         {text("english")}
       </li>
       <li className="flex items-center gap-2 bg-[#ebebeb] py-1 px-2 rounded-lg">
-        <FLAG_ES_HTMLElement width={25} height={15} />
+        <Flag src={FLAGS.ES} width={25} height={15} alt="spanish" />
         {text("spanish")}
       </li>
     </ul>

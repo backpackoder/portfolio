@@ -7,6 +7,7 @@ import { Fragment } from "react";
 
 // Components
 import { PropertyItem } from "@/components/PropertyItem";
+import { Flag } from "@/components/Flag";
 
 // Types
 import { ExperienceProps } from "@/types/types";
@@ -25,7 +26,7 @@ import { PARTS } from "@/commons/commons";
 import { styles } from "@/app/assets/tailwindstyles";
 
 export default function Experience({ params }: { params: { experience: string } }) {
-  const { language, text } = useAppContext();
+  const { language } = useAppContext();
 
   const experienceIndex = experienceData.findIndex(
     (experience) => stringForUrl(experience.title) === params.experience
@@ -117,12 +118,13 @@ function Properties({ data }: { data: ExperienceProps }) {
         data={data.translation.map((translation) => {
           return (
             <span key={translation.iso} className="flex items-center justify-center gap-5">
-              <Image
+              <Flag
                 src={`https://flagcdn.com/${translation.iso}.svg`}
                 alt={translation.translation[language]}
                 width={35}
                 height={35}
               />
+
               <span className="flex items-center justify-center gap-5">
                 {translation.translation[language]}
               </span>

@@ -87,36 +87,8 @@ export const PROJECT_MY_WISE_QUOTES_URL = "https://mywisequotes.vercel.app/";
 export const PROJECT_MY_WISE_QUOTES_GITHUB_URL = "https://github.com/backpackoder/mywisequotes";
 
 // Flags
-// France
-export const FLAG_FR = "https://flagcdn.com/fr.svg";
-export function FLAG_FR_HTMLElement({
-  width = 50,
-  height = 30,
-}: {
-  width: FlagImageDimensions;
-  height: FlagImageDimensions;
-}) {
-  return <Image src={FLAG_FR} width={width} height={height} alt="Français" />;
-}
-// England
-export const FLAG_EN = "https://flagcdn.com/gb.svg";
-export function FLAG_EN_HTMLElement({
-  width = 50,
-  height = 30,
-}: {
-  width: FlagImageDimensions;
-  height: FlagImageDimensions;
-}) {
-  return <Image src={FLAG_EN} width={width} height={height} alt="Anglais" />;
-}
-// Spain
-export const FLAG_ES = "https://flagcdn.com/es.svg";
-export function FLAG_ES_HTMLElement({
-  width = 50,
-  height = 30,
-}: {
-  width: FlagImageDimensions;
-  height: FlagImageDimensions;
-}) {
-  return <Image src={FLAG_ES} width={width} height={height} alt="Espagnol" />;
-}
+export const FLAGS = {
+  FR: "https://flagcdn.com/fr.svg",
+  EN: "https://flagcdn.com/gb.svg",
+  ES: "https://flagcdn.com/es.svg",
+};

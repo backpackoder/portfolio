@@ -6,6 +6,9 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { useAppContext } from "@/app/context/AppProvider";
 
+// Components
+import { Flag } from "./Flag";
+
 // Types
 import { Iso } from "../types/types";
 
@@ -14,13 +17,7 @@ import { parts } from "../utils/parts";
 import { languageBtn } from "../utils/languageBtns";
 
 // Commons
-import {
-  FLAG_EN_HTMLElement,
-  FLAG_ES_HTMLElement,
-  FLAG_FR_HTMLElement,
-  PARTS,
-  ROUTES,
-} from "../commons/commons";
+import { FLAGS, PARTS, ROUTES } from "../commons/commons";
 
 export function Header() {
   const pathname = usePathname();
@@ -31,7 +28,6 @@ export function Header() {
   const [actualObservedPart, setActualObservedPart] = useState<HTMLElement | { id: string } | null>(
     null
   );
-  console.log("actualObservedPart", actualObservedPart?.id);
 
   const isHomePage = pathname === ROUTES.HOME;
 
@@ -126,7 +122,11 @@ export function Header() {
   );
 }
 
-function ChangeLanguage({ setOpen }: { setOpen: (open: boolean) => void }) {
+export type ChangeLanguageProps = {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+function ChangeLanguage({ setOpen }: ChangeLanguageProps) {
   const { language, changeLanguage } = useAppContext();
 
   const [openLanguageList, setOpenLanguageList] = useState(false);
@@ -139,12 +139,14 @@ function ChangeLanguage({ setOpen }: { setOpen: (open: boolean) => void }) {
 
   const FLAG_FOR_ACTUAL_LANGUAGE = useMemo(() => {
     switch (language) {
-      default:
-        return <FLAG_FR_HTMLElement width={50} height={30} />;
       case "en":
-        return <FLAG_EN_HTMLElement width={50} height={30} />;
+        return <Flag src={FLAGS.EN} width={50} height={30} alt="english" />;
+
       case "es":
-        return <FLAG_ES_HTMLElement width={50} height={30} />;
+        return <Flag src={FLAGS.ES} width={50} height={30} alt="spanish" />;
+
+      default:
+        return <Flag src={FLAGS.FR} width={50} height={30} alt="french" />;
     }
   }, [language]);
 
@@ -170,7 +172,7 @@ function ChangeLanguage({ setOpen }: { setOpen: (open: boolean) => void }) {
                 className="bg-[rgba(7,7,148,0.75)] p-2 border-none mx-auto cursor-pointer"
                 onClick={() => handleLanguage(btn.language)}
               >
-                {btn.flag}
+                <Flag src={btn.flag} width={50} height={30} alt={btn.language} />
               </button>
             )
           );
