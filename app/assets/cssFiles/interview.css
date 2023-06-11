@@ -1,0 +1,237 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  min-height: calc(100vh + 25px);
+  background-color: #f6f6f6;
+  padding: 50px 0 20px;
+  animation: upToDownVideos 1.5s ease-out;
+}
+.header .mainContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+}
+.interview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.letInterviewAtSameHeight {
+  height: 50vh;
+}
+
+.videoWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.videoWrapper.fixed {
+  position: fixed;
+  top: 75px;
+  left: 25px;
+}
+.videoWrapper.none {
+  display: none;
+}
+
+.video {
+  min-width: 200px;
+  max-width: 50vw;
+  max-height: 50vh;
+  box-shadow: 0 0px 16px -5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.video.none {
+  display: none;
+}
+.videoWrapper.fixed video {
+  min-width: 75px;
+  max-width: 25vw;
+  max-height: 25vh;
+}
+
+.volumeIcon,
+.questionIcon {
+  background-color: rgba(173, 216, 230, 0.75);
+  padding: 5px;
+  border: solid 1px rgba(0, 0, 0, 0.125);
+  cursor: pointer;
+  z-index: 100;
+}
+.volumeIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+}
+.volumeIcon:hover,
+.questionIcon:hover {
+  background-color: rgb(173, 193, 230);
+}
+.questionIconWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.questionList {
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  display: none;
+  min-width: 100%;
+  max-width: 80vw;
+  min-height: 100%;
+  background-color: rgba(173, 216, 230, 0.25);
+  font-size: 0.9rem;
+  padding: 40px 10px 10px;
+  border-radius: 10px;
+  overflow: auto;
+  animation: fadeIn 0.25s ease-in-out;
+  z-index: 10;
+}
+.videoWrapper.fixed .questionList {
+  padding-top: 10px;
+}
+@media (hover: none) {
+  .videoWrapper.active .questionList {
+    display: flex;
+    z-index: 50;
+  }
+}
+@media (hover: hover) {
+  .videoWrapper:hover .questionList {
+    display: flex;
+    z-index: 50;
+  }
+}
+
+.questionList li {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  background-color: lightblue;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hint {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background-color: rgba(173, 216, 230, 0.9);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 25px;
+  animation: fadeIn 1s;
+  animation: flash 4s infinite alternate;
+}
+
+/* CONTACT */
+.contactList-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  animation: appearsAndScale 3s;
+}
+.contactList-info li:hover {
+  scale: 125%;
+  transition: 0.25s;
+}
+
+.lookAtMyResume {
+  background-color: aqua;
+  padding: 10px;
+  border-radius: 10px;
+  animation: appearsAndScale 4s;
+}
+.lookAtMyResume:hover {
+  background-color: rgb(3, 235, 235);
+  scale: 1.1;
+  transition: 0.25s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes upToDownVideos {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes appearsAndScale {
+  0% {
+    opacity: 0;
+    transform: scale(100%);
+  }
+  50% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+  90% {
+    transform: scale(110%);
+  }
+  to {
+    transform: scale(100%);
+  }
+}
+@keyframes rotateX {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}

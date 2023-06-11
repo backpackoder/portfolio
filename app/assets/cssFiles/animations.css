@@ -1,0 +1,156 @@
+.animation.upToDownHeader {
+  animation: upToDownHeader 2s ease-out;
+}
+
+.animation.nextInfo {
+  animation: nextInfo 1s;
+}
+
+.animation.prevInfo {
+  animation: prevInfo 1s;
+}
+
+.animation.upToDownVideos {
+  animation: upToDownVideos 1.5s ease-out;
+}
+
+.animation.fadeIn {
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.animation.fadeIn {
+  animation: fadeIn 1s;
+}
+
+.animation.flash {
+  animation: flash 4s infinite alternate;
+}
+
+.animation.appearsAndScale-3s {
+  animation: appearsAndScale 3s;
+}
+
+.animation.appearsAndScale-4s {
+  animation: appearsAndScale 4s;
+}
+
+@keyframes h1 {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes upToDownHeader {
+  0% {
+    transform: translateY(-100%);
+  }
+  66% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInAt50 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes prevInfo {
+  from {
+    transform: translate(-100%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes nextInfo {
+  from {
+    transform: translate(100%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes upToDownVideos {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes appearsAndScale {
+  0% {
+    opacity: 0;
+    transform: scale(100%);
+  }
+  50% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+  90% {
+    transform: scale(110%);
+  }
+  to {
+    transform: scale(100%);
+  }
+}
+
+@keyframes rotateX {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
