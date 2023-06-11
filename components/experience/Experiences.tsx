@@ -33,7 +33,7 @@ export function Experiences() {
                 className="flex flex-col w-500 max-w-full bg-[rgb(245,245,245)] p-2 rounded-lg
                 shadow-xl cursor-pointer"
               >
-                <div className="flex flex-col gap-5 h-full">
+                <div className="flex flex-col justify-between gap-5 h-full">
                   <Image
                     src={`/${experience.imgs[0]}`}
                     alt={experience.title}
@@ -43,6 +43,11 @@ export function Experiences() {
                   />
 
                   <h3 className={styles.titles.h3}>{experience.title}</h3>
+
+                  <p className="text-[rgba(0,0,0,0.75)] italic">
+                    {experience.catchphrase[language]}
+                  </p>
+
                   <ul className="flex flex-wrap justify-center items-center gap-2">
                     <li className="bg-[rgb(205,227,237)] p-2 rounded-lg">
                       {experience.team[language]}

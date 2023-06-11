@@ -1,6 +1,9 @@
 // Utils
 import { CSS, HTML, JS, NEXT, REACT, TS } from "./myStacks";
 
+// Types
+import { formationDataType } from "@/types/types";
+
 // Commons
 import {
   FORMATION_AUTODIDACTE_IMAGE,
@@ -13,20 +16,7 @@ import {
 } from "../commons/commons";
 
 // Languages
-import { Translation, translation } from "@/languages/languages";
-
-export type formationDataType = {
-  title: Translation;
-  image: string;
-  url: string;
-  time: Translation;
-  stack: string[];
-  description: {
-    introduction: Translation;
-    content: Translation;
-    conclusion: Translation;
-  };
-};
+import { translation } from "@/languages/languages";
 
 export const formationData: formationDataType[] = [
   {
@@ -39,6 +29,11 @@ export const formationData: formationDataType[] = [
       "desde siempre y para siempre"
     ),
     stack: [NEXT.img, REACT.img, TS.img, JS.img, HTML.img, CSS.img],
+    catchphrase: translation(
+      `La meilleure façon d'apprendre est de faire des recherches sur Internet.`,
+      `The best way to learn is to do research on the Internet.`,
+      `La mejor manera de aprender es investigar en Internet.`
+    ),
     description: {
       introduction: translation(
         `Et oui, j'ai commencé à apprendre la programmation en autodidacte avec le HTML, le CSS et
@@ -84,6 +79,11 @@ export const formationData: formationDataType[] = [
     url: FORMATION_REACT_MASTERY_URL,
     time: translation("2022", "2022", "2022"),
     stack: [REACT.img, JS.img, HTML.img, CSS.img],
+    catchphrase: translation(
+      `La formation React complète qui m'a converti en développeur front-end confirmé.`,
+      `The complete React training that made me a confirmed front-end developer.`,
+      `La formación completa de React que me convirtió en un desarrollador front-end confirmado.`
+    ),
     description: {
       introduction: translation(
         `Je suis devenu un développeur front-end confirmé avec le framework React grâce à cette formation.`,
@@ -159,6 +159,11 @@ export const formationData: formationDataType[] = [
     url: FORMATION_TYPESCRIPT_PRO_URL,
     time: translation("2022", "2022", "2022"),
     stack: [TS.img, REACT.img],
+    catchphrase: translation(
+      `Formation sur TypeScript pour avoir un code de qualité supérieure`,
+      `Training on TypeScript to have a higher quality code`,
+      `Formación sobre TypeScript para tener un código de mayor calidad`
+    ),
     description: {
       introduction: translation(
         `Suite à la formation de React Mastery, je me suis formé sur TypeScript avec la formation
@@ -224,6 +229,11 @@ export const formationData: formationDataType[] = [
     url: FORMATION_NEXTJS_THE_FULL_COURSE_URL,
     time: translation("2023", "2023", "2023"),
     stack: [NEXT.img, REACT.img, TS.img],
+    catchphrase: translation(
+      `Formation sur Next.js, le framework indispensable pour React`,
+      `Training on Next.js, the essential framework for React`,
+      `Formación sobre Next.js, el framework esencial para React`
+    ),
     description: {
       introduction: translation(
         `Suite à la formation de React Mastery, je me suis formé sur Next.js pour pouvoir utiliser

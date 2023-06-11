@@ -45,6 +45,11 @@ export const experienceData: ExperienceProps[] = [
     team: translation("En équipe", "In a team", "En equipo"),
     stack: [REACT.img, JS.img],
     details: ["API", "GraphQL", "Material-UI", "React-Query", "React-Router"],
+    catchphrase: translation(
+      "Site web qui permet de rechercher des mangas et des animes",
+      "Website that allows searching for manga and anime",
+      "Sitio web que permite buscar manga y anime"
+    ),
     description: translation(
       `Dans un groupe de 4 développeurs, nous avons créé un site web qui permet de rechercher des
     mangas et des animes. Le travail a duré un mois, divisé en 4 sprints d'une semaine chacun,
@@ -91,6 +96,11 @@ export const experienceData: ExperienceProps[] = [
     team: translation("En solo", "Solo", "En solitario"),
     stack: [REACT.img, TS.img],
     details: ["Supabase", "API", "React-Query", "React-Router", "i18n"],
+    catchphrase: translation(
+      "Jouez à un quiz et testez vos connaissances sur les pays du monde",
+      "Play a quiz and test your knowledge of the countries of the world",
+      "Juega un cuestionario y prueba tus conocimientos sobre los países del mundo"
+    ),
     description: translation(
       `J'ai créé un site web qui permet de tester ses connaissances sur les pays du monde.
     J'ai utilisé l'API du site restcountries.com pour récupérer les données des pays.
@@ -129,6 +139,11 @@ export const experienceData: ExperienceProps[] = [
   //   team: translation("En solo", "Solo", "En solitario"),
   //   stack: [NEXT.img, REACT.img, TS.img],
   //   details: ["Supabase", "next-auth", "API", "Tailwind CSS"],
+  //   catchphrase: translation(
+  //     "Découvrez des citations et leurs autheurs et gardez vos préférés",
+  //     "Discover quotes and their authors and keep your favorites",
+  //     "Descubre citas y sus autores y guarda tus favoritos"
+  //   ),
   //   description: translation(
   //     `J'ai créé un site web qui permet de découvrir et garder ces citations préférées.
   //   J'ai utilisé l'API "quotable" pour récupérer les citations.
@@ -163,6 +178,11 @@ export const experienceData: ExperienceProps[] = [
     team: translation("En solo", "Solo", "En solitario"),
     stack: [REACT.img, TS.img],
     details: ["Responsive", "Mobile first", "API", "i18n"],
+    catchphrase: translation(
+      "Site de présentation d'une chambre d'hôte sur la côte d'azur",
+      "Showcase site of a guest room on the French Riviera",
+      "Sitio de presentación de una habitación de huéspedes en la Riviera francesa"
+    ),
     description: translation(
       `J'ai créé un site vitrine pour une chambre d'hôte sur Booking.com située dans le 06.
     Je me suis aussi occupé du design du site car je n'avais pas de maquette.
@@ -200,6 +220,11 @@ export const experienceData: ExperienceProps[] = [
     team: translation("En solo", "Solo", "En solitario"),
     stack: [REACT.img, JS.img],
     details: ["API", "Material-UI", "React-Query", "React-Router", "Local Storage"],
+    catchphrase: translation(
+      "Site qui annonce la météo du jour et de la semaine partout sur terre",
+      "Site that announces the weather of the day and the week everywhere on earth",
+      "Sitio que anuncia el clima del día y la semana en todas partes de la tierra"
+    ),
     description: translation(
       `J'ai créé un site qui annonce la météo du jour et de la semaine partout sur terre.
     J'ai utilisé l'API de OpenWeatherMap pour récupérer les données météo.
@@ -224,6 +249,11 @@ export const experienceData: ExperienceProps[] = [
     team: translation("En solo", "Solo", "En solitario"),
     stack: [NEXT.img, REACT.img, TS.img, JS.img, HTML.img, CSS.img],
     details: ["Responsive", "Mobile first"],
+    catchphrase: translation(
+      "Mes challenges sur Frontend Mentor",
+      "My challenges on Frontend Mentor",
+      "Mis desafíos en Frontend Mentor"
+    ),
     description: translation(
       `J'ai réussi plusieurs challenges au fil du temps sur le site Frontend Mentor.
     Les challenges m'ont beaucoup aidé au début pour progresser, vous pouvez aller voir les résultats
@@ -248,6 +278,11 @@ export const experienceData: ExperienceProps[] = [
     team: translation("En solo", "Solo", "En solitario"),
     stack: [NEXT.img, REACT.img, TS.img],
     details: ["Responsive", "Mobile first", "SEO", "Video"],
+    catchphrase: translation(
+      "Mon portfolio (le site où vous êtes actuellement)",
+      "My portfolio (the site you are currently on)",
+      "Mi portfolio (el sitio en el que se encuentra actualmente)"
+    ),
     description: translation(
       `J'ai créé Mon portfolio avec Next.js et TypeScript pour présenter mes projets et mes compétences.`,
       `I created My portfolio with Next.js and TypeScript to present my projects and my skills.`,

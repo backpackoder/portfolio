@@ -1,7 +1,5 @@
-import Image from "next/image";
-
 // Types
-import { FlagImageDimensions, PARTS_TYPE } from "@/types/types";
+import { PARTS_TYPE } from "@/types/types";
 
 // Languages
 import { PSEUDO, translation } from "../languages/languages";
@@ -13,6 +11,9 @@ export const ROUTES = {
   EXPERIENCES: "/experiences",
   FORMATION: "/formation",
 };
+
+// resume
+export const RESUME_URL = "/Mon CV - Dev front-end - all.pdf";
 
 // Parts
 export const PARTS: PARTS_TYPE = {
@@ -80,7 +81,7 @@ export const PROJECT_DRESSLY_GITHUB_URL = "https://github.com/backpackoder/dress
 export const PROJECT_MANGANIME_URL = "https://manganimerm.netlify.app/";
 export const PROJECT_MANGANIME_GITHUB_URL = "https://github.com/backpackoder/manganime";
 // Nations quiz
-export const PROJECT_NATIONS_QUIZ_URL = "https://nations-quiz.netlify.app/";
+export const PROJECT_NATIONS_QUIZ_URL = "https://nationsquiz.netlify.app/";
 export const PROJECT_NATIONS_QUIZ_GITHUB_URL = "https://github.com/backpackoder/nationsquiz";
 // My wise quotes
 export const PROJECT_MY_WISE_QUOTES_URL = "https://mywisequotes.vercel.app/";

@@ -31,7 +31,7 @@ export function Formation() {
               className="flex flex-col w-500 max-w-full bg-[rgb(245,245,245)] p-2 rounded-lg
                 shadow-xl cursor-pointer"
             >
-              <div className="flex flex-col gap-5 h-full">
+              <div className="flex flex-col justify-between gap-5 h-full">
                 <Image
                   src={formation.image}
                   alt={formation.title[language]}
@@ -41,6 +41,18 @@ export function Formation() {
                 />
 
                 <h3 className={styles.titles.h3}>{formation.title[language]}</h3>
+
+                <p className="italic">{formation.catchphrase[language]}</p>
+
+                <ul className="flex flex-wrap justify-center items-center gap-2">
+                  {formation.stack.map((stack, index) => {
+                    return (
+                      <li key={index} className="p-2 rounded-lg shadow-lg">
+                        <Image src={stack} alt={stack} width={25} height={25} priority />
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </Link>
           );

@@ -16,6 +16,7 @@ export type LanguageStrings = {
   en: string;
   es: string;
 };
+
 export type PARTS_TYPE = {
   [key: string]: {
     LABEL: Translation;
@@ -30,7 +31,9 @@ export type PartID = "interview" | "experience" | "experiences" | "formation" | 
 export interface LanguageObject {
   [key: string]: LanguageStrings;
 }
+
 export type Iso = "fr" | "en" | "es";
+
 export type ExperienceProps = {
   title: string;
   imgs: string[];
@@ -42,6 +45,7 @@ export type ExperienceProps = {
   team: LanguageStrings;
   stack: string[];
   details: string[];
+  catchphrase: LanguageStrings;
   description: LanguageStrings;
   translation: {
     translation: LanguageStrings;
@@ -50,6 +54,20 @@ export type ExperienceProps = {
 };
 export type Experience_type = {
   [key: string]: Translation;
+};
+
+export type formationDataType = {
+  title: Translation;
+  image: string;
+  url: string;
+  time: Translation;
+  stack: string[];
+  catchphrase: Translation;
+  description: {
+    introduction: Translation;
+    content: Translation;
+    conclusion: Translation;
+  };
 };
 
 // Contexts types

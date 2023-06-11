@@ -8,6 +8,9 @@ import { Video } from "./Video";
 import { Info } from "../infos/Info";
 import { ContactsList } from "../Contacts";
 
+// Commons
+import { PARTS, RESUME_URL } from "@/commons/commons";
+
 // Types
 import { initialStatesProps } from "@/types/types";
 
@@ -16,7 +19,6 @@ import { translation } from "@/languages/languages";
 
 // Styles
 import { styles } from "@/app/assets/tailwindstyles";
-import { PARTS } from "@/commons/commons";
 
 export function Interview() {
   const { changeInfo, setChangeInfo, text } = useAppContext();
@@ -98,35 +100,41 @@ export function Interview() {
           ...state,
           conditions: { ...state.conditions, muteBtn: action.switchBoolean },
         };
+
       case "newVideoPlayed":
         return {
           ...state,
           conditions: { ...state.conditions },
         };
+
       case "introBecomesClickable":
         return {
           ...state,
           videoPlaying: "clickable",
           conditions: { ...state.conditions, muteBtn: false, isIntroClickable: true },
         };
+
       case "getMyAttention":
         return {
           ...state,
           videoPlaying: "hello",
           conditions: { ...state.conditions, isIntroPlaying: false, isPayingAttention: true },
         };
+
       case "helloEnded":
         return {
           ...state,
           videoPlaying: "waiting",
           conditions: { ...state.conditions, hasHelloEnded: true },
         };
+
       case "questionPlayed":
         return {
           ...state,
           videoPlaying: action.payload,
           conditions: { ...state.conditions, isResponding: true },
         };
+
       case "questionEnded":
         return {
           ...state,
@@ -161,7 +169,7 @@ export function Interview() {
 
       <ContactsList style={"flex items-center justify-evenly gap-5 py-2 cursor-pointer"} />
 
-      <a href="/Mon CV - Dev front-end - all.pdf" target="_blank" className="lookAtMyResume">
+      <a href={RESUME_URL} target="_blank" className="lookAtMyResume">
         {text("lookAtMyResume")}
       </a>
     </section>

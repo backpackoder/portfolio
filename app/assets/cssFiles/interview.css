@@ -34,7 +34,7 @@
 }
 .videoWrapper.fixed {
   position: fixed;
-  top: 75px;
+  top: 25px;
   left: 25px;
 }
 .videoWrapper.none {
@@ -45,6 +45,7 @@
   min-width: 200px;
   max-width: 50vw;
   max-height: 50vh;
+  aspect-ratio: 1/1;
   box-shadow: 0 0px 16px -5px;
   border-radius: 50%;
   cursor: pointer;

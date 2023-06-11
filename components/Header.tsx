@@ -140,13 +140,13 @@ function ChangeLanguage({ setOpen }: ChangeLanguageProps) {
   const FLAG_FOR_ACTUAL_LANGUAGE = useMemo(() => {
     switch (language) {
       case "en":
-        return <Flag src={FLAGS.EN} width={50} height={30} alt="english" />;
+        return FLAGS.EN;
 
       case "es":
-        return <Flag src={FLAGS.ES} width={50} height={30} alt="spanish" />;
+        return FLAGS.ES;
 
       default:
-        return <Flag src={FLAGS.FR} width={50} height={30} alt="french" />;
+        return FLAGS.FR;
     }
   }, [language]);
 
@@ -156,7 +156,7 @@ function ChangeLanguage({ setOpen }: ChangeLanguageProps) {
         className="flex bg-transparent border-none my-2 mx-auto cursor-pointer"
         onClick={() => setOpenLanguageList(!openLanguageList)}
       >
-        {FLAG_FOR_ACTUAL_LANGUAGE}
+        <Flag src={FLAG_FOR_ACTUAL_LANGUAGE} alt={language} width={50} height={30} />
       </button>
 
       <div

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useAppContext } from "@/app/context/AppProvider";
 
 // Components
@@ -51,7 +52,7 @@ export function StacksWithInfo() {
               key={stack.name}
               className="flex items-center gap-2 bg-[#ebebeb] py-2 px-3 rounded-lg"
             >
-              <Flag src={stack.img} alt={stack.name} width={25} height={25} />
+              <Image src={stack.img} alt={stack.name} width={25} height={25} priority />
               <p className="leading-8 py-1 px-2 m-auto">{stack.name}</p>
             </li>
           )
