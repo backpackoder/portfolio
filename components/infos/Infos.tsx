@@ -146,15 +146,15 @@ export function LangagesWithInfo() {
   return (
     <ul className="flex justify-center flex-wrap gap-2 text-center leading-8 py-1 px-2 m-auto">
       <li className="flex items-center gap-2 bg-[#ebebeb] py-1 px-2 rounded-lg">
-        {FLAG_FR_HTMLElement(25, 15)}
+        <FLAG_FR_HTMLElement width={25} height={15} />
         {text("french")}
       </li>
       <li className="flex items-center gap-2 bg-[#ebebeb] py-1 px-2 rounded-lg">
-        {FLAG_EN_HTMLElement(25, 15)}
+        <FLAG_EN_HTMLElement width={25} height={15} />
         {text("english")}
       </li>
       <li className="flex items-center gap-2 bg-[#ebebeb] py-1 px-2 rounded-lg">
-        {FLAG_ES_HTMLElement(25, 15)}
+        <FLAG_ES_HTMLElement width={25} height={15} />
         {text("spanish")}
       </li>
     </ul>
