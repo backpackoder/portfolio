@@ -6,6 +6,8 @@ import {
   PROJECT_CHALLENGES_FRONTEND_MENTOR_URL,
   PROJECT_DRESSLY_GITHUB_URL,
   PROJECT_DRESSLY_URL,
+  PROJECT_LOUE_TON_FOOD_TRUCK_GITHUB_URL,
+  PROJECT_LOUE_TON_FOOD_TRUCK_URL,
   PROJECT_MANGANIME_GITHUB_URL,
   PROJECT_MANGANIME_URL,
   PROJECT_MY_PORTFOLIO_GITHUB_URL,
@@ -85,48 +87,6 @@ export const experienceData: ExperienceProps[] = [
     ),
     translation: [{ translation: translation("Anglais", "English", "Inglés"), iso: "gb" }],
   },
-  {
-    title: "Nations quiz",
-    imgs: ["Nations quiz - home page.png"],
-    url: PROJECT_NATIONS_QUIZ_URL,
-    gitHub: PROJECT_NATIONS_QUIZ_GITHUB_URL,
-    type: experience_type.website,
-    theme: translation("Géographie", "Geography", "Geografía"),
-    time: translation("Avril 2023", "April 2023", "Abril 2023"),
-    team: translation("En solo", "Solo", "En solitario"),
-    stack: [REACT.img, TS.img],
-    details: ["Supabase", "API", "React-Query", "React-Router", "i18n"],
-    catchphrase: translation(
-      "Jouez à un quiz et testez vos connaissances sur les pays du monde",
-      "Play a quiz and test your knowledge of the countries of the world",
-      "Juega un cuestionario y prueba tus conocimientos sobre los países del mundo"
-    ),
-    description: translation(
-      `J'ai créé un site web qui permet de tester ses connaissances sur les pays du monde.
-    J'ai utilisé l'API du site restcountries.com pour récupérer les données des pays.
-    J'ai utilisé la library React-Query pour gérer les requêtes HTTP de l'application, et React-Router pour gérer
-    les routes de l'application.
-    J'ai approfondi mes connaissances en Javascript car créer des jeux est un bon moyen de s'entraîner.
-    J'ai appris beaucoup de nouvelles choses au cours de ce projet, ce fut donc une expérience très positive.`,
-      `I created a website that allows you to test your knowledge of the countries of the world.
-      I used the API of the restcountries.com website to retrieve country data.
-      I used the React-Query library to manage the application's HTTP requests, and React-Router to manage
-      application routes.
-      I deepened my knowledge of Javascript because creating games is a good way to train.
-      I learned a lot of new things during this project so it was a very positive experience.`,
-      `Creé un sitio web que permite poner a prueba tus conocimientos sobre los países del mundo.
-      Utilicé la API del sitio web restcountries.com para recuperar datos de países.
-      Utilicé la biblioteca React-Query para administrar las solicitudes HTTP de la aplicación y React-Router para administrar
-      rutas de aplicaciones.
-      Profundicé mis conocimientos de Javascript porque crear juegos es una buena manera de entrenar.
-      Aprendí muchas cosas nuevas durante este proyecto, por lo que fue una experiencia muy positiva.`
-    ),
-    translation: [
-      { translation: translation("Français", "French", "Francés"), iso: "fr" },
-      { translation: translation("Anglais", "English", "Inglés"), iso: "gb" },
-      { translation: translation("Espagnol", "Spanish", "Español"), iso: "es" },
-    ],
-  },
 
   // {
   //   title: "My wise quotes",
@@ -202,6 +162,83 @@ export const experienceData: ExperienceProps[] = [
       así como la API de OpenStreetMap para indicar la ubicación de la habitación de huéspedes en un mapa.
       Utilicé React-Router para administrar las rutas de la aplicación.
       Utilicé la biblioteca "Aos" para crear animaciones en el sitio al desplazarse.`
+    ),
+    translation: [
+      { translation: translation("Français", "French", "Francés"), iso: "fr" },
+      { translation: translation("Anglais", "English", "Inglés"), iso: "gb" },
+      { translation: translation("Espagnol", "Spanish", "Español"), iso: "es" },
+    ],
+  },
+  {
+    title: "Loue ton Food truck",
+    imgs: ["Loue ton Food truck - home page.jpg"],
+    url: PROJECT_LOUE_TON_FOOD_TRUCK_URL,
+    gitHub: PROJECT_LOUE_TON_FOOD_TRUCK_GITHUB_URL,
+    type: experience_type.e_commerce,
+    theme: translation("E-commerce", "E-commerce", "E-commerce"),
+    time: translation("Décembre 2023", "December 2023", "Diciembre 2023"),
+    team: translation("En solo", "Solo", "En solitario"),
+    stack: [NEXT.img, REACT.img, TS.img],
+    details: ["Responsive", "Mobile first", "B2B"],
+    catchphrase: translation(
+      "Site E-commerce de location de Food truck",
+      "E-commerce site for renting Food truck",
+      "Sitio de comercio en línea para alquilar Food truck"
+    ),
+    description: translation(
+      `J'ai créé un site E-commerce de location de Food truck.
+    Ce site est un exemple de site E-commerce B2B, c'est-à-dire que les clients sont des entreprises.
+    Ce site montre les Food truck disponibles à la location, et les entreprises peuvent réserver un Food truck.
+    C'est évidemment un site fictif, mais il montre ce qu'il est possible de faire avec Next.js
+    et comment je peux aider les entreprises à créer leur site E-commerce.`,
+      `I created an E-commerce site for renting Food truck.
+    This site is an example of a B2B E-commerce site, that is to say that the customers are companies.
+    This site shows the Food truck available for rent, and companies can book a Food truck.
+    It is obviously a fictitious site, but it shows what is possible to do with Next.js
+    and how I can help companies create their E-commerce site.`,
+      `Creé un sitio de comercio electrónico para alquilar Food truck.
+    Este sitio es un ejemplo de un sitio de comercio electrónico B2B, es decir, que los clientes son empresas.
+    Este sitio muestra el Food truck disponible para alquilar, y las empresas pueden reservar un Food truck.
+    Obviamente es un sitio ficticio, pero muestra lo que es posible hacer con Next.js
+    y cómo puedo ayudar a las empresas a crear su sitio de comercio electrónico.`
+    ),
+    translation: [{ translation: translation("Français", "French", "Francés"), iso: "fr" }],
+  },
+  {
+    title: "Nations quiz",
+    imgs: ["Nations quiz - home page.png"],
+    url: PROJECT_NATIONS_QUIZ_URL,
+    gitHub: PROJECT_NATIONS_QUIZ_GITHUB_URL,
+    type: experience_type.website,
+    theme: translation("Géographie", "Geography", "Geografía"),
+    time: translation("Avril 2023", "April 2023", "Abril 2023"),
+    team: translation("En solo", "Solo", "En solitario"),
+    stack: [REACT.img, TS.img],
+    details: ["Supabase", "API", "React-Query", "React-Router", "i18n"],
+    catchphrase: translation(
+      "Jouez à un quiz et testez vos connaissances sur les pays du monde",
+      "Play a quiz and test your knowledge of the countries of the world",
+      "Juega un cuestionario y prueba tus conocimientos sobre los países del mundo"
+    ),
+    description: translation(
+      `J'ai créé un site web qui permet de tester ses connaissances sur les pays du monde.
+    J'ai utilisé l'API du site restcountries.com pour récupérer les données des pays.
+    J'ai utilisé la library React-Query pour gérer les requêtes HTTP de l'application, et React-Router pour gérer
+    les routes de l'application.
+    J'ai approfondi mes connaissances en Javascript car créer des jeux est un bon moyen de s'entraîner.
+    J'ai appris beaucoup de nouvelles choses au cours de ce projet, ce fut donc une expérience très positive.`,
+      `I created a website that allows you to test your knowledge of the countries of the world.
+      I used the API of the restcountries.com website to retrieve country data.
+      I used the React-Query library to manage the application's HTTP requests, and React-Router to manage
+      application routes.
+      I deepened my knowledge of Javascript because creating games is a good way to train.
+      I learned a lot of new things during this project so it was a very positive experience.`,
+      `Creé un sitio web que permite poner a prueba tus conocimientos sobre los países del mundo.
+      Utilicé la API del sitio web restcountries.com para recuperar datos de países.
+      Utilicé la biblioteca React-Query para administrar las solicitudes HTTP de la aplicación y React-Router para administrar
+      rutas de aplicaciones.
+      Profundicé mis conocimientos de Javascript porque crear juegos es una buena manera de entrenar.
+      Aprendí muchas cosas nuevas durante este proyecto, por lo que fue una experiencia muy positiva.`
     ),
     translation: [
       { translation: translation("Français", "French", "Francés"), iso: "fr" },

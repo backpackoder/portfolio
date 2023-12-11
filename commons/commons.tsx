@@ -86,6 +86,10 @@ export const PROJECT_NATIONS_QUIZ_GITHUB_URL = "https://github.com/backpackoder/
 // My wise quotes
 export const PROJECT_MY_WISE_QUOTES_URL = "https://mywisequotes.vercel.app/";
 export const PROJECT_MY_WISE_QUOTES_GITHUB_URL = "https://github.com/backpackoder/mywisequotes";
+// Loue ton Food truck
+export const PROJECT_LOUE_TON_FOOD_TRUCK_URL = "https://louetonfoodtruck.vercel.app/";
+export const PROJECT_LOUE_TON_FOOD_TRUCK_GITHUB_URL =
+  "https://github.com/backpackoder/loue-ton-food-truck";
 
 // Flags
 export const FLAGS = {
