@@ -1,5 +1,7 @@
 // Commons
 import {
+  PROJECT_ALOURA_GITHUB_URL,
+  PROJECT_ALOURA_URL,
   PROJECT_AU_VERGER_GITHUB_URL,
   PROJECT_AU_VERGER_URL,
   PROJECT_CHALLENGES_FRONTEND_MENTOR_GITHUB_URL,
@@ -170,12 +172,47 @@ export const experienceData: ExperienceProps[] = [
     ],
   },
   {
+    title: "Aloura",
+    imgs: ["Aloura - home page.jpg"],
+    url: PROJECT_ALOURA_URL,
+    gitHub: PROJECT_ALOURA_GITHUB_URL,
+    type: experience_type.e_commerce,
+    theme: translation("Restauration", "Restaurant", "Restaurante"),
+    time: translation("Décembre 2023", "December 2023", "Diciembre 2023"),
+    team: translation("En solo", "Solo", "En solitario"),
+    stack: [NEXT.img, REACT.img, TS.img],
+    details: ["Responsive", "Mobile first"],
+    catchphrase: translation(
+      "Site de présentation pour une entreprise de Food truck",
+      "Showcase site for a Food truck company",
+      "Sitio de presentación para una empresa de Food truck"
+    ),
+    description: translation(
+      `J'ai créé un site de présentation pour une entreprise de Food truck.
+      Le Food truck propose des spécialités Niçoises dans les alpes-maritimes.
+    Je me suis aussi occupé du design du site car je n'avais pas de maquette.
+    Ce site montre ce qu'il est possible de faire avec Next.js
+    et comment je peux aider les entreprises à créer leur site internet.`,
+      `I created a showcase site for a Food truck company.
+      The Food truck offers Niçoise specialties in the Alpes-Maritimes.
+      I also took care of the design of the site because I didn't have a model.
+      This site shows what is possible with Next.js
+      and how I can help companies create their website.`,
+      `Creé un sitio de presentación para una empresa de Food truck.
+      El Food truck ofrece especialidades Niçoise en los Alpes Marítimos.
+      También me encargué del diseño del sitio porque no tenía un modelo.
+      Este sitio muestra lo que es posible con Next.js
+      y cómo puedo ayudar a las empresas a crear su sitio web.`
+    ),
+    translation: [{ translation: translation("Français", "French", "Francés"), iso: "fr" }],
+  },
+  {
     title: "Loue ton Food truck",
     imgs: ["Loue ton Food truck - home page.jpg"],
     url: PROJECT_LOUE_TON_FOOD_TRUCK_URL,
     gitHub: PROJECT_LOUE_TON_FOOD_TRUCK_GITHUB_URL,
     type: experience_type.e_commerce,
-    theme: translation("E-commerce", "E-commerce", "E-commerce"),
+    theme: translation("B2B", "B2B", "B2B"),
     time: translation("Décembre 2023", "December 2023", "Diciembre 2023"),
     team: translation("En solo", "Solo", "En solitario"),
     stack: [NEXT.img, REACT.img, TS.img],
@@ -189,17 +226,17 @@ export const experienceData: ExperienceProps[] = [
       `J'ai créé un site E-commerce de location de Food truck.
     Ce site est un exemple de site E-commerce B2B, c'est-à-dire que les clients sont des entreprises.
     Ce site montre les Food truck disponibles à la location, et les entreprises peuvent réserver un Food truck.
-    C'est évidemment un site fictif, mais il montre ce qu'il est possible de faire avec Next.js
+    Ce site montre ce qu'il est possible de faire avec Next.js
     et comment je peux aider les entreprises à créer leur site E-commerce.`,
       `I created an E-commerce site for renting Food truck.
     This site is an example of a B2B E-commerce site, that is to say that the customers are companies.
     This site shows the Food truck available for rent, and companies can book a Food truck.
-    It is obviously a fictitious site, but it shows what is possible to do with Next.js
+    This site shows what is possible with Next.js
     and how I can help companies create their E-commerce site.`,
       `Creé un sitio de comercio electrónico para alquilar Food truck.
     Este sitio es un ejemplo de un sitio de comercio electrónico B2B, es decir, que los clientes son empresas.
     Este sitio muestra el Food truck disponible para alquilar, y las empresas pueden reservar un Food truck.
-    Obviamente es un sitio ficticio, pero muestra lo que es posible hacer con Next.js
+    Este sitio muestra lo que es posible con Next.js
     y cómo puedo ayudar a las empresas a crear su sitio de comercio electrónico.`
     ),
     translation: [{ translation: translation("Français", "French", "Francés"), iso: "fr" }],
@@ -304,31 +341,31 @@ export const experienceData: ExperienceProps[] = [
     ),
     translation: [{ translation: translation("Anglais", "English", "Inglés"), iso: "gb" }],
   },
-  {
-    title: "Mon portfolio",
-    imgs: ["Mon portfolio - home page.png"],
-    url: PROJECT_MY_PORTFOLIO_URL,
-    gitHub: PROJECT_MY_PORTFOLIO_GITHUB_URL,
-    type: experience_type.website,
-    theme: translation("Professionnel", "Professional", "Profesional"),
-    time: translation("2023", "2023", "2023"),
-    team: translation("En solo", "Solo", "En solitario"),
-    stack: [NEXT.img, REACT.img, TS.img],
-    details: ["Responsive", "Mobile first", "SEO", "Video"],
-    catchphrase: translation(
-      "Mon portfolio (le site où vous êtes actuellement)",
-      "My portfolio (the site you are currently on)",
-      "Mi portfolio (el sitio en el que se encuentra actualmente)"
-    ),
-    description: translation(
-      `J'ai créé Mon portfolio avec Next.js et TypeScript pour présenter mes projets et mes compétences.`,
-      `I created My portfolio with Next.js and TypeScript to present my projects and my skills.`,
-      `Creé Mi portfolio con Next.js y TypeScript para presentar mis proyectos y mis habilidades.`
-    ),
-    translation: [
-      { translation: translation("Français", "French", "Francés"), iso: "fr" },
-      { translation: translation("Anglais", "English", "Inglés"), iso: "gb" },
-      { translation: translation("Espagnol", "Spanish", "Español"), iso: "es" },
-    ],
-  },
+  // {
+  //   title: "Mon portfolio",
+  //   imgs: ["Mon portfolio - home page.png"],
+  //   url: PROJECT_MY_PORTFOLIO_URL,
+  //   gitHub: PROJECT_MY_PORTFOLIO_GITHUB_URL,
+  //   type: experience_type.website,
+  //   theme: translation("Professionnel", "Professional", "Profesional"),
+  //   time: translation("2023", "2023", "2023"),
+  //   team: translation("En solo", "Solo", "En solitario"),
+  //   stack: [NEXT.img, REACT.img, TS.img],
+  //   details: ["Responsive", "Mobile first", "SEO", "Video"],
+  //   catchphrase: translation(
+  //     "Mon portfolio (le site où vous êtes actuellement)",
+  //     "My portfolio (the site you are currently on)",
+  //     "Mi portfolio (el sitio en el que se encuentra actualmente)"
+  //   ),
+  //   description: translation(
+  //     `J'ai créé Mon portfolio avec Next.js et TypeScript pour présenter mes projets et mes compétences.`,
+  //     `I created My portfolio with Next.js and TypeScript to present my projects and my skills.`,
+  //     `Creé Mi portfolio con Next.js y TypeScript para presentar mis proyectos y mis habilidades.`
+  //   ),
+  //   translation: [
+  //     { translation: translation("Français", "French", "Francés"), iso: "fr" },
+  //     { translation: translation("Anglais", "English", "Inglés"), iso: "gb" },
+  //     { translation: translation("Espagnol", "Spanish", "Español"), iso: "es" },
+  //   ],
+  // },
 ];
