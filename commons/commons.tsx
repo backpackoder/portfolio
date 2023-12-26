@@ -93,6 +93,9 @@ export const PROJECT_ALOURA_GITHUB_URL = "https://github.com/backpackoder/aloura
 export const PROJECT_LOUE_TON_FOOD_TRUCK_URL = "https://louetonfoodtruck.vercel.app/";
 export const PROJECT_LOUE_TON_FOOD_TRUCK_GITHUB_URL =
   "https://github.com/backpackoder/loue-ton-food-truck";
+// Trady.ch
+export const PROJECT_TRADY_URL = "https://trady.ch/";
+export const PROJECT_TRADY_GITHUB_URL = null;
 
 // Flags
 export const FLAGS = {

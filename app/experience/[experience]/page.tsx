@@ -82,9 +82,12 @@ function Buttons({ data }: { data: ExperienceProps }) {
       <a href={data.url} target="_blank" className={anchorStyle}>
         {text("websiteLink")}
       </a>
-      <a href={data.gitHub} target="_blank" className={anchorStyle}>
-        {text("gitHubLink")}
-      </a>
+
+      {data.gitHub !== null && (
+        <a href={data.gitHub} target="_blank" className={anchorStyle}>
+          {text("gitHubLink")}
+        </a>
+      )}
     </div>
   );
 }

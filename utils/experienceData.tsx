@@ -18,6 +18,8 @@ import {
   PROJECT_MY_WISE_QUOTES_URL,
   PROJECT_NATIONS_QUIZ_GITHUB_URL,
   PROJECT_NATIONS_QUIZ_URL,
+  PROJECT_TRADY_GITHUB_URL,
+  PROJECT_TRADY_URL,
 } from "../commons/commons";
 
 // Languages
@@ -33,11 +35,38 @@ const experience_type: Experience_type = {
   showcase_site: translation("Site vitrine", "Showcase site", "Sitio de exhibición"),
   e_commerce: translation("Site E-commerce", "E-commerce", "E-commerce"),
   website: translation("Site web", "Website", "Sitio web"),
+  web_app: translation("Application web", "Web application", "Aplicación web"),
   mobile_app: translation("Application mobile", "Mobile app", "Aplicación móvil"),
   challenges: translation("Challenges", "Challenges", "Desafíos"),
 };
 
 export const experienceData: ExperienceProps[] = [
+  {
+    title: "Trady.ch",
+    imgs: ["Trady - Profile page.png"],
+    url: PROJECT_TRADY_URL,
+    gitHub: PROJECT_TRADY_GITHUB_URL,
+    type: experience_type.web_app,
+    theme: translation("Finance", "Finance", "Financia"),
+    time: translation("En cours", "In progress", "En curso"),
+    team: translation("En équipe", "In a team", "En equipo"),
+    stack: [NEXT.img, REACT.img, TS.img],
+    details: ["Responsive", "Mobile first", "Back-end", "API", "Tailwind CSS"],
+    catchphrase: translation(
+      "Entreprise française dans la finance et de la cryptomonnaie.",
+      "French company in finance and cryptocurrency.",
+      "Empresa francesa en finanzas y criptomonedas."
+    ),
+    description: translation(
+      `Je travaille actuellement dans une entreprise française dans la finance et la cryptomonnaie.
+      J'ai rejoins l'équipe en décembre 2023. Ma mission se terminera au cours du 1er trimestre de 2024.`,
+      `I am currently working in a French company in finance and cryptocurrency.
+      I joined the team in December 2023. My mission will end during the 1st quarter of 2024.`,
+      `Actualmente estoy trabajando en una empresa francesa de finanzas y criptomonedas.
+      Me uní al equipo en diciembre de 2023. Mi misión terminará durante el primer trimestre de 2024.`
+    ),
+    translation: [{ translation: translation("Français", "French", "Francés"), iso: "fr" }],
+  },
   {
     title: "Manganime",
     imgs: ["Manganime - infos.png"],

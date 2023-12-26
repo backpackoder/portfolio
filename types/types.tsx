@@ -38,7 +38,7 @@ export type ExperienceProps = {
   title: string;
   imgs: string[];
   url: string;
-  gitHub: string;
+  gitHub: string | null;
   type: Experience_type[string];
   theme: LanguageStrings;
   time: LanguageStrings;
