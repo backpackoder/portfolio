@@ -1,13 +1,6 @@
 // Icons
-import {
-  FaBook,
-  FaHamburger,
-  FaCode,
-  FaGamepad,
-  FaPlane,
-  FaSkiing,
-  FaFootballBall,
-} from "react-icons/fa";
+import { FaBook, FaHamburger, FaCode, FaGamepad, FaPlane, FaSkiing } from "react-icons/fa";
+import { IoFootball } from "react-icons/io5";
 
 // Languages
 import { translation } from "../languages/languages";
@@ -18,7 +11,7 @@ export const hobbies = [
     text: translation("Partir en voyage", "Travel", "Viajar"),
   },
   {
-    icon: <FaFootballBall />,
+    icon: <IoFootball />,
     text: translation("Jouer au football", "Play football", "Jugar al fútbol"),
   },
   {

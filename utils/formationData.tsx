@@ -20,60 +20,6 @@ import { translation } from "@/languages/languages";
 
 export const formationData: formationDataType[] = [
   {
-    title: translation("En autodidacte", "Self-taught", "Autodidacta"),
-    image: FORMATION_AUTODIDACTE_IMAGE,
-    url: "",
-    time: translation(
-      "depuis toujours et pour toujours",
-      "since always and forever",
-      "desde siempre y para siempre"
-    ),
-    stack: [NEXT.img, REACT.img, TS.img, JS.img, HTML.img, CSS.img],
-    catchphrase: translation(
-      `La meilleure façon d'apprendre est de faire des recherches sur Internet.`,
-      `The best way to learn is to do research on the Internet.`,
-      `La mejor manera de aprender es investigar en Internet.`
-    ),
-    description: {
-      introduction: translation(
-        `Et oui, j'ai commencé à apprendre la programmation en autodidacte avec le HTML, le CSS et
-    le JavaScript grâce à plein de super sites sur internet.
-    Dès que j'apprends quelque chose de nouveau, je fais toujours des recherches sur Internet par moi-même.`,
-        `Indeed, I started learning programming on my own with HTML, CSS and JavaScript thanks to
-        many great websites on the internet.
-        As soon as I learn something new, I always do research on the Internet by myself.`,
-        `Así es, empecé a aprender programación por mi cuenta con HTML, CSS y JavaScript gracias a
-        muchos sitios web geniales en Internet.
-        Tan pronto como aprendo algo nuevo, siempre investigo en Internet por mi cuenta.`
-      ),
-      content: translation(
-        `Je pense que tout programmeur doit avoir un esprit autodidacte, peu importe la stack qu'il
-    utilise car les languages évoluent au fil du temps donc il faut regarder les docs pour
-    rester à jour, et car personne ne sait tout à 100% d'un language donc des fois on ne sait
-    pas comment résoudre un problème donc il faut savoir trouver les informations sur Internet
-    afin de résoudre les problèmes rencontrés.`,
-        `I think every programmer must have a self-taught mind, no matter what stack he uses
-        because languages evolve over time so you have to look at the docs to
-        stay up to date, and because no one knows everything 100% of a language so sometimes we don't know
-        how to solve a problem so you have to know how to find information on the Internet
-        in order to solve the problems encountered.`,
-        `Creo que todo programador debe tener una mente autodidacta, sin importar la stack que use
-        porque los lenguajes evolucionan con el tiempo, por lo que hay que mirar la documentación para
-        mantenerse al día, y porque nadie sabe todo al 100% de un lenguaje, así que a veces no sabemos
-        cómo resolver un problema, así que hay que saber cómo encontrar información en Internet
-        para resolver los problemas encontrados.`
-      ),
-      conclusion: translation(
-        `Je suis donc quelqu'un qui fait toujours des recherches sur Internet pour apprendre
-      et je fais la veille technologique très régulièrement.`,
-        `So I am someone who always does research on the Internet to learn
-        and I do technological monitoring very regularly.`,
-        `Así que soy alguien que siempre hace investigaciones en Internet para aprender
-        y hago un seguimiento tecnológico muy regularmente.`
-      ),
-    },
-  },
-  {
     title: translation("React Mastery", "React Mastery", "React Mastery"),
     image: FORMATION_REACT_MASTERY_IMAGE,
     url: FORMATION_REACT_MASTERY_URL,
@@ -285,6 +231,60 @@ export const formationData: formationDataType[] = [
         Así que decidí adquirir una formación para especializarme en mi framework back favorito.
         Estoy muy satisfecho con lo que me ha aportado esta formación porque he podido actualizar algunos de
           mis antiguos proyectos React.js en Next.js, por lo que la recomiendo a cualquiera que quiera convertirse en bueno con Next.js 13.`
+      ),
+    },
+  },
+  {
+    title: translation("En autodidacte", "Self-taught", "Autodidacta"),
+    image: FORMATION_AUTODIDACTE_IMAGE,
+    url: "",
+    time: translation(
+      "depuis toujours et pour toujours",
+      "since always and forever",
+      "desde siempre y para siempre"
+    ),
+    stack: [NEXT.img, REACT.img, TS.img, JS.img, HTML.img, CSS.img],
+    catchphrase: translation(
+      `La meilleure façon d'apprendre est de faire des recherches sur Internet.`,
+      `The best way to learn is to do research on the Internet.`,
+      `La mejor manera de aprender es investigar en Internet.`
+    ),
+    description: {
+      introduction: translation(
+        `Et oui, j'ai commencé à apprendre la programmation en autodidacte avec le HTML, le CSS et
+    le JavaScript grâce à plein de super sites sur internet.
+    Dès que j'apprends quelque chose de nouveau, je fais toujours des recherches sur Internet par moi-même.`,
+        `Indeed, I started learning programming on my own with HTML, CSS and JavaScript thanks to
+        many great websites on the internet.
+        As soon as I learn something new, I always do research on the Internet by myself.`,
+        `Así es, empecé a aprender programación por mi cuenta con HTML, CSS y JavaScript gracias a
+        muchos sitios web geniales en Internet.
+        Tan pronto como aprendo algo nuevo, siempre investigo en Internet por mi cuenta.`
+      ),
+      content: translation(
+        `Je pense que tout programmeur doit avoir un esprit autodidacte, peu importe la stack qu'il
+    utilise car les languages évoluent au fil du temps donc il faut regarder les docs pour
+    rester à jour, et car personne ne sait tout à 100% d'un language donc des fois on ne sait
+    pas comment résoudre un problème donc il faut savoir trouver les informations sur Internet
+    afin de résoudre les problèmes rencontrés.`,
+        `I think every programmer must have a self-taught mind, no matter what stack he uses
+        because languages evolve over time so you have to look at the docs to
+        stay up to date, and because no one knows everything 100% of a language so sometimes we don't know
+        how to solve a problem so you have to know how to find information on the Internet
+        in order to solve the problems encountered.`,
+        `Creo que todo programador debe tener una mente autodidacta, sin importar la stack que use
+        porque los lenguajes evolucionan con el tiempo, por lo que hay que mirar la documentación para
+        mantenerse al día, y porque nadie sabe todo al 100% de un lenguaje, así que a veces no sabemos
+        cómo resolver un problema, así que hay que saber cómo encontrar información en Internet
+        para resolver los problemas encontrados.`
+      ),
+      conclusion: translation(
+        `Je suis donc quelqu'un qui fait toujours des recherches sur Internet pour apprendre
+      et je fais la veille technologique très régulièrement.`,
+        `So I am someone who always does research on the Internet to learn
+        and I do technological monitoring very regularly.`,
+        `Así que soy alguien que siempre hace investigaciones en Internet para aprender
+        y hago un seguimiento tecnológico muy regularmente.`
       ),
     },
   },

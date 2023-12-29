@@ -270,48 +270,48 @@ export const experienceData: ExperienceProps[] = [
     ),
     translation: [{ translation: translation("Français", "French", "Francés"), iso: "fr" }],
   },
-  {
-    title: "Nations quiz",
-    imgs: ["Nations quiz - home page.png"],
-    url: PROJECT_NATIONS_QUIZ_URL,
-    gitHub: PROJECT_NATIONS_QUIZ_GITHUB_URL,
-    type: experience_type.website,
-    theme: translation("Géographie", "Geography", "Geografía"),
-    time: translation("Avril 2023", "April 2023", "Abril 2023"),
-    team: translation("En solo", "Solo", "En solitario"),
-    stack: [REACT.img, TS.img],
-    details: ["Supabase", "API", "React-Query", "React-Router", "i18n"],
-    catchphrase: translation(
-      "Jouez à un quiz et testez vos connaissances sur les pays du monde",
-      "Play a quiz and test your knowledge of the countries of the world",
-      "Juega un cuestionario y prueba tus conocimientos sobre los países del mundo"
-    ),
-    description: translation(
-      `J'ai créé un site web qui permet de tester ses connaissances sur les pays du monde.
-    J'ai utilisé l'API du site restcountries.com pour récupérer les données des pays.
-    J'ai utilisé la library React-Query pour gérer les requêtes HTTP de l'application, et React-Router pour gérer
-    les routes de l'application.
-    J'ai approfondi mes connaissances en Javascript car créer des jeux est un bon moyen de s'entraîner.
-    J'ai appris beaucoup de nouvelles choses au cours de ce projet, ce fut donc une expérience très positive.`,
-      `I created a website that allows you to test your knowledge of the countries of the world.
-      I used the API of the restcountries.com website to retrieve country data.
-      I used the React-Query library to manage the application's HTTP requests, and React-Router to manage
-      application routes.
-      I deepened my knowledge of Javascript because creating games is a good way to train.
-      I learned a lot of new things during this project so it was a very positive experience.`,
-      `Creé un sitio web que permite poner a prueba tus conocimientos sobre los países del mundo.
-      Utilicé la API del sitio web restcountries.com para recuperar datos de países.
-      Utilicé la biblioteca React-Query para administrar las solicitudes HTTP de la aplicación y React-Router para administrar
-      rutas de aplicaciones.
-      Profundicé mis conocimientos de Javascript porque crear juegos es una buena manera de entrenar.
-      Aprendí muchas cosas nuevas durante este proyecto, por lo que fue una experiencia muy positiva.`
-    ),
-    translation: [
-      { translation: translation("Français", "French", "Francés"), iso: "fr" },
-      { translation: translation("Anglais", "English", "Inglés"), iso: "gb" },
-      { translation: translation("Espagnol", "Spanish", "Español"), iso: "es" },
-    ],
-  },
+  // {
+  //   title: "Nations quiz",
+  //   imgs: ["Nations quiz - home page.png"],
+  //   url: PROJECT_NATIONS_QUIZ_URL,
+  //   gitHub: PROJECT_NATIONS_QUIZ_GITHUB_URL,
+  //   type: experience_type.website,
+  //   theme: translation("Géographie", "Geography", "Geografía"),
+  //   time: translation("Avril 2023", "April 2023", "Abril 2023"),
+  //   team: translation("En solo", "Solo", "En solitario"),
+  //   stack: [REACT.img, TS.img],
+  //   details: ["Supabase", "API", "React-Query", "React-Router", "i18n"],
+  //   catchphrase: translation(
+  //     "Jouez à un quiz et testez vos connaissances sur les pays du monde",
+  //     "Play a quiz and test your knowledge of the countries of the world",
+  //     "Juega un cuestionario y prueba tus conocimientos sobre los países del mundo"
+  //   ),
+  //   description: translation(
+  //     `J'ai créé un site web qui permet de tester ses connaissances sur les pays du monde.
+  //   J'ai utilisé l'API du site restcountries.com pour récupérer les données des pays.
+  //   J'ai utilisé la library React-Query pour gérer les requêtes HTTP de l'application, et React-Router pour gérer
+  //   les routes de l'application.
+  //   J'ai approfondi mes connaissances en Javascript car créer des jeux est un bon moyen de s'entraîner.
+  //   J'ai appris beaucoup de nouvelles choses au cours de ce projet, ce fut donc une expérience très positive.`,
+  //     `I created a website that allows you to test your knowledge of the countries of the world.
+  //     I used the API of the restcountries.com website to retrieve country data.
+  //     I used the React-Query library to manage the application's HTTP requests, and React-Router to manage
+  //     application routes.
+  //     I deepened my knowledge of Javascript because creating games is a good way to train.
+  //     I learned a lot of new things during this project so it was a very positive experience.`,
+  //     `Creé un sitio web que permite poner a prueba tus conocimientos sobre los países del mundo.
+  //     Utilicé la API del sitio web restcountries.com para recuperar datos de países.
+  //     Utilicé la biblioteca React-Query para administrar las solicitudes HTTP de la aplicación y React-Router para administrar
+  //     rutas de aplicaciones.
+  //     Profundicé mis conocimientos de Javascript porque crear juegos es una buena manera de entrenar.
+  //     Aprendí muchas cosas nuevas durante este proyecto, por lo que fue una experiencia muy positiva.`
+  //   ),
+  //   translation: [
+  //     { translation: translation("Français", "French", "Francés"), iso: "fr" },
+  //     { translation: translation("Anglais", "English", "Inglés"), iso: "gb" },
+  //     { translation: translation("Espagnol", "Spanish", "Español"), iso: "es" },
+  //   ],
+  // },
   {
     title: "Dressly",
     imgs: ["Dressly - Paris.jpg"],

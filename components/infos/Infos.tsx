@@ -42,26 +42,6 @@ const withInfo = ({ WrappedComponent, title, emoji }: withInfoProps) => {
   return WithSection;
 };
 
-export function StacksWithInfo() {
-  return (
-    <ul className="flex items-center justify-center flex-wrap gap-2 text-center line-height-2 py-2 px-1 m-auto">
-      {myStacks.map((stack, index) => {
-        return (
-          index < 3 && (
-            <li
-              key={stack.name}
-              className="flex items-center gap-2 bg-[#ebebeb] py-2 px-3 rounded-lg"
-            >
-              <Image src={stack.img} alt={stack.name} width={25} height={25} priority />
-              <p className="leading-8 py-1 px-2 m-auto">{stack.name}</p>
-            </li>
-          )
-        );
-      })}
-    </ul>
-  );
-}
-
 export function YourProjectWithInfo() {
   const { text } = useAppContext();
 
@@ -81,28 +61,6 @@ export function AboutMeWithInfo() {
       dangerouslySetInnerHTML={{ __html: text("aboutMeDescription") }}
       className="leading-8 py-1 px-2 m-auto"
     ></p>
-  );
-}
-
-export function PersonalityWithInfo() {
-  const { language, text } = useAppContext();
-
-  return (
-    <>
-      <p
-        dangerouslySetInnerHTML={{ __html: text("personality_description") }}
-        className="leading-8 py-1 px-2 m-auto"
-      ></p>
-      <ul className="flex justify-center flex-wrap gap-2 text-center leading-8 py-1 px-2 m-auto">
-        {personality.map((personality, index) => {
-          return (
-            <li key={index} className="flex items-center gap-2 bg-[#ebebeb] py-1 px-2 rounded-lg">
-              {personality[language]}
-            </li>
-          );
-        })}
-      </ul>
-    </>
   );
 }
 
@@ -128,6 +86,26 @@ export function TeamworkWithInfo() {
   );
 }
 
+export function StacksWithInfo() {
+  return (
+    <ul className="flex items-center justify-center flex-wrap gap-2 text-center line-height-2 py-2 px-1 m-auto">
+      {myStacks.map((stack, index) => {
+        return (
+          index < 3 && (
+            <li
+              key={stack.name}
+              className="flex items-center gap-2 bg-[#ebebeb] py-2 px-3 rounded-lg"
+            >
+              <Image src={stack.img} alt={stack.name} width={25} height={25} priority />
+              <p className="leading-8 py-1 px-2 m-auto">{stack.name}</p>
+            </li>
+          )
+        );
+      })}
+    </ul>
+  );
+}
+
 export function ToolsAndSkillsWithInfo() {
   const { text } = useAppContext();
 
@@ -136,6 +114,28 @@ export function ToolsAndSkillsWithInfo() {
       dangerouslySetInnerHTML={{ __html: text("toolsAndSkillsDescription") }}
       className="leading-8 py-1 px-2 m-auto"
     ></p>
+  );
+}
+
+export function PersonalityWithInfo() {
+  const { language, text } = useAppContext();
+
+  return (
+    <>
+      <p
+        dangerouslySetInnerHTML={{ __html: text("personality_description") }}
+        className="leading-8 py-1 px-2 m-auto"
+      ></p>
+      <ul className="flex justify-center flex-wrap gap-2 text-center leading-8 py-1 px-2 m-auto">
+        {personality.map((personality, index) => {
+          return (
+            <li key={index} className="flex items-center gap-2 bg-[#ebebeb] py-1 px-2 rounded-lg">
+              {personality[language]}
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 }
 
@@ -177,7 +177,6 @@ export function HobbiesWithInfo() {
   );
 }
 
-export const Stacks = withInfo({ WrappedComponent: StacksWithInfo, title: "stacks", emoji: "🛠️" });
 export const YourProject = withInfo({
   WrappedComponent: YourProjectWithInfo,
   title: "yourProject",
@@ -188,21 +187,22 @@ export const AboutMe = withInfo({
   title: "aboutMe",
   emoji: "👨‍🚀",
 });
-export const Personality = withInfo({
-  WrappedComponent: PersonalityWithInfo,
-  title: "personality",
-  emoji: "👍👎",
-});
 export const Ethic = withInfo({ WrappedComponent: EthicWithInfo, title: "ethic", emoji: "👔" });
 export const Teamwork = withInfo({
   WrappedComponent: TeamworkWithInfo,
   title: "teamwork",
   emoji: "🤝",
 });
+export const Stacks = withInfo({ WrappedComponent: StacksWithInfo, title: "stacks", emoji: "🛠️" });
 export const ToolsAndSkills = withInfo({
   WrappedComponent: ToolsAndSkillsWithInfo,
   title: "toolsAndSkills",
   emoji: "🛠️",
+});
+export const Personality = withInfo({
+  WrappedComponent: PersonalityWithInfo,
+  title: "personality",
+  emoji: "👍👎",
 });
 export const Languages = withInfo({
   WrappedComponent: LangagesWithInfo,
@@ -216,13 +216,13 @@ export const Hobbies = withInfo({
 });
 
 export const infoComponentList: JSX.Element[] = [
-  <Stacks key={"stack"} />,
   <YourProject key={"your project"} />,
   <AboutMe key={"about me"} />,
-  <Personality key={"personnality"} />,
   <Ethic key={"ethic"} />,
   <Teamwork key={"teamwork"} />,
+  <Stacks key={"stack"} />,
   <ToolsAndSkills key={"tools and skills"} />,
+  <Personality key={"personnality"} />,
   <Languages key={"languages"} />,
   <Hobbies key={"hobbies"} />,
 ];
