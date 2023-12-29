@@ -13,7 +13,7 @@ export const ROUTES = {
 };
 
 // resume
-export const RESUME_URL = "/Mon CV - Dev front-end - all.pdf";
+export const RESUME_URL = "/CV - Dev front end - Thibaut Barbiera.pdf";
 
 // Parts
 export const PARTS: PARTS_TYPE = {

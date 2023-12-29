@@ -32,7 +32,7 @@ import { CSS, HTML, JS, NEXT, REACT, TS } from "./myStacks";
 import { ExperienceProps, Experience_type } from "../types/types";
 
 const experience_type: Experience_type = {
-  showcase_site: translation("Site vitrine", "Showcase site", "Sitio de exhibición"),
+  showcase_site: translation("Site vitrine", "Showcase site", "Sitio escaparate"),
   e_commerce: translation("Site E-commerce", "E-commerce", "E-commerce"),
   website: translation("Site web", "Website", "Sitio web"),
   web_app: translation("Application web", "Web application", "Aplicación web"),
