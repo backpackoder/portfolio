@@ -48,7 +48,11 @@ export const experienceData: ExperienceProps[] = [
     gitHub: PROJECT_TRADY_GITHUB_URL,
     type: experience_type.web_app,
     theme: translation("Finance", "Finance", "Financia"),
-    time: translation("En cours", "In progress", "En curso"),
+    time: translation(
+      "Décembre 2023 - Février 2024",
+      "December 2023 - February 2024",
+      "Diciembre 2023 - Febrero 2024"
+    ),
     team: translation("En équipe", "In a team", "En equipo"),
     stack: [NEXT.img, REACT.img, TS.img],
     details: ["Responsive", "Mobile first", "Back-end", "API", "Tailwind CSS"],
